@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="410.0" layoutX="-5.0" layoutY="-4.0" stroke="WHITE" strokeType="INSIDE" width="609.0" />
+      <ImageView fitHeight="103.0" fitWidth="399.0" layoutX="201.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../IPVC/3ANO/proj2/estafeta2.png" />
+         </image>
+      </ImageView>
+      <TableView editable="true" layoutX="14.0" layoutY="102.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="284.0" prefWidth="455.0" tableMenuButtonVisible="true">
+        <columns>
+          <TableColumn prefWidth="82.6666488647461" text="Nif" />
+            <TableColumn prefWidth="82.6666488647461" text="Email" />
+            <TableColumn prefWidth="82.6666488647461" text="Telefone" />
+            <TableColumn prefWidth="86.33334350585938" text="Password" />
+          <TableColumn prefWidth="75.0" text="Nome" />
+        </columns>
+      </TableView>
+      <Button layoutX="474.0" layoutY="134.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="474.0" layoutY="197.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" style="-fx-background-color: #007687;" text="Eliminar estafeta" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="474.0" layoutY="256.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="121.0" style="-fx-background-color: #007687;" text="Adicionar estafeta" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextField layoutX="349.0" layoutY="14.0" prefHeight="25.0" prefWidth="163.0" promptText="Procurar estafeta..." />
+   </children>
+</Pane>
