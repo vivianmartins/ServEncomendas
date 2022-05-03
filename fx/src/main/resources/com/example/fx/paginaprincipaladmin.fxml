@@ -10,18 +10,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interfaces.Painelprincipal">
+<AnchorPane prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controller.paginaadmincontroller">
    <children>
-      <ImageView fitHeight="478.0" fitWidth="704.0" layoutX="- 2.0" layoutY="-63.0" pickOnBounds="true">
+      <ImageView fitHeight="599.0" fitWidth="1052.0" layoutX="-2.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" smooth="false">
          <image>
-            <Image url="@../../../../../../../../../IPVC/3ANO/proj2/painelprincial.png" />
+            <Image url="@assets/waves.png" />
          </image>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="344.0" layoutX="-6.0" layoutY="-6.0" stroke="WHITE" strokeType="INSIDE" width="704.0" />
-      <Button layoutX="69.0" layoutY="126.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="97.0" style="-fx-background-color: #CBEBEF;" text="Cliente">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="381.0" layoutX="20.0" stroke="WHITE" strokeType="INSIDE" width="938.0" />
+      <Button layoutX="50.0" layoutY="161.0" mnemonicParsing="false" prefHeight="127.0" prefWidth="203.0" style="-fx-background-color: #CBEBEF;" text="Cliente">
          <effect>
             <Glow level="0.0" />
          </effect>
@@ -32,37 +29,40 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="69.0" layoutY="250.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="97.0" style="-fx-background-color: #CBEBEF;" text="Gestor">
+      <Button layoutX="50.0" layoutY="361.0" mnemonicParsing="false" prefHeight="113.0" prefWidth="203.0" style="-fx-background-color: #CBEBEF;" text="Gestor">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="479.0" layoutY="134.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="97.0" style="-fx-background-color: #CBEBEF;" text="Pedidos">
+      <Button layoutX="741.0" layoutY="168.0" mnemonicParsing="false" prefHeight="113.0" prefWidth="197.0" style="-fx-background-color: #CBEBEF;" text="Pedidos">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="479.0" layoutY="250.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="97.0" style="-fx-background-color: #CBEBEF;" text="Ementas">
+      <Button layoutX="741.0" layoutY="350.0" mnemonicParsing="false" prefHeight="113.0" prefWidth="197.0" style="-fx-background-color: #CBEBEF;" text="Ementas">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="269.0" layoutY="175.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="97.0" style="-fx-background-color: #CBEBEF;" text="Estafeta">
+      <Button layoutX="408.0" layoutY="214.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="203.0" style="-fx-background-color: #CBEBEF;" text="Estafeta">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <ImageView fitHeight="102.0" fitWidth="164.0" layoutX="243.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../../IPVC/3ANO/proj2/icon.png" />
-         </image>
-      </ImageView>
-      <Text layoutX="241.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="3.0" text="PAINEL DO ADMINISTRADOR">
+      <Text layoutX="357.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="3.0" text="PAINEL DO ADMINISTRADOR">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Button layoutX="627.0" layoutY="1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #FFF;" text="SAIR" textFill="#007687" underline="true">
+      <Button layoutX="879.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #FFF;" text="SAIR" textFill="#007687" underline="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <ImageView fitHeight="89.0" fitWidth="164.0" layoutX="392.0" layoutY="12.0" pickOnBounds="true">
+         <image>
+            <Image url="@assets/icon.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

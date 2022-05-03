@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/17"  xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="488.0" layoutX="-5.0" layoutY="-4.0" stroke="WHITE" strokeType="INSIDE" width="744.0" />
       <ImageView fitHeight="101.0" fitWidth="479.0" layoutX="343.0" pickOnBounds="true" preserveRatio="true">
