@@ -28,13 +28,12 @@ public class logincontroller {
     @FXML
     void handleBtnIniciar(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        Parent root =  FXMLLoader.load(getClass().getResource("paginaprincipaladmin.fxml"));
+        Parent root =  FXMLLoader.load(getClass().getResource("paginaprincipaladmin.fxml")); //mudar para a pagina do admin
 
         stage.setScene(new Scene(root));
-
-
         stage.show();
 
+        //Permite abrir a nova pagina e fechar a atual
         Node  source = (Node)  event.getSource();
         Stage stageAtual  = (Stage) source.getScene().getWindow();
         stageAtual.close();

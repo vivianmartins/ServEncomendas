@@ -12,12 +12,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controller.paginaadmincontroller">
    <children>
-      <ImageView fitHeight="599.0" fitWidth="1052.0" layoutX="-2.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-         <image>
-            <Image url="@assets/waves.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="381.0" layoutX="20.0" stroke="WHITE" strokeType="INSIDE" width="938.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="-2.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
       <Button layoutX="50.0" layoutY="161.0" mnemonicParsing="false" prefHeight="127.0" prefWidth="203.0" style="-fx-background-color: #CBEBEF;" text="Cliente">
          <effect>
             <Glow level="0.0" />
@@ -29,34 +24,29 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="50.0" layoutY="361.0" mnemonicParsing="false" prefHeight="113.0" prefWidth="203.0" style="-fx-background-color: #CBEBEF;" text="Gestor">
+      <Button layoutX="50.0" layoutY="336.0" mnemonicParsing="false" prefHeight="127.0" prefWidth="203.0" style="-fx-background-color: #CBEBEF;" text="Gestor">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="741.0" layoutY="168.0" mnemonicParsing="false" prefHeight="113.0" prefWidth="197.0" style="-fx-background-color: #CBEBEF;" text="Pedidos">
+      <Button layoutX="708.0" layoutY="161.0" mnemonicParsing="false" prefHeight="127.0" prefWidth="197.0" style="-fx-background-color: #CBEBEF;" text="Pedidos">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="741.0" layoutY="350.0" mnemonicParsing="false" prefHeight="113.0" prefWidth="197.0" style="-fx-background-color: #CBEBEF;" text="Ementas">
+      <Button layoutX="702.0" layoutY="336.0" mnemonicParsing="false" prefHeight="127.0" prefWidth="197.0" style="-fx-background-color: #CBEBEF;" text="Ementas">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="408.0" layoutY="214.0" mnemonicParsing="false" prefHeight="134.0" prefWidth="203.0" style="-fx-background-color: #CBEBEF;" text="Estafeta">
+      <Button fx:id="btnestafeta" layoutX="380.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleBtnEstafeta" prefHeight="134.0" prefWidth="203.0" style="-fx-background-color: #CBEBEF;" text="Estafeta">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Text layoutX="357.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="3.0" text="PAINEL DO ADMINISTRADOR">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Text>
       <Button layoutX="879.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #FFF;" text="SAIR" textFill="#007687" underline="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="89.0" fitWidth="164.0" layoutX="392.0" layoutY="12.0" pickOnBounds="true">
+      <ImageView fitHeight="127.0" fitWidth="203.0" layoutX="371.0" layoutY="27.0" pickOnBounds="true">
          <image>
             <Image url="@assets/icon.png" />
          </image>
@@ -64,5 +54,12 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="216.0" layoutX="365.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
+      <Text layoutX="368.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="3.0" text="PAINEL DO ADMINISTRADOR">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa11f" height="56.0" layoutY="544.0" stroke="TRANSPARENT" strokeType="INSIDE" width="961.0" />
    </children>
 </AnchorPane>
