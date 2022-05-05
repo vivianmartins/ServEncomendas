@@ -23,7 +23,7 @@ public class paginaadmincontroller {
     @FXML
     void handleBtnEstafeta(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        Parent root =  FXMLLoader.load(getClass().getResource("../fx/estafeta.fxml")); //mudar para a pagina do admin
+        Parent root =  FXMLLoader.load(getClass().getResource("./fx/estafeta.fxml")); //mudar para a pagina do admin
 
         stage.setScene(new Scene(root));
         stage.show();
