@@ -1,6 +1,7 @@
 package com.example.bd.BLL;
 
 import com.example.bd.DAL.Encomendas;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,14 +94,14 @@ public class EncomendaBLL {
             em.getTransaction().commit();
         }
 
-        public static void delete(Encomendas enc){
+        public static void delete(int idenc){
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
             if (em == null) em = factory.createEntityManager();
-
+                Encomendas e = read(idenc);
             em.getTransaction().begin();
-            em.remove(enc);
+            em.remove(e);
             em.getTransaction().commit();
         }
     }

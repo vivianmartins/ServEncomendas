@@ -1,6 +1,7 @@
 package com.example.bd.BLL;
 
 import com.example.bd.DAL.Pratos;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

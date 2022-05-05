@@ -1,6 +1,7 @@
 package com.example.bd.BLL;
 
 import com.example.bd.DAL.Users;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +57,30 @@ public class UsersBLL {
         }
 
 
+    public static Users login(String email, String password){
+        Users user = null;
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Users.findByLogin");
+        q1.setParameter("emailUser", email);
+        q1.setParameter("pass",password);
+        System.out.println(q1.getMaxResults());
+        Object obj = q1.getSingleResult();
+
+        if(obj != null) {
+            user = ((Users) obj);
+        }
+
+        return user;
+    }
+
+
+
+
+
         /**
          * @read listar todos os user
          * @return
@@ -77,31 +102,7 @@ public class UsersBLL {
             return listaUser;
         }
 
-        /**
-         * @read
-         *
-         */
-        public static List<Users> readAll(Number estafeta){
-            List<Users> listaUser = new ArrayList<>();
-            if(factory == null)
-                factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
-            if (em == null) em = factory.createEntityManager();
-
-            Query q1 = em.createNamedQuery("Users.findAllByEstafeta");
-            q1.setParameter("estafeta", "%"+ estafeta+"%");
-            List<Object> result = q1.getResultList();
-
-            for(Object user : result){
-                listaUser.add((Users) user);
-            }
-
-            return listaUser;
-        }
-
-        /**
-         * update
-         */
 
         public static void update(Users user){
             if(factory == null)
@@ -120,14 +121,14 @@ public class UsersBLL {
          *Delete
          */
 
-        public static void delete(Users user ){
+        public static void delete(int userID ){
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
             if (em == null) em = factory.createEntityManager();
-
+                Users u = read(userID);
             em.getTransaction().begin();
-            em.remove(user);
+            em.remove(u);
             em.getTransaction().commit();
         }
     }

@@ -1,6 +1,7 @@
 package com.example.bd.BLL;
 
 import com.example.bd.DAL.Tipopagamentos;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,7 @@
 package com.example.bd.BLL;
 
 import com.example.bd.DAL.Estadosencomenda;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,15 +27,15 @@ public class EstadosencomendaBLL {
         em.getTransaction().commit();//guardou
     }
 
-    public static Estadosencomenda read (String descricao){
+    public static Estadosencomenda read (int idEstado){
         Estadosencomenda enc = null;
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
 
-        Query q1 = em.createNamedQuery("Estadosencomenda.findAllByDescricaoEstado");
-        q1.setParameter("descricaoestado",descricao);
+        Query q1 = em.createNamedQuery("Estadosencomenda.findAllByIdEstado");
+        q1.setParameter("idEnc",idEstado);
         Object obj = q1.getSingleResult();
 
         if(obj != null){
@@ -93,14 +94,14 @@ public class EstadosencomendaBLL {
         em.getTransaction().commit();
     }
 
-    public static void delete(Estadosencomenda enc){
+    public static void delete( int enc){
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
-
+            Estadosencomenda ee= read(enc);
         em.getTransaction().begin();
-        em.remove(enc);
+        em.remove(ee);
         em.getTransaction().commit();
     }
 }

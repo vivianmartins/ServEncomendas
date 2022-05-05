@@ -1,6 +1,7 @@
 package com.example.bd.BLL;
 
 import com.example.bd.DAL.Estafeta;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -92,14 +93,16 @@ public class EstafetaBLL {
 
         }
 
-        public static void delete(Estafeta est){
+        public static void delete(int idEst){
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
             if (em == null) em = factory.createEntityManager();
 
+            Estafeta e = read(idEst);
+
             em.getTransaction() .begin();
-            em.remove(est);
+            em.remove(e);
             em.getTransaction().commit();
         }
     }

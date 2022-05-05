@@ -7,15 +7,12 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 public class PratosEncomendadosPK implements Serializable {
+    private int idPrato;
+    private int idEncomenda;
+
     @Column(name = "ID_PRATO", nullable = false, precision = 0)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPrato;
-    @Column(name = "ID_ENCOMENDA", nullable = false, precision = 0)
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEncomenda;
-
     public int getIdPrato() {
         return idPrato;
     }
@@ -24,6 +21,9 @@ public class PratosEncomendadosPK implements Serializable {
         this.idPrato = idPrato;
     }
 
+    @Column(name = "ID_ENCOMENDA", nullable = false, precision = 0)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdEncomenda() {
         return idEncomenda;
     }

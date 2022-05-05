@@ -8,35 +8,22 @@ import java.math.BigInteger;
 @NamedQueries({
         @NamedQuery(name = "Users.findAll", query = "SELECT c FROM Users c"),
         @NamedQuery(name = "Users.findByUser", query = "SELECT c FROM Users c WHERE c.idUser = :id_user"),
-        @NamedQuery(name = "Users.findAllByEstafeta", query = "SELECT c FROM Users c WHERE c.isEstafeta = :estafeta"),
+        @NamedQuery(name= "Users.findByLogin", query =  "Select c From Users c WHERE c.email = :emailUser and c.password  = :pass"),
+
 })
 public class Users {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @Column(name = "ID_USER", nullable = false, precision = 0)
     private BigInteger idUser;
-    @Basic
-    @Column(name = "EMAIL", nullable = false, length = 100)
     private String email;
-    @Basic
-    @Column(name = "PASSWORD", nullable = false, length = 100)
     private String password;
-    @Basic
-    @Column(name = "IS_ADMIN", nullable = false, precision = 0)
     private boolean isAdmin;
-    @Basic
-    @Column(name = "IS_GESTOR", nullable = false, precision = 0)
     private boolean isGestor;
-    @Basic
-    @Column(name = "IS_ESTAFETA", nullable = false, precision = 0)
     private boolean isEstafeta;
-    @Basic
-    @Column(name = "IS_COZINHEIRO", nullable = false, precision = 0)
     private boolean isCozinheiro;
-    @Basic
-    @Column(name = "NOMEUSER", nullable = false, length = 20)
     private String nomeuser;
 
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "ID_USER", nullable = false, precision = 0)
     public BigInteger getIdUser() {
         return idUser;
     }
@@ -45,6 +32,8 @@ public class Users {
         this.idUser = idUser;
     }
 
+    @Basic
+    @Column(name = "EMAIL", nullable = false, length = 100)
     public String getEmail() {
         return email;
     }
@@ -53,6 +42,8 @@ public class Users {
         this.email = email;
     }
 
+    @Basic
+    @Column(name = "PASSWORD", nullable = false, length = 100)
     public String getPassword() {
         return password;
     }
@@ -61,6 +52,8 @@ public class Users {
         this.password = password;
     }
 
+    @Basic
+    @Column(name = "IS_ADMIN", nullable = false, precision = 0)
     public boolean isAdmin() {
         return isAdmin;
     }
@@ -69,6 +62,8 @@ public class Users {
         isAdmin = admin;
     }
 
+    @Basic
+    @Column(name = "IS_GESTOR", nullable = false, precision = 0)
     public boolean isGestor() {
         return isGestor;
     }
@@ -77,6 +72,8 @@ public class Users {
         isGestor = gestor;
     }
 
+    @Basic
+    @Column(name = "IS_ESTAFETA", nullable = false, precision = 0)
     public boolean isEstafeta() {
         return isEstafeta;
     }
@@ -85,6 +82,8 @@ public class Users {
         isEstafeta = estafeta;
     }
 
+    @Basic
+    @Column(name = "IS_COZINHEIRO", nullable = false, precision = 0)
     public boolean isCozinheiro() {
         return isCozinheiro;
     }
@@ -93,6 +92,8 @@ public class Users {
         isCozinheiro = cozinheiro;
     }
 
+    @Basic
+    @Column(name = "NOMEUSER", nullable = false, length = 20)
     public String getNomeuser() {
         return nomeuser;
     }
@@ -108,20 +109,20 @@ public class Users {
 
         Users users = (Users) o;
 
-        if (isAdmin != users.isAdmin) return false;
-        if (isGestor != users.isGestor) return false;
-        if (isEstafeta != users.isEstafeta) return false;
-        if (isCozinheiro != users.isCozinheiro) return false;
+        if (idUser != null ? !idUser.equals(users.idUser) : users.idUser != null) return false;
+        if (email != null ? !email.equals(users.email) : users.email != null) return false;
+        if (password != null ? !password.equals(users.password) : users.password != null) return false;
+        if (nomeuser != null ? !nomeuser.equals(users.nomeuser) : users.nomeuser != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = (isAdmin ? 1 : 0);
-        result = 31 * result + (isGestor ? 1 : 0);
-        result = 31 * result + (isEstafeta ? 1 : 0);
-        result = 31 * result + (isCozinheiro ? 1 : 0);
+        int result = idUser != null ? idUser.hashCode() : 0;
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (nomeuser != null ? nomeuser.hashCode() : 0);
         return result;
     }
 }

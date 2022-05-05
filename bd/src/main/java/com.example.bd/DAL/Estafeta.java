@@ -11,26 +11,16 @@ import java.math.BigInteger;
         @NamedQuery(name = "Estafeta.findAllByNome", query = "SELECT c FROM Estafeta c WHERE c.nome LIKE :nome"),
 })
 public class Estafeta {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @Column(name = "ID_ESTAFETA", nullable = false, precision = 0)
     private int idEstafeta;
-    @Basic
-    @Column(name = "NOME", nullable = false, length = 100)
     private String nome;
-    @Basic
-    @Column(name = "NUMTELEFONE", nullable = true, length = 20)
     private String numtelefone;
-    @Basic
-    @Column(name = "NIF", nullable = false, precision = 0)
     private int nif;
-    @Basic
-    @Column(name = "EMAIL", nullable = true, length = 20)
     private String email;
-    @Basic
-    @Column(name = "ID_USER", nullable = true, precision = 0)
     private BigInteger idUser;
 
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "ID_ESTAFETA", nullable = false, precision = 0)
     public int getIdEstafeta() {
         return idEstafeta;
     }
@@ -39,6 +29,8 @@ public class Estafeta {
         this.idEstafeta = idEstafeta;
     }
 
+    @Basic
+    @Column(name = "NOME", nullable = false, length = 100)
     public String getNome() {
         return nome;
     }
@@ -47,6 +39,8 @@ public class Estafeta {
         this.nome = nome;
     }
 
+    @Basic
+    @Column(name = "NUMTELEFONE", nullable = true, length = 20)
     public String getNumtelefone() {
         return numtelefone;
     }
@@ -55,6 +49,8 @@ public class Estafeta {
         this.numtelefone = numtelefone;
     }
 
+    @Basic
+    @Column(name = "NIF", nullable = false, precision = 0)
     public int getNif() {
         return nif;
     }
@@ -63,6 +59,8 @@ public class Estafeta {
         this.nif = nif;
     }
 
+    @Basic
+    @Column(name = "EMAIL", nullable = true, length = 20)
     public String getEmail() {
         return email;
     }
@@ -71,11 +69,42 @@ public class Estafeta {
         this.email = email;
     }
 
+    @Basic
+    @Column(name = "ID_USER", nullable = true, precision = 0)
     public BigInteger getIdUser() {
         return idUser;
     }
 
     public void setIdUser(BigInteger idUser) {
         this.idUser = idUser;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Estafeta estafeta = (Estafeta) o;
+
+        if (idEstafeta != estafeta.idEstafeta) return false;
+        if (nif != estafeta.nif) return false;
+        if (nome != null ? !nome.equals(estafeta.nome) : estafeta.nome != null) return false;
+        if (numtelefone != null ? !numtelefone.equals(estafeta.numtelefone) : estafeta.numtelefone != null)
+            return false;
+        if (email != null ? !email.equals(estafeta.email) : estafeta.email != null) return false;
+        if (idUser != null ? !idUser.equals(estafeta.idUser) : estafeta.idUser != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = idEstafeta;
+        result = 31 * result + (nome != null ? nome.hashCode() : 0);
+        result = 31 * result + (numtelefone != null ? numtelefone.hashCode() : 0);
+        result = 31 * result + nif;
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (idUser != null ? idUser.hashCode() : 0);
+        return result;
     }
 }

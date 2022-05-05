@@ -1,14 +1,10 @@
 package com.example.bd.BLL;
 
 import com.example.bd.DAL.Codpostais;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 
 
 public class CodPostaisBLL {
@@ -96,14 +92,14 @@ public class CodPostaisBLL {
             em.getTransaction().commit();
         }
 
-        public static void delete(Codpostais cp){
+        public static void delete(String cp){
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
             if (em == null) em = factory.createEntityManager();
-
+                Codpostais C = read(cp);
             em.getTransaction().begin();
-            em.remove(cp);
+            em.remove(C);
             em.getTransaction().commit();
         }
 
