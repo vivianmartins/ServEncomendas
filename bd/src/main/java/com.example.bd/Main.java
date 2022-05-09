@@ -2,7 +2,9 @@ package com.example.bd;
 
 import com.example.bd.BLL.EstadosencomendaBLL;
 import com.example.bd.BLL.PratoBLL;
+import com.example.bd.BLL.UsersBLL;
 import com.example.bd.DAL.Pratos;
+import com.example.bd.DAL.Users;
 
 import java.util.List;
 
@@ -10,9 +12,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<Pratos> listaPra = PratoBLL.readAll("Francesinha");
-        for(Pratos pra : listaPra)
-            System.out.println( " nome:  " + pra.getDescricao()  + " preço: "+ pra.getPrecoatual());
+        List<Users> usersList = UsersBLL.readAll();
+        for(Users users : usersList)
+            System.out.println( " nome:  " + users.getNomeuser() );
 
 
 

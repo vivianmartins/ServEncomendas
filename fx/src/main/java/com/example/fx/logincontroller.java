@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
+import javafx.scene.Parent;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -46,7 +46,7 @@ public class logincontroller {
         }
 
         if(user.isEstafeta()){
-            Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("estafeta.fxml"))); //mudar para a pagina do admin
+            Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("estafetasAdmin.fxml"))); //mudar para a pagina do admin
             stage.setScene(new Scene(root));
             stage.show();
 
