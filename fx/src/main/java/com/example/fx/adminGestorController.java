@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 
-public class adminEstafetasController {
+public class adminGestorController {
 
     @FXML
     private Button btnEditar;
@@ -29,13 +29,7 @@ public class adminEstafetasController {
     private TableColumn<?, ?> email;
 
     @FXML
-    private TableColumn<?, ?> nif;
-
-    @FXML
     private TableColumn<?, ?> nome;
-
-    @FXML
-    private TableColumn<?, ?> password;
 
     @FXML
     private TableColumn<?, ?> telefone;

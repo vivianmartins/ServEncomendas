@@ -5,31 +5,37 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 
-public class adminEstafetasController {
+public class adminClientesController {
 
     @FXML
-    private Button btnEditar;
+    private TableColumn<?, ?> Encomendas;
+
+    @FXML
+    private Button btnEditarCl;
 
     @FXML
     private Button btnLogout;
 
     @FXML
-    private Button btnNew;
-
-    @FXML
     private Button btnPesquisar;
 
     @FXML
-    private Button btnRemover;
+    private Button btnRemoverCl;
 
     @FXML
     private Button btnVoltarEs;
 
     @FXML
+    private Button btncriarCl;
+
+    @FXML
+    private TableColumn<?, ?> codigopostal;
+
+    @FXML
     private TableColumn<?, ?> email;
 
     @FXML
-    private TableColumn<?, ?> nif;
+    private TableColumn<?, ?> morada;
 
     @FXML
     private TableColumn<?, ?> nome;
@@ -41,7 +47,17 @@ public class adminEstafetasController {
     private TableColumn<?, ?> telefone;
 
     @FXML
-    void handleBtnEditar(ActionEvent event) {
+    void clhandleBtnRemover(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleBtnCriarCl(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleBtnEditarCl(ActionEvent event) {
 
     }
 
@@ -51,17 +67,7 @@ public class adminEstafetasController {
     }
 
     @FXML
-    void handleBtnNew(ActionEvent event) {
-
-    }
-
-    @FXML
     void handleBtnPesquisar(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleBtnRemover(ActionEvent event) {
 
     }
 

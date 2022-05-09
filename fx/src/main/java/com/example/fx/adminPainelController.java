@@ -25,7 +25,6 @@ public class adminPainelController {
 //fx/src/main/resources/com/example/fx/estafetasAdmin.fxml
         stage.setScene(new Scene(root));
         stage.show();
-
         //Permite abrir a nova pagina e fechar a atual
         Node source = (Node)  event.getSource();
         Stage stageAtual  = (Stage) source.getScene().getWindow();

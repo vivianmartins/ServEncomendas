@@ -16,11 +16,11 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="608.0" layoutX="-6.0" layoutY="-1.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
       <TableView editable="true" layoutX="78.0" layoutY="122.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="443.0" prefWidth="677.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
          <columns>
-            <TableColumn prefWidth="82.6666488647461" style="-fx-background-color: #F19800;" text="Nif" />
-            <TableColumn prefWidth="133.0" style="-fx-background-color: #F19800;" text="Email" />
-            <TableColumn prefWidth="74.0" style="-fx-background-color: #F19800;" text="Telefone" />
-            <TableColumn prefWidth="159.0" style="-fx-background-color: #F19800;" text="Password" />
-            <TableColumn prefWidth="214.0" style="-fx-background-color: #F19800;" text="Nome" />
+            <TableColumn fx:id="nif" prefWidth="123.0" style="-fx-background-color: #F19800;" text="Nif" />
+            <TableColumn fx:id="email" prefWidth="93.0" style="-fx-background-color: #F19800;" text="Email" />
+            <TableColumn fx:id="telefone" prefWidth="116.0" style="-fx-background-color: #F19800;" text="Telefone" />
+            <TableColumn fx:id="password" prefWidth="164.0" style="-fx-background-color: #F19800;" text="Password" />
+            <TableColumn fx:id="nome" prefWidth="168.6666259765625" style="-fx-background-color: #F19800;" text="Nome" />
          </columns>
       </TableView>
       <Button fx:id="btnEditar" layoutX="791.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleBtnEditar" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">
@@ -48,13 +48,18 @@
             <Image url="@assets/icon.png" />
          </image>
       </ImageView>
-      <TextField layoutX="649.0" layoutY="28.0" prefHeight="27.0" prefWidth="212.0" promptText="Procurar estafeta..." />
       <Text layoutX="360.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista dos estafetas" wrappingWidth="173.5">
          <font>
             <Font name="Arial Black" size="15.0" />
          </font>
       </Text>
-      <Button fx:id="btnPesquisar" layoutX="863.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleBtnPesquisar" prefHeight="11.0" prefWidth="83.0" style="-fx-background-color: #007687;" text="Pesquisar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <TextField layoutX="566.0" layoutY="15.0" prefHeight="27.0" prefWidth="162.0" promptText="Procurar estafeta..." />
+      <Button fx:id="btnPesquisar" layoutX="729.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnPesquisar" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: #007687;" text="Pesquisar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLogout" layoutX="820.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnLogout" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: #F19800;" text="Terminar sessão" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
