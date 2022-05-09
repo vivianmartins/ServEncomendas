@@ -1,5 +1,4 @@
 package com.example.fx;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class estafetas_adminController {
+public class adminEstafetasController {
 
     @FXML
     private Button btnEditar;
@@ -50,7 +49,7 @@ public class estafetas_adminController {
     @FXML
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(logincontroller.class.getResource("paginaprincipaladmin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("paginaprincipaladmin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
         stage.setScene(scene);
         stage.show();

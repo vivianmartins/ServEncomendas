@@ -9,6 +9,8 @@ module com.example.fx {
 
     opens com.example.fx to javafx.fxml;
     exports com.example.fx;
+    //exports com.example.fx.Admin;
+    //opens com.example.fx.Admin to javafx.fxml;
     //exports com.example.fx.controller;
     //opens com.example.fx.controller to javafx.fxml;
     // opens com.example.fx.controller to javafx.fxml;
