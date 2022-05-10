@@ -1,10 +1,13 @@
 package com.example.fx.controllerAdmin;
 
+
+import com.example.fx.controllerAdmin.adminClRegistoController;
 import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -59,9 +62,18 @@ public class adminClientesController {
     }
 
     @FXML
-    void handleBtnCriarCl(ActionEvent event) {
+    void handleBtnCriarCl(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/clienteregistoAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        stage.setScene(scene);
+        stage.show();
 
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
     }
+
 
     @FXML
     void handleBtnEditarCl(ActionEvent event) {

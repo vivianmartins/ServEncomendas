@@ -36,16 +36,10 @@ public class adminCozinheiroController {
     private TableColumn<?, ?> email;
 
     @FXML
-    private TableColumn<?, ?> nif;
-
-    @FXML
     private TableColumn<?, ?> nome;
 
     @FXML
     private TableColumn<?, ?> password;
-
-    @FXML
-    private TableColumn<?, ?> telefone;
 
     @FXML
     void handleBtnEditar(ActionEvent event) {
@@ -83,6 +77,7 @@ public class adminCozinheiroController {
         Node source = (Node)  event.getSource();
         Stage stageAtual  = (Stage) source.getScene().getWindow();
         stageAtual.close();
+
     }
 
 }
