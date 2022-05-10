@@ -1,5 +1,6 @@
-package com.example.fx;
+package com.example.fx.controllerAdmin;
 
+import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

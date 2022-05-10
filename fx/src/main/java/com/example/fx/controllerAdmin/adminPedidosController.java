@@ -1,5 +1,6 @@
-package com.example.fx;
+package com.example.fx.controllerAdmin;
 
+import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +12,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class adminCozinheiroController {
+public class adminPedidosController {
+
+    @FXML
+    private TableColumn<?, ?> Qtd;
 
     @FXML
     private Button btnEditar;
@@ -32,19 +36,25 @@ public class adminCozinheiroController {
     private Button btnVoltarEs;
 
     @FXML
-    private TableColumn<?, ?> email;
+    private TableColumn<?, ?> data;
 
     @FXML
-    private TableColumn<?, ?> nif;
+    private TableColumn<?, ?> descricao;
 
     @FXML
-    private TableColumn<?, ?> nome;
+    private TableColumn<?, ?> estado;
 
     @FXML
-    private TableColumn<?, ?> password;
+    private TableColumn<?, ?> nCliente;
 
     @FXML
-    private TableColumn<?, ?> telefone;
+    private TableColumn<?, ?> nPedido;
+
+    @FXML
+    private TableColumn<?, ?> noEstafeta;
+
+    @FXML
+    private TableColumn<?, ?> valor;
 
     @FXML
     void handleBtnEditar(ActionEvent event) {

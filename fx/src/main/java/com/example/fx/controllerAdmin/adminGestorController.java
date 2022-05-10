@@ -1,5 +1,6 @@
-package com.example.fx;
+package com.example.fx.controllerAdmin;
 
+import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,59 +12,37 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class adminClientesController {
+public class adminGestorController {
 
     @FXML
-    private TableColumn<?, ?> Encomendas;
-
-    @FXML
-    private Button btnEditarCl;
+    private Button btnEditar;
 
     @FXML
     private Button btnLogout;
 
     @FXML
+    private Button btnNew;
+
+    @FXML
     private Button btnPesquisar;
 
     @FXML
-    private Button btnRemoverCl;
+    private Button btnRemover;
 
     @FXML
     private Button btnVoltarEs;
 
     @FXML
-    private Button btncriarCl;
-
-    @FXML
-    private TableColumn<?, ?> codigopostal;
-
-    @FXML
     private TableColumn<?, ?> email;
-
-    @FXML
-    private TableColumn<?, ?> morada;
 
     @FXML
     private TableColumn<?, ?> nome;
 
     @FXML
-    private TableColumn<?, ?> password;
-
-    @FXML
     private TableColumn<?, ?> telefone;
 
     @FXML
-    void clhandleBtnRemover(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleBtnCriarCl(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleBtnEditarCl(ActionEvent event) {
+    void handleBtnEditar(ActionEvent event) {
 
     }
 
@@ -73,7 +52,17 @@ public class adminClientesController {
     }
 
     @FXML
+    void handleBtnNew(ActionEvent event) {
+
+    }
+
+    @FXML
     void handleBtnPesquisar(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleBtnRemover(ActionEvent event) {
 
     }
 
@@ -88,6 +77,7 @@ public class adminClientesController {
         Node source = (Node)  event.getSource();
         Stage stageAtual  = (Stage) source.getScene().getWindow();
         stageAtual.close();
+
     }
 
 }
