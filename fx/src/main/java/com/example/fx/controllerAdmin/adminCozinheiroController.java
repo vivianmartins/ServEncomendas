@@ -52,8 +52,16 @@ public class adminCozinheiroController {
     }
 
     @FXML
-    void handleBtnNew(ActionEvent event) {
+    void handleBtnNew(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/cozinheiroRegistoAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 668 , 407);
+        stage.setScene(scene);
+        stage.show();
 
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
     }
 
     @FXML
