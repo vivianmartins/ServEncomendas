@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -38,6 +35,7 @@ public class loginController {
         Users user = null;
         user =UsersBLL.login(lblEmail.getText(),lblPassword.getText());
         if(user.isAdmin()){
+            loginSucess();
             Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("paginaprincipaladmin.fxml"))); //mudar para a pagina do admin
             stage.setScene(new Scene(root));
             stage.show();
@@ -45,9 +43,15 @@ public class loginController {
             Node  source = (Node)  event.getSource();
             Stage stageAtual  = (Stage) source.getScene().getWindow();
             stageAtual.close();
+
+            }
+
+        else{
+            loginAlert();
         }
 
         if(user.isEstafeta()){
+            loginSucess();
             Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("estafetasAdmin.fxml"))); //mudar para a pagina do admin
             stage.setScene(new Scene(root));
             stage.show();
@@ -55,6 +59,9 @@ public class loginController {
             Node  source = (Node)  event.getSource();
             Stage stageAtual  = (Stage) source.getScene().getWindow();
             stageAtual.close();
+        }
+        else{
+            loginAlert();
         }
         //if(user.isCozinheiro(){
 
@@ -83,4 +90,20 @@ public class loginController {
 
     }
 
+    public void loginAlert(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erro!");
+        alert.setHeaderText("Username ou Password Errados!");
+        alert.setContentText("Tente novamente");
+        alert.show();
+    }
+
+
+    public void loginSucess(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Erro!");
+        alert.setHeaderText("Login inciado com sucesso");
+        alert.setContentText("Aproveite a navegação");
+        alert.show();
+    }
 }
