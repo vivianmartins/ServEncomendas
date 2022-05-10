@@ -50,11 +50,11 @@ public class loginController {
         }
 
         if(user.isEstafeta()){
-            loginSucess();
-            Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("estafetasAdmin.fxml"))); //mudar para a pagina do admin
+
+            Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("estafeta/painelEstafeta.fxml"))); //mudar para a pagina do admin
             stage.setScene(new Scene(root));
             stage.show();
-
+            loginSucess();
             Node  source = (Node)  event.getSource();
             Stage stageAtual  = (Stage) source.getScene().getWindow();
             stageAtual.close();

@@ -38,7 +38,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="47.0" prefWidth="124.0" style="-fx-background-color: #ffff;" text="&lt;- voltar" textFill="#007687" underline="true">
+            <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="47.0" prefWidth="124.0" text="&lt;- voltar" textFill="#000607" underline="true">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
