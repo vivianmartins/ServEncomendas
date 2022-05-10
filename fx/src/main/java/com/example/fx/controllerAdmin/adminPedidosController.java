@@ -67,8 +67,16 @@ public class adminPedidosController {
     }
 
     @FXML
-    void handleBtnNew(ActionEvent event) {
+    void handleBtnNew(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/pedidoRegistoAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        stage.setScene(scene);
+        stage.show();
 
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
     }
 
     @FXML

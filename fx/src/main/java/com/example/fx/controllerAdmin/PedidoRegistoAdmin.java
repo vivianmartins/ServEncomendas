@@ -8,12 +8,13 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class GestorRegistoAdmin {
+public class PedidoRegistoAdmin {
 
     @FXML
     private Button btnRegistar;
@@ -22,43 +23,61 @@ public class GestorRegistoAdmin {
     private Button btnVoltarEs;
 
     @FXML
-    private TextField email;
+    private SplitMenuButton codpostal;
 
     @FXML
-    private TextField passe;
+    private TextField localidade;
 
     @FXML
-    private TextField username;
+    private TextField morada;
 
     @FXML
-    void edEmail(ActionEvent event) {
+    private TextField morada1;
+
+    @FXML
+    private TextField nome;
+
+    @FXML
+    private TextField nomeEstafeta;
+
+    @FXML
+    private TextField quantidade;
+
+    @FXML
+    private TextField telefone;
+
+    @FXML
+    void edMorada(ActionEvent event) {
 
     }
 
     @FXML
-    void edPasse(ActionEvent event) {
+    void edTelefone(ActionEvent event) {
 
     }
 
     @FXML
-    void edUsername(ActionEvent event) {
+    void editNo(ActionEvent event) {
+
+    }
+
+    @FXML
+    void edlocalidade(ActionEvent event) {
 
     }
 
     @FXML
     void handleBtnRegistar(ActionEvent event) {
-        {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Registo");
-            alert.setHeaderText("Registo efetuado com sucesso!");
-            alert.show();
-        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Registo");
+        alert.setHeaderText("Registo efetuado com sucesso!");
+        alert.show();
     }
 
     @FXML
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/gestorAdmin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/pedidosAdmin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
         stage.setScene(scene);
         stage.show();
@@ -66,6 +85,16 @@ public class GestorRegistoAdmin {
         Node source = (Node)  event.getSource();
         Stage stageAtual  = (Stage) source.getScene().getWindow();
         stageAtual.close();
+
+    }
+
+    @FXML
+    void nomeEstafeta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void quantidade(ActionEvent event) throws IOException {
 
     }
 
