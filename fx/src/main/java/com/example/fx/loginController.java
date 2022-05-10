@@ -35,11 +35,10 @@ public class loginController {
         Users user = null;
         user =UsersBLL.login(lblEmail.getText(),lblPassword.getText());
         if(user.isAdmin()){
-            loginSucess();
-            Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("paginaprincipaladmin.fxml"))); //mudar para a pagina do admin
+            Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Admin/paginaprincipaladmin.fxml"))); //mudar para a pagina do admin
             stage.setScene(new Scene(root));
             stage.show();
-
+            loginSucess();
             Node  source = (Node)  event.getSource();
             Stage stageAtual  = (Stage) source.getScene().getWindow();
             stageAtual.close();
@@ -47,7 +46,7 @@ public class loginController {
             }
 
         else{
-            loginAlert();
+            //loginAlert();
         }
 
         if(user.isEstafeta()){
@@ -61,7 +60,7 @@ public class loginController {
             stageAtual.close();
         }
         else{
-            loginAlert();
+          //  loginAlert();
         }
         //if(user.isCozinheiro(){
 
@@ -101,7 +100,7 @@ public class loginController {
 
     public void loginSucess(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Erro!");
+        alert.setTitle("Login efetuado com sucesso!");
         alert.setHeaderText("Login inciado com sucesso");
         alert.setContentText("Aproveite a navegação");
         alert.show();
