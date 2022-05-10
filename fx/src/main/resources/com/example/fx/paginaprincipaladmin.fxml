@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -13,39 +14,10 @@
 <AnchorPane prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.adminPainelController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="-2.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
-      <Button layoutX="50.0" layoutY="161.0" mnemonicParsing="false" prefHeight="127.0" prefWidth="203.0" style="-fx-background-color: #CBEBEF;" text="Cliente">
-         <effect>
-            <Glow level="0.0" />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="50.0" layoutY="336.0" mnemonicParsing="false" prefHeight="127.0" prefWidth="203.0" style="-fx-background-color: #CBEBEF;" text="Gestor">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="708.0" layoutY="161.0" mnemonicParsing="false" prefHeight="127.0" prefWidth="197.0" style="-fx-background-color: #CBEBEF;" text="Pedidos">
+      <Button layoutX="702.0" layoutY="443.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="197.0" style="-fx-background-color: #F19800;" text="Ementas">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="702.0" layoutY="336.0" mnemonicParsing="false" prefHeight="127.0" prefWidth="197.0" style="-fx-background-color: #CBEBEF;" text="Ementas">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <Button fx:id="btnEstafeta" layoutX="380.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleBtnEstafeta" prefHeight="134.0" prefWidth="203.0" style="-fx-background-color: #CBEBEF;" text="Estafeta">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <Button layoutX="879.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #FFF;" text="SAIR" textFill="#007687" underline="true">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
       <ImageView fitHeight="127.0" fitWidth="203.0" layoutX="371.0" layoutY="27.0" pickOnBounds="true">
          <image>
             <Image url="@assets/icon.png" />
@@ -60,6 +32,57 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa11f" height="56.0" layoutY="544.0" stroke="TRANSPARENT" strokeType="INSIDE" width="961.0" />
+      <Button fx:id="btnLogout" layoutX="815.0" layoutY="-1.0" mnemonicParsing="false" onAction="#handleBtnLogout" prefHeight="33.0" prefWidth="146.0" style="-fx-background-color: #007687;" text="Terminar sessão" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="119.0" fitWidth="124.0" layoutX="92.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="88.0" fitWidth="96.0" layoutX="104.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/user%20(2).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="82.0" fitWidth="80.0" layoutX="443.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/user%20(3).png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnGestor" layoutX="53.0" layoutY="452.0" mnemonicParsing="false" onAction="#handleBtnGestor" prefHeight="33.0" prefWidth="203.0" style="-fx-background-color: #F19800;" text="Gestores">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEstafeta" layoutX="380.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleBtnEstafeta" prefHeight="33.0" prefWidth="203.0" style="-fx-background-color: #F19800;" text="Estafetas">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <ImageView fitHeight="88.0" fitWidth="100.0" layoutX="757.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/scooter.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnPedidos" layoutX="703.0" layoutY="273.0" mnemonicParsing="false" onAction="#handleBtnPedidos" prefHeight="33.0" prefWidth="197.0" style="-fx-background-color: #F19800;" text="Pedidos">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Polygon fill="#111111" layoutX="24.0" layoutY="12.0" points="-24.0, -12.0, -24.0, 83.0, 50.0, -12.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon layoutX="23.0" layoutY="517.0" points="-24.0, -12.0, 246.0, 83.0, -24.0, 83.0" stroke="#322103" strokeType="INSIDE" />
+      <Polygon fill="#111111" layoutX="895.0" layoutY="516.0" points="63.0, -4.0, 63.0, 83.0, -143.0, 83.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="btnClientes" alignment="BOTTOM_CENTER" layoutX="50.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleBtnClientes" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #F19800; -fx-background-image: assets\user.png;" text="Clientes" textOverrun="CENTER_ELLIPSIS">
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

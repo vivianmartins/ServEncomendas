@@ -11,7 +11,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class adminGestorController {
+public class adminPedidosController {
+
+    @FXML
+    private TableColumn<?, ?> Qtd;
 
     @FXML
     private Button btnEditar;
@@ -32,13 +35,25 @@ public class adminGestorController {
     private Button btnVoltarEs;
 
     @FXML
-    private TableColumn<?, ?> email;
+    private TableColumn<?, ?> data;
 
     @FXML
-    private TableColumn<?, ?> nome;
+    private TableColumn<?, ?> descricao;
 
     @FXML
-    private TableColumn<?, ?> telefone;
+    private TableColumn<?, ?> estado;
+
+    @FXML
+    private TableColumn<?, ?> nCliente;
+
+    @FXML
+    private TableColumn<?, ?> nPedido;
+
+    @FXML
+    private TableColumn<?, ?> noEstafeta;
+
+    @FXML
+    private TableColumn<?, ?> valor;
 
     @FXML
     void handleBtnEditar(ActionEvent event) {
@@ -76,7 +91,6 @@ public class adminGestorController {
         Node source = (Node)  event.getSource();
         Stage stageAtual  = (Stage) source.getScene().getWindow();
         stageAtual.close();
-
     }
 
 }

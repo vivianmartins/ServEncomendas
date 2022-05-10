@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class adminGestorController {
+public class adminCozinheiroController {
 
     @FXML
     private Button btnEditar;
@@ -35,7 +35,13 @@ public class adminGestorController {
     private TableColumn<?, ?> email;
 
     @FXML
+    private TableColumn<?, ?> nif;
+
+    @FXML
     private TableColumn<?, ?> nome;
+
+    @FXML
+    private TableColumn<?, ?> password;
 
     @FXML
     private TableColumn<?, ?> telefone;
@@ -76,7 +82,6 @@ public class adminGestorController {
         Node source = (Node)  event.getSource();
         Stage stageAtual  = (Stage) source.getScene().getWindow();
         stageAtual.close();
-
     }
 
 }
