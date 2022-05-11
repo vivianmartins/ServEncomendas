@@ -11,6 +11,11 @@ module com.example.fx {
     exports com.example.fx;
     exports com.example.fx.controllerAdmin;
     opens com.example.fx.controllerAdmin to javafx.fxml;
+    exports com.example.fx.controllerEstafeta;
+    opens com.example.fx.controllerEstafeta to javafx.fxml;
+    exports com.example.fx.controllerGestor;
+    opens com.example.fx.controllerGestor to javafx.fxml;
+
 
 
 }
