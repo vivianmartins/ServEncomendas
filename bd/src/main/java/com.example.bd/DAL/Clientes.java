@@ -1,6 +1,7 @@
 package com.example.bd.DAL;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "CLIENTES")
@@ -12,7 +13,7 @@ import javax.persistence.*;
 public class Clientes {
     private int idCliente;
     private String nome;
-    private int nif;
+    private BigInteger nif;
     private String rua;
     private int codpostal;
     private String numtelemovel;
@@ -40,11 +41,11 @@ public class Clientes {
 
     @Basic
     @Column(name = "NIF", nullable = false, precision = 0)
-    public int getNif() {
+    public BigInteger getNif() {
         return nif;
     }
 
-    public void setNif(int nif) {
+    public void setNif(BigInteger nif) {
         this.nif = nif;
     }
 
@@ -100,7 +101,7 @@ public class Clientes {
     public int hashCode() {
         int result = idCliente;
         result = 31 * result + (nome != null ? nome.hashCode() : 0);
-        result = 31 * result + nif;
+        result = 31 * result + nif.intValue();
         result = 31 * result + (rua != null ? rua.hashCode() : 0);
         result = 31 * result + codpostal;
         result = 31 * result + (numtelemovel != null ? numtelemovel.hashCode() : 0);

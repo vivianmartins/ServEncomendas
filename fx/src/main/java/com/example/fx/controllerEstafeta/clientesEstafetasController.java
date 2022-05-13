@@ -1,19 +1,29 @@
 package com.example.fx.controllerEstafeta;
 
+import com.example.bd.DAL.Clientes;
+import com.example.bd.BLL.ClienteBLL;
 import com.example.fx.loginController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class clientesEstafetasController {
-
+public class clientesEstafetasController implements Initializable {
+    private TableView<Clientes> clientes ;
     @FXML
     private Button btnLogout;
 
@@ -23,20 +33,17 @@ public class clientesEstafetasController {
     @FXML
     private Button btnVoltarEs;
 
-    @FXML
-    private TableColumn<?, ?> codigopostal;
+   // @FXML
+    private TableColumn<Clientes, Integer> codigopostal;
 
     @FXML
-    private TableColumn<?, ?> email;
+    private TableColumn<Clientes, String> morada;
 
     @FXML
-    private TableColumn<?, ?> morada;
+    private TableColumn<Clientes, String> nome;
 
     @FXML
-    private TableColumn<?, ?> nome;
-
-    @FXML
-    private TableColumn<?, ?> telefone;
+    private TableColumn<Clientes, String> telefone;
 
     @FXML
     void handleBtnLogout(ActionEvent event) throws IOException {
@@ -73,4 +80,25 @@ public class clientesEstafetasController {
 
     }
 
+
+
+
+    public void initialize(URL url, ResourceBundle rb) {
+        List<Clientes> lista = ClienteBLL.readAll();
+
+        morada.setMinWidth(100);
+       // codigopostal.setMinWidth(100);
+        nome.setMinWidth(100);
+        telefone.setMinWidth(100);
+        clientes = new TableView<>( );
+        ObservableList<Clientes> observableClientes = FXCollections.observableArrayList();
+        observableClientes.addAll(lista);
+        clientes.setItems(observableClientes);
+       // codigopostal.setCellValueFactory(new PropertyValueFactory<Clientes,Integer>("codpostal"));
+        morada.setCellValueFactory(new PropertyValueFactory<Clientes,String>("rua"));
+        nome.setCellValueFactory(new PropertyValueFactory<Clientes,String>("nome"));
+        telefone.setCellValueFactory(new PropertyValueFactory<Clientes,String>("telefone"));
+
+
+    }
 }
