@@ -22,9 +22,8 @@
                   <TableColumn fx:id="Encomendas" prefWidth="118.0" style="-fx-background-color: #F19800;" text="Encomendas" />
                   <TableColumn fx:id="telefone" prefWidth="105.0" style="-fx-background-color: #F19800;" text="Telefone" />
                   <TableColumn fx:id="codigopostal" prefWidth="122.0" style="-fx-background-color: #F19800;" text="Código-postal" />
-                  <TableColumn fx:id="morada" prefWidth="151.0" style="-fx-background-color: #F19800;" text="Morada" />
-                  <TableColumn fx:id="email" prefWidth="96.0" style="-fx-background-color: #F19800;" text="Email" />
-                  <TableColumn fx:id="password" minWidth="0.0" prefWidth="75.0" style="-fx-background-color: #F19800;" text="Password" />
+                  <TableColumn fx:id="morada" prefWidth="104.0" style="-fx-background-color: #F19800;" text="Morada" />
+                  <TableColumn fx:id="password" minWidth="0.0" prefWidth="122.66665649414062" style="-fx-background-color: #F19800;" text="Password" />
                   <TableColumn fx:id="nome" minWidth="0.0" prefWidth="94.0" style="-fx-background-color: #F19800;" text="Nome" />
                </columns>
             </TableView>

@@ -1,11 +1,19 @@
 package com.example.fx.controllerAdmin;
 
 
+import com.example.bd.BLL.ClienteBLL;
+import com.example.bd.BLL.UsersBLL;
+import com.example.bd.DAL.Clientes;
+import com.example.bd.DAL.Users;
 import com.example.fx.controllerAdmin.adminClRegistoController;
 import com.example.fx.loginController;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,11 +22,14 @@ import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class adminClientesController {
+public class adminClientesController implements Initializable {
 
     @FXML
-    private TableColumn<?, ?> Encomendas;
+    private TableColumn<TableClientAdmin, String> Encomendas;
 
     @FXML
     private Button btnEditarCl;
@@ -39,22 +50,21 @@ public class adminClientesController {
     private Button btncriarCl;
 
     @FXML
-    private TableColumn<?, ?> codigopostal;
+    private TableColumn<TableClientAdmin,String> codigopostal;
+
+        @FXML
+    private TableColumn<TableClientAdmin, String> morada;
 
     @FXML
-    private TableColumn<?, ?> email;
+    private TableColumn<TableClientAdmin, String> nome;
 
     @FXML
-    private TableColumn<?, ?> morada;
+    private TableColumn<TableClientAdmin, String> password;
 
     @FXML
-    private TableColumn<?, ?> nome;
+    private TableColumn<TableClientAdmin,String> telefone;
 
-    @FXML
-    private TableColumn<?, ?> password;
-
-    @FXML
-    private TableColumn<?, ?> telefone;
+    ObservableList<TableClientAdmin> oblist = FXCollections.observableArrayList();
 
     @FXML
     void clhandleBtnRemover(ActionEvent event) {
@@ -102,5 +112,16 @@ public class adminClientesController {
         Stage stageAtual  = (Stage) source.getScene().getWindow();
         stageAtual.close();
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        List<Clientes> cli = null;
+        cli = ClienteBLL.readAll();
+
+   }
+
+
+
 
 }
