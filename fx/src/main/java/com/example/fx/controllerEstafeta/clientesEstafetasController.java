@@ -23,7 +23,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class clientesEstafetasController implements Initializable {
-    private TableView<Clientes> clientes ;
+
+
     @FXML
     private Button btnLogout;
 
@@ -33,7 +34,7 @@ public class clientesEstafetasController implements Initializable {
     @FXML
     private Button btnVoltarEs;
 
-   // @FXML
+    @FXML
     private TableColumn<Clientes, Integer> codigopostal;
 
     @FXML
@@ -44,22 +45,27 @@ public class clientesEstafetasController implements Initializable {
 
     @FXML
     private TableColumn<Clientes, String> telefone;
+    @FXML
+    private final TableView<Clientes> boi = new TableView<>();
+
+        List<Clientes> lista = ClienteBLL.readAll();
+        ObservableList<Clientes> cli = FXCollections.observableArrayList();
 
     @FXML
     void handleBtnLogout(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        Scene scene = new Scene(fxmlLoader.load(), 960, 600);
         stage.setScene(scene);
         stage.show();
 
-        Node source = (Node)  event.getSource();
-        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        Node source = (Node) event.getSource();
+        Stage stageAtual = (Stage) source.getScene().getWindow();
         stageAtual.close();
 
 
-    }
 
+    }
     @FXML
     void handleBtnPesquisar(ActionEvent event) {
 
@@ -69,36 +75,25 @@ public class clientesEstafetasController implements Initializable {
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("estafeta/painelEstafeta.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        Scene scene = new Scene(fxmlLoader.load(), 960, 600);
         stage.setScene(scene);
         stage.show();
 
-        Node source = (Node)  event.getSource();
-        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        Node source = (Node) event.getSource();
+        Stage stageAtual = (Stage) source.getScene().getWindow();
         stageAtual.close();
 
 
     }
 
-
-
-
     public void initialize(URL url, ResourceBundle rb) {
-        List<Clientes> lista = ClienteBLL.readAll();
-
-        morada.setMinWidth(100);
-       // codigopostal.setMinWidth(100);
-        nome.setMinWidth(100);
-        telefone.setMinWidth(100);
-        clientes = new TableView<>( );
-        ObservableList<Clientes> observableClientes = FXCollections.observableArrayList();
-        observableClientes.addAll(lista);
-        clientes.setItems(observableClientes);
-       // codigopostal.setCellValueFactory(new PropertyValueFactory<Clientes,Integer>("codpostal"));
+        cli.addAll(lista);
+        codigopostal.setCellValueFactory(new PropertyValueFactory<Clientes,Integer>("codpostal"));
         morada.setCellValueFactory(new PropertyValueFactory<Clientes,String>("rua"));
         nome.setCellValueFactory(new PropertyValueFactory<Clientes,String>("nome"));
-        telefone.setCellValueFactory(new PropertyValueFactory<Clientes,String>("telefone"));
-
+        telefone.setCellValueFactory(new PropertyValueFactory<Clientes,String>("numtelemovel"));
+        boi.setItems(cli);
 
     }
+
 }
