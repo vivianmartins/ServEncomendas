@@ -1,8 +1,10 @@
 package com.example.bd;
 
+import com.example.bd.BLL.ClienteBLL;
 import com.example.bd.BLL.EstadosencomendaBLL;
 import com.example.bd.BLL.PratoBLL;
 import com.example.bd.BLL.UsersBLL;
+import com.example.bd.DAL.Clientes;
 import com.example.bd.DAL.Pratos;
 import com.example.bd.DAL.Users;
 
@@ -12,9 +14,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<Users> usersList = UsersBLL.readAll();
-        for(Users users : usersList)
-            System.out.println( " nome:  " + users.getNomeuser() );
+        List<Clientes> lista = ClienteBLL.readAll("Melita");
+        for(Clientes cli1 : lista)
+            System.out.println("ID " + cli1.getIdCliente() + " chama-se " + cli1.getNome() + " e mora em " + cli1.getRua());
+
 
 
 

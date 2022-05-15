@@ -22,11 +22,10 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="618.0" layoutX="-6.0" layoutY="-11.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
                   <TableView editable="true" layoutX="85.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="440.0" prefWidth="763.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
                      <columns>
-                        <TableColumn fx:id="telefone" prefWidth="105.0" style="-fx-background-color: #F19800;" text="Telefone" />
-                        <TableColumn fx:id="codigopostal" prefWidth="122.0" style="-fx-background-color: #F19800;" text="Código-postal" />
-                        <TableColumn fx:id="morada" prefWidth="151.0" style="-fx-background-color: #F19800;" text="Morada" />
-                        <TableColumn fx:id="email" prefWidth="134.0" style="-fx-background-color: #F19800;" text="Email" />
-                        <TableColumn fx:id="nome" minWidth="0.0" prefWidth="232.0" style="-fx-background-color: #F19800;" text="Nome" />
+                        <TableColumn fx:id="telefone" prefWidth="183.3333740234375" text="telefone" />
+                        <TableColumn fx:id="morada" prefWidth="184.66665649414062" text="Morada" />
+                        <TableColumn fx:id="codigopostal" prefWidth="147.33334350585938" text="CodigoPostal" />
+                        <TableColumn fx:id="nome" prefWidth="218.0" text="Nome" />
                      </columns>
                   </TableView>
                   <ImageView fitHeight="102.0" fitWidth="154.0" layoutX="352.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">

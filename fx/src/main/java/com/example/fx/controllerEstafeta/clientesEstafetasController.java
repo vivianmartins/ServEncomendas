@@ -46,10 +46,10 @@ public class clientesEstafetasController implements Initializable {
     @FXML
     private TableColumn<Clientes, String> telefone;
     @FXML
-    private final TableView<Clientes> boi = new TableView<>();
+    public TableView<Clientes> CltableView = new TableView<>();
 
-        List<Clientes> lista = ClienteBLL.readAll();
-        ObservableList<Clientes> cli = FXCollections.observableArrayList();
+        List<Clientes> listaCl = ClienteBLL.readAll("Melita");
+        final  ObservableList<Clientes> cli = FXCollections.observableArrayList(listaCl);
 
     @FXML
     void handleBtnLogout(ActionEvent event) throws IOException {
@@ -87,12 +87,15 @@ public class clientesEstafetasController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle rb) {
-        cli.addAll(lista);
+        CltableView.getItems().addAll(listaCl);
         codigopostal.setCellValueFactory(new PropertyValueFactory<Clientes,Integer>("codpostal"));
         morada.setCellValueFactory(new PropertyValueFactory<Clientes,String>("rua"));
         nome.setCellValueFactory(new PropertyValueFactory<Clientes,String>("nome"));
         telefone.setCellValueFactory(new PropertyValueFactory<Clientes,String>("numtelemovel"));
-        boi.setItems(cli);
+        //nome.setCellValueFactory(cellData -> cellData.getValue().getNome());
+        CltableView.getColumns().addAll(codigopostal, morada, nome,telefone);
+        CltableView.setItems(cli);
+
 
     }
 
