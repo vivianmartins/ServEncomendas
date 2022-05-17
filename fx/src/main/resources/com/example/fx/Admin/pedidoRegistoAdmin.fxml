@@ -69,19 +69,19 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="morada1" layoutX="75.0" layoutY="335.0" onAction="#edMorada" prefHeight="38.0" prefWidth="374.0" promptText="Prato.." />
+            <TextField fx:id="morada1" layoutX="75.0" layoutY="335.0" onAction="#edMorada" prefHeight="38.0" prefWidth="431.0" promptText="Prato.." />
             <Text layoutX="76.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prato pedido">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="quantidade" layoutX="480.0" layoutY="335.0" onAction="#quantidade" prefHeight="38.0" prefWidth="200.0" promptText="quantidade" />
-            <Text layoutX="480.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade">
+            <TextField fx:id="quantidade" layoutX="522.0" layoutY="335.0" onAction="#quantidade" prefHeight="38.0" prefWidth="200.0" promptText="quantidade" />
+            <Text layoutX="516.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="nomeEstafeta" layoutX="75.0" layoutY="405.0" onAction="#nomeEstafeta" prefHeight="38.0" prefWidth="374.0" promptText="Nome esatfeta..." />
+            <TextField fx:id="nomeEstafeta" layoutX="75.0" layoutY="405.0" onAction="#nomeEstafeta" prefHeight="38.0" prefWidth="431.0" promptText="Nome esatfeta..." />
             <Text layoutX="76.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do estafeta">
                <font>
                   <Font size="14.0" />

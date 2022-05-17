@@ -23,17 +23,17 @@
             <TableColumn fx:id="nome" prefWidth="168.6666259765625" style="-fx-background-color: #F19800;" text="Nome" />
          </columns>
       </TableView>
-      <Button fx:id="btnEditar" layoutX="791.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleBtnEditar" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">
+      <Button fx:id="btnEditar" layoutX="781.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleBtnEditar" prefHeight="37.0" prefWidth="151.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnRemover" layoutX="791.0" layoutY="288.0" mnemonicParsing="false" onAction="#handleBtnRemover" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Eliminar estafeta" textFill="WHITE">
+      <Button fx:id="btnRemover" layoutX="782.0" layoutY="288.0" mnemonicParsing="false" onAction="#handleBtnRemover" prefHeight="37.0" prefWidth="151.0" style="-fx-background-color: #007687;" text="Eliminar estafeta" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnNew" layoutX="790.0" layoutY="141.0" mnemonicParsing="false" onAction="#handleBtnNew" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Adicionar estafeta" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="btnNew" layoutX="781.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleBtnNew" prefHeight="37.0" prefWidth="151.0" style="-fx-background-color: #007687;" text="Criar estafeta" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

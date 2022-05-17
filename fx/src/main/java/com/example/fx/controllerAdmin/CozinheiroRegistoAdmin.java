@@ -1,5 +1,7 @@
 package com.example.fx.controllerAdmin;
 
+import com.example.bd.BLL.UsersBLL;
+import com.example.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,12 +49,26 @@ public class CozinheiroRegistoAdmin {
 
     @FXML
     void handleBtnRegistar(ActionEvent event) {
-        {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Registo");
-            alert.setHeaderText("Registo efetuado com sucesso!");
-            alert.show();
-        }    }
+
+        if (isInputValid()) {
+
+            {
+                Users user = new Users();
+                user.setEmail(email.getText());
+                user.setNomeuser(username.getText());
+                user.setPassword(passe.getText());
+                user.setCozinheiro(true);
+                //user.setIdUser();
+                UsersBLL.create(user);
+
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Registo");
+                alert.setHeaderText("Registo efetuado com sucesso!");
+                alert.show();
+            }
+        }
+    }
 
     @FXML
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
@@ -67,5 +83,32 @@ public class CozinheiroRegistoAdmin {
         stageAtual.close();
 
     }
+    public boolean isInputValid(){
 
+        String errorMessage = "";
+
+        if (email.getText().isEmpty() || email.getText().length() == 0) {
+            errorMessage += "Email inválido!\n";
+        }
+
+        if (passe.getText().isEmpty() || passe.getText().length() == 0) {
+            errorMessage += "Palavra-passe iniválida!\n";
+        }
+        if (username.getText().isEmpty() || username.getText().length() == 0) {
+            errorMessage += "Username inválido!\n";
+        }
+
+
+        if (errorMessage.length() == 0) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Campos inválidos");
+            alert.setHeaderText("Preencha corretamente os campos!");
+            alert.setContentText(errorMessage);
+            alert.showAndWait();
+            return false;
+        }
+
+    }
 }
