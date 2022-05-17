@@ -21,11 +21,12 @@ public class adminPainelController {
     @FXML
     private Button btnClientes;
 
-    @FXML
-    private MenuButton btnEmenta;
 
     @FXML
     private Button btnEstafeta;
+
+    @FXML
+    private Button btnEmenta;
 
     @FXML
     private Button btnGestor;

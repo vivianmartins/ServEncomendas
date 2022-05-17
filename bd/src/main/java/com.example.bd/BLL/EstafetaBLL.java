@@ -25,6 +25,37 @@ public class EstafetaBLL {
             em.getTransaction().commit();//guardou
         }
 
+<<<<<<< Updated upstream
+=======
+    public void merge(Estafeta est) {
+        try {
+           em.getTransaction().begin();
+           em.merge(est);
+           em.getTransaction().commit();
+        } catch (Exception ex) {
+          em.getTransaction().rollback();
+        }
+    }
+
+/*    public  static  void  insert (Estafeta es){
+
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+
+        Query q1 = em.createNamedQuery("Estafeta.insert");
+
+        em.getTransaction().begin();
+        em.merge(es);
+        em.getTransaction().commit();
+
+
+
+    }*/
+
+>>>>>>> Stashed changes
         public static Estafeta read(int id_estafeta){
             Estafeta est = null;
             if(factory == null)

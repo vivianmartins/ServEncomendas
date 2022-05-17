@@ -2,8 +2,10 @@ package com.example.fx.controllerAdmin;
 
 
 import com.example.bd.BLL.ClienteBLL;
+import com.example.bd.BLL.EncomendaBLL;
 import com.example.bd.BLL.UsersBLL;
 import com.example.bd.DAL.Clientes;
+import com.example.bd.DAL.Encomendas;
 import com.example.bd.DAL.Users;
 import com.example.fx.controllerAdmin.adminClRegistoController;
 import com.example.fx.loginController;
@@ -19,6 +21,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -50,21 +54,25 @@ public class adminClientesController implements Initializable {
     private Button btncriarCl;
 
     @FXML
-    private TableColumn<TableClientAdmin,String> codigopostal;
-
-        @FXML
-    private TableColumn<TableClientAdmin, String> morada;
+    private TableColumn<Clientes,String> codigopostal;
 
     @FXML
-    private TableColumn<TableClientAdmin, String> nome;
+    private TableColumn<Encomendas,Number> encomendas;
+
 
     @FXML
-    private TableColumn<TableClientAdmin, String> password;
+    private TableColumn<Clientes, String> morada;
 
     @FXML
-    private TableColumn<TableClientAdmin,String> telefone;
+    private TableColumn<Clientes, String> nome;
 
-    ObservableList<TableClientAdmin> oblist = FXCollections.observableArrayList();
+    @FXML
+   private TableColumn<Clientes, Number> nif;
+
+    @FXML
+    private TableColumn<Clientes,String> telefone;
+
+
 
     @FXML
     void clhandleBtnRemover(ActionEvent event) {
@@ -99,7 +107,8 @@ public class adminClientesController implements Initializable {
     void handleBtnPesquisar(ActionEvent event) {
 
     }
-
+    @FXML
+    private TableView<Clientes> tblCliente;
     @FXML
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
         Stage stage = new Stage();
@@ -116,8 +125,18 @@ public class adminClientesController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        List<Clientes> cli = null;
-        cli = ClienteBLL.readAll();
+
+        ObservableList<Clientes> listaCl = FXCollections.observableArrayList(ClienteBLL.readAll());
+        ObservableList<Encomendas> listaEn = FXCollections.observableArrayList(EncomendaBLL.readAll());
+        //UsersBLL users = new UsersBLL();
+        nome.setCellValueFactory(new PropertyValueFactory<Clientes,String>("nome"));
+        morada.setCellValueFactory(new PropertyValueFactory<Clientes,String>("rua"));
+        codigopostal.setCellValueFactory(new PropertyValueFactory<Clientes,String>("codpostal"));
+        telefone.setCellValueFactory(new PropertyValueFactory<Clientes,String>("numtelemovel"));
+        nif.setCellValueFactory(new PropertyValueFactory<Clientes,Number>("nif"));
+        encomendas.setCellValueFactory(new PropertyValueFactory<Encomendas,Number>("id_encomenda"));
+       
+        tblCliente.setItems(listaCl);
 
    }
 

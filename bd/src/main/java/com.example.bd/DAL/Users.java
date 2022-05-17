@@ -8,8 +8,8 @@ import java.math.BigInteger;
 @NamedQueries({
         @NamedQuery(name = "Users.findAll", query = "SELECT c FROM Users c"),
         @NamedQuery(name = "Users.findByUser", query = "SELECT c FROM Users c WHERE c.idUser = :id_user"),
-        @NamedQuery(name= "Users.findByLogin", query =  "Select c From Users c WHERE c.email = :emailUser and c.password  = :pass"),
-
+        @NamedQuery(name = "Users.findByLogin", query =  "Select c From Users c WHERE c.email = :emailUser and c.password  = :pass"),
+        @NamedQuery(name = "Users.findByGestor" , query = "Select c From Users c  where c.gestor = :is_gestor" )
 })
 public class Users {
     private BigInteger idUser;

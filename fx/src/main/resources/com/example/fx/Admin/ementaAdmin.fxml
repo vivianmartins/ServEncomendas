@@ -12,13 +12,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="com.example.fx.controllerAdmin.adminEmentaControlller">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0">
          <children>
             <Pane layoutX="-11.0" layoutY="-5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="960.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <TableView editable="true" layoutX="104.0" layoutY="145.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="364.0" prefWidth="663.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
+                  <TableView fx:id="tblEmenta" editable="true" layoutX="104.0" layoutY="145.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="364.0" prefWidth="663.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
                      <columns>
                         <TableColumn fx:id="valor" onEditStart="#valor" prefWidth="137.0" style="-fx-background-color: #F19800;" text="Preço por dose" />
                         <TableColumn fx:id="stock" onEditStart="#stock" prefWidth="185.0" style="-fx-background-color: #F19800;" text="Stock" />

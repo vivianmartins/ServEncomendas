@@ -17,7 +17,7 @@
       <Pane layoutX="2.0" layoutY="-5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="608.0" layoutX="-6.0" layoutY="-1.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
-            <TableView editable="true" layoutX="14.0" layoutY="119.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="444.0" prefWidth="794.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
+            <TableView fx:id="tblPedidos" editable="true" layoutX="14.0" layoutY="119.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="444.0" prefWidth="794.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
                <columns>
                   <TableColumn fx:id="estado" prefWidth="94.0" style="-fx-background-color: #F19800;" text="Estado" />
                   <TableColumn fx:id="Qtd" prefWidth="45.0" style="-fx-background-color: #F19800;" text="Qtd" />

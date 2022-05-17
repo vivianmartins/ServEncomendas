@@ -17,13 +17,13 @@
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="608.0" layoutX="-6.0" layoutY="-1.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
-            <TableView editable="true" layoutX="21.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="440.0" prefWidth="763.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
+            <TableView fx:id="tblCliente" editable="true" layoutX="21.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="440.0" prefWidth="763.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
                <columns>
-                  <TableColumn fx:id="Encomendas" prefWidth="118.0" style="-fx-background-color: #F19800;" text="Encomendas" />
+                  <TableColumn fx:id="encomendas" prefWidth="118.0" style="-fx-background-color: #F19800;" text="Encomendas" />
                   <TableColumn fx:id="telefone" prefWidth="105.0" style="-fx-background-color: #F19800;" text="Telefone" />
                   <TableColumn fx:id="codigopostal" prefWidth="122.0" style="-fx-background-color: #F19800;" text="Código-postal" />
                   <TableColumn fx:id="morada" prefWidth="104.0" style="-fx-background-color: #F19800;" text="Morada" />
-                  <TableColumn fx:id="password" minWidth="0.0" prefWidth="122.66665649414062" style="-fx-background-color: #F19800;" text="Password" />
+                  <TableColumn fx:id="nif" minWidth="0.0" prefWidth="122.66665649414062" style="-fx-background-color: #F19800;" text="Nif" />
                   <TableColumn fx:id="nome" minWidth="0.0" prefWidth="94.0" style="-fx-background-color: #F19800;" text="Nome" />
                </columns>
             </TableView>

@@ -57,6 +57,31 @@ public class UsersBLL {
         }
 
 
+
+    public static Users gestor(boolean is_gestor){
+        Users user = null;
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Users.findByGestor");
+        q1.setParameter("is_gestor", is_gestor);
+        System.out.println(q1.getMaxResults());
+        Object obj = q1.getSingleResult();
+
+
+        if(obj != null){
+            user = ((Users)user);
+        }
+        else
+            return null;
+
+
+        return user;
+    }
+
+
     public static Users login(String email, String password){
         Users user = null;
         if(factory == null)
@@ -93,7 +118,7 @@ public class UsersBLL {
             if (em == null) em = factory.createEntityManager();
 
             Query q1 = em.createNamedQuery("Users.findAll");
-            List<Object> result = q1.getResultList();
+             List<Object> result = q1.getResultList();
 
             for(Object user : result){
                 listaUser.add((Users) user);
@@ -101,6 +126,8 @@ public class UsersBLL {
 
             return listaUser;
         }
+
+
 
 
 

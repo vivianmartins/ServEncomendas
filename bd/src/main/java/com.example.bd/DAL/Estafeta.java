@@ -18,6 +18,8 @@ public class Estafeta {
     private String email;
     private BigInteger idUser;
 
+
+
    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_ESTAFETA", nullable = false, precision = 0)
