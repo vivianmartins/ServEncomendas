@@ -12,18 +12,50 @@ public class EstafetaBLL {
         @PersistenceContext
         private static EntityManager em = null;
 
+
+
+
         public static void create(Estafeta est){
             if(factory == null) {
                 factory = Persistence.createEntityManagerFactory("default");
             }
-
-
             if (em == null) em = factory.createEntityManager();
-
+        try {
             em.getTransaction().begin(); //iniciando a transação com bd
             em.persist(est); //Persistindo os dados
             em.getTransaction().commit();//guardou
+          }catch(Exception ex){
+        em.getTransaction().rollback();
+            }
         }
+
+    public void merge(Estafeta est) {
+        try {
+           em.getTransaction().begin();
+           em.merge(est);
+           em.getTransaction().commit();
+        } catch (Exception ex) {
+          em.getTransaction().rollback();
+        }
+    }
+
+    public  static  void  insert (Estafeta es){
+
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+
+        Query q1 = em.createNamedQuery("Estafeta.insert");
+
+        em.getTransaction().begin();
+        em.merge(es);
+        em.getTransaction().commit();
+
+
+
+    }
 
         public static Estafeta read(int id_estafeta){
             Estafeta est = null;

@@ -1,5 +1,11 @@
 package com.example.fx.controllerAdmin;
 
+import com.example.bd.BLL.CodPostaisBLL;
+import com.example.bd.BLL.EstafetaBLL;
+import com.example.bd.BLL.UsersBLL;
+import com.example.bd.DAL.Codpostais;
+import com.example.bd.DAL.Estafeta;
+import com.example.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigInteger;
 
 public class EstafetaregistoAdmin {
 
@@ -23,7 +30,7 @@ public class EstafetaregistoAdmin {
     private Button btnVoltarEs;
 
     @FXML
-    private SplitMenuButton codpostal;
+    private TextField codpostal;
 
     @FXML
     private TextField email;
@@ -31,8 +38,7 @@ public class EstafetaregistoAdmin {
     @FXML
     private TextField localidade;
 
-    @FXML
-    private TextField morada;
+
 
     @FXML
     private TextField nif;
@@ -54,10 +60,9 @@ public class EstafetaregistoAdmin {
 
     }
 
-    @FXML
-    void edMorada(ActionEvent event) {
-
-    }
+  //  @FXML
+    //void edMorada(ActionEvent event) {
+//    }
 
     @FXML
     void edNif(ActionEvent event) {
@@ -85,13 +90,47 @@ public class EstafetaregistoAdmin {
     }
 
     @FXML
+    void edcodpostal (ActionEvent event) {
+
+    }
+
+    @FXML
     void edlocalidade(ActionEvent event) {
 
     }
 
     @FXML
     void handleBtnRegistar(ActionEvent event) {
+
+
+
         {
+
+            Estafeta est= new Estafeta();
+            Users user = new Users ();
+            Codpostais codpostais = new Codpostais();
+
+            est.setEmail(email.getText());
+            est.setNumtelefone(telefone.getText());
+            est.setNome(nome.getText());
+            est.setNif(Integer.parseInt(nif.getText()));
+            est.setIdEstafeta(62);
+            est.setIdUser(BigInteger.valueOf((62)));
+            user.setNomeuser(username.getText());
+            user.setEmail(email.getText());
+            user.setPassword(passe.getText());
+            user.setEstafeta(true);
+            codpostais.setLocalidade(localidade.getText());
+            //colocar o codpostal
+            codpostais.setCodpostal(Integer.parseInt(codpostal.getText()));
+
+            UsersBLL.create(user);
+            EstafetaBLL.create(est);
+            CodPostaisBLL.create(codpostais);
+
+
+
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registo");
             alert.setHeaderText("Registo efetuado com sucesso!");

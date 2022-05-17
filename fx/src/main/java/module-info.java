@@ -17,6 +17,8 @@ module com.example.fx {
     opens com.example.fx.controllerGestor to javafx.fxml;
     //requires java.persistence;
     requires org.hibernate.orm.core;
+    requires java.logging;
+    requires java.persistence;
 
 
 }

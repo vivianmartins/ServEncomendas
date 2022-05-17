@@ -21,7 +21,7 @@ public class Users {
     private boolean isCozinheiro;
     private String nomeuser;
 
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_USER", nullable = false, precision = 0)
     public BigInteger getIdUser() {

@@ -1,24 +1,38 @@
 package com.example.bd;
 
-import com.example.bd.BLL.ClienteBLL;
-import com.example.bd.BLL.EstadosencomendaBLL;
-import com.example.bd.BLL.PratoBLL;
-import com.example.bd.BLL.UsersBLL;
-import com.example.bd.DAL.Clientes;
-import com.example.bd.DAL.Pratos;
-import com.example.bd.DAL.Users;
+import com.example.bd.BLL.*;
+import com.example.bd.DAL.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        List<Clientes> lista = ClienteBLL.readAll("Melita");
-        for(Clientes cli1 : lista)
-            System.out.println("ID " + cli1.getIdCliente() + " chama-se " + cli1.getNome() + " e mora em " + cli1.getRua());
 
 
+        Estafeta est= new Estafeta();
+        Users user = new Users ();
+        Codpostais codpostais = new Codpostais();
+
+        est.setEmail("joanous@delivery.com");
+        est.setNumtelefone("99988487");
+        est.setNome("Joano Lusi");
+        est.setNif(98533);
+        est.setIdEstafeta(57);
+        est.setIdUser(BigInteger.valueOf(57));
+        user.setNomeuser("joanolusi");
+        user.setEmail("joanolus@dvery.com");
+        user.setPassword("9897");
+        user.setEstafeta(true);
+        codpostais.setLocalidade("Baltar");
+        //colocar o codpostal
+        codpostais.setCodpostal(9982);
+
+        UsersBLL.create(user);
+        EstafetaBLL.create(est);
+        CodPostaisBLL.create(codpostais);
 
 
 

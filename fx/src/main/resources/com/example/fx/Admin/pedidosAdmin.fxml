@@ -39,7 +39,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnNew" layoutX="820.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleBtnNew" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Adicionar pedido" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Button fx:id="btnNew" layoutX="820.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleBtnNew" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Criar pedido" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
