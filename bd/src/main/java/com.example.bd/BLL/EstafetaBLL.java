@@ -25,8 +25,6 @@ public class EstafetaBLL {
             em.getTransaction().commit();//guardou
         }
 
-<<<<<<< Updated upstream
-=======
     public void merge(Estafeta est) {
         try {
            em.getTransaction().begin();
@@ -55,7 +53,6 @@ public class EstafetaBLL {
 
     }*/
 
->>>>>>> Stashed changes
         public static Estafeta read(int id_estafeta){
             Estafeta est = null;
             if(factory == null)

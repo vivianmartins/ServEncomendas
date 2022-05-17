@@ -14,13 +14,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-<<<<<<< Updated upstream
+
         List<Clientes> lista = ClienteBLL.readAll("Melita");
         for(Clientes cli1 : lista)
             System.out.println("ID " + cli1.getIdCliente() + " chama-se " + cli1.getNome() + " e mora em " + cli1.getRua());
 
 
-=======
+
       /*  List<Users> listaUser =  UsersBLL.gestor();
         for(Users us : listaUser)
 
