@@ -9,7 +9,8 @@ import java.math.BigInteger;
         @NamedQuery(name = "Users.findAll", query = "SELECT c FROM Users c"),
         @NamedQuery(name = "Users.findByUser", query = "SELECT c FROM Users c WHERE c.idUser = :id_user"),
         @NamedQuery(name = "Users.findByLogin", query =  "Select c From Users c WHERE c.email = :emailUser and c.password  = :pass"),
-        @NamedQuery(name = "Users.findByGestor" , query = "Select c From Users c  where c.gestor = :is_gestor" )
+        @NamedQuery(name = "Users.findByGestor" , query = "Select c From Users c  where c.gestor = :is_gestor" ),
+        @NamedQuery(name = "Users.findByCozinheiro" , query = "Select c From Users c  where c.cozinheiro = :is_cozinheiro" )
 })
 public class Users {
     private BigInteger idUser;
@@ -31,6 +32,7 @@ public class Users {
     public void setIdUser(BigInteger idUser) {
         this.idUser = idUser;
     }
+
 
     @Basic
     @Column(name = "EMAIL", nullable = false, length = 100)

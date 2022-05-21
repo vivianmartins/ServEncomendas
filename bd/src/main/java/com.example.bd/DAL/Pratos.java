@@ -16,7 +16,9 @@ public class Pratos {
     private int stockdoses;
     private int precoatual;
 
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_PRATO", nullable = false, precision = 0)
     public int getIdPrato() {
@@ -80,4 +82,6 @@ public class Pratos {
         result = 31 * result + precoatual;
         return result;
     }
+
+
 }

@@ -19,22 +19,17 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="608.0" layoutX="-6.0" layoutY="-1.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
             <TableView fx:id="tblPedidos" editable="true" layoutX="14.0" layoutY="119.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="444.0" prefWidth="794.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
                <columns>
-                  <TableColumn fx:id="estado" prefWidth="94.0" style="-fx-background-color: #F19800;" text="Estado" />
-                  <TableColumn fx:id="Qtd" prefWidth="45.0" style="-fx-background-color: #F19800;" text="Qtd" />
-                  <TableColumn fx:id="valor" prefWidth="54.0" style="-fx-background-color: #F19800;" text="Valor" />
-                  <TableColumn fx:id="data" prefWidth="75.0" style="-fx-background-color: #F19800;" text="Data" />
-                  <TableColumn fx:id="descricao" prefWidth="138.0" style="-fx-background-color: #F19800;" text="Descrição" />
-                  <TableColumn fx:id="nCliente" prefWidth="141.0" style="-fx-background-color: #F19800;" text="Número cliente" />
-                  <TableColumn fx:id="noEstafeta" prefWidth="107.3333740234375" style="-fx-background-color: #F19800;" text="Nome do estafeta" />
-                  <TableColumn fx:id="nPedido" prefWidth="136.0" style="-fx-background-color: #F19800;" text="Número pedido" />
+                  <TableColumn fx:id="estado" prefWidth="94.0" text="Estado" />
+                  <TableColumn fx:id="Qtd" prefWidth="45.0" text="Qtd" />
+                  <TableColumn fx:id="valor" prefWidth="54.0" text="Valor" />
+                  <TableColumn fx:id="data" prefWidth="75.0" text="Data" />
+                  <TableColumn fx:id="descricao" prefWidth="138.0" text="Descrição" />
+                  <TableColumn fx:id="nCliente" prefWidth="141.0" text="Número cliente" />
+                  <TableColumn fx:id="noEstafeta" prefWidth="107.3333740234375" text="Nome do estafeta" />
+                  <TableColumn fx:id="nPedido" prefWidth="136.0" text="Número pedido" />
                </columns>
             </TableView>
             <Button fx:id="btnEditar" layoutX="820.0" layoutY="199.0" mnemonicParsing="false" onAction="#handleBtnEditar" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Editar pedido" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnRemover" layoutX="822.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleBtnRemover" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Eliminar estafeta" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

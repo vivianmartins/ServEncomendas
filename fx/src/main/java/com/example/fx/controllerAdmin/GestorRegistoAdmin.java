@@ -53,7 +53,7 @@ public class GestorRegistoAdmin {
     @FXML
     void handleBtnRegistar(ActionEvent event) {
 
-        if (isInputValid()) {
+        if (isInputValid())  {
 
             {
                 Users user = new Users();
@@ -61,7 +61,7 @@ public class GestorRegistoAdmin {
                 user.setNomeuser(username.getText());
                 user.setPassword(passe.getText());
                 user.setGestor(true);
-                //user.setIdUser();
+              //  user.setIdUser(BigInteger.valueOf(61));
                 UsersBLL.create(user);
 
 
@@ -88,7 +88,9 @@ public class GestorRegistoAdmin {
         }
 
 
+
     public boolean isInputValid(){
+
 
             String errorMessage = "";
 
@@ -104,7 +106,7 @@ public class GestorRegistoAdmin {
             }
 
 
-            if (errorMessage.length() == 0) {
+            if (errorMessage.length() == 0 ) {
                 return true;
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

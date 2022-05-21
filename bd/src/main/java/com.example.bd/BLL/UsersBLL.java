@@ -28,6 +28,7 @@ public class UsersBLL {
             em.getTransaction().begin(); //iniciando a transação com bd
             em.persist(user); //Persistindo os dados
             em.getTransaction().commit();//guardou
+
         }
 
         /**
@@ -58,8 +59,9 @@ public class UsersBLL {
 
 
 
-    public static Users gestor(boolean is_gestor){
-        Users user = null;
+    public static List<Users> readAll(boolean is_gestor){
+
+        List<Users> listaUser = new ArrayList<>();
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
@@ -67,19 +69,39 @@ public class UsersBLL {
 
         Query q1 = em.createNamedQuery("Users.findByGestor");
         q1.setParameter("is_gestor", is_gestor);
-        System.out.println(q1.getMaxResults());
-        Object obj = q1.getSingleResult();
+        List<Object> result = q1.getResultList();
 
-
-        if(obj != null){
-            user = ((Users)user);
+        for(Object user : result){
+            listaUser.add((Users) user);
         }
-        else
-            return null;
 
+        return listaUser;
 
-        return user;
     }
+
+
+
+    public static List<Users> readAllC(boolean is_cozinheiro){
+
+        List<Users> listaUser = new ArrayList<>();
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Users.findByCozinheiro");
+        q1.setParameter("is_cozinheiro", is_cozinheiro);
+        List<Object> result = q1.getResultList();
+
+        for(Object user : result){
+            listaUser.add((Users) user);
+        }
+
+        return listaUser;
+
+    }
+
+
 
 
     public static Users login(String email, String password){

@@ -16,9 +16,9 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="588.0" layoutX="6.0" layoutY="7.0" stroke="WHITE" strokeType="INSIDE" width="958.0" />
       <TableView fx:id="tblCozinheiro" editable="true" layoutX="61.0" layoutY="120.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="443.0" prefWidth="677.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
          <columns>
-            <TableColumn fx:id="email" prefWidth="235.9999644756317" style="-fx-background-color: #F19800;" text="Email" />
-            <TableColumn fx:id="password" prefWidth="174.00001525878906" style="-fx-background-color: #F19800;" text="Password" />
-            <TableColumn fx:id="username" prefWidth="250.6666259765625" style="-fx-background-color: #F19800;" text="Username" />
+            <TableColumn fx:id="email" prefWidth="235.9999644756317"  text="Email" />
+            <TableColumn fx:id="password" prefWidth="174.00001525878906"  text="Password" />
+            <TableColumn fx:id="username" prefWidth="250.6666259765625"  text="Username" />
          </columns>
       </TableView>
       <Button fx:id="btnEditar" layoutX="758.0" layoutY="224.0" mnemonicParsing="false" onAction="#handleBtnEditar" prefHeight="37.0" prefWidth="162.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">

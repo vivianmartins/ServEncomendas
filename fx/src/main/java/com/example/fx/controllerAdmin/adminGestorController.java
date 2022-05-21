@@ -114,7 +114,7 @@ public class adminGestorController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
 
-        ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.readAll());
+        ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.readAll(true));
 
         //UsersBLL users = new UsersBLL();
         username.setCellValueFactory(new PropertyValueFactory<Users,String>("nomeuser"));

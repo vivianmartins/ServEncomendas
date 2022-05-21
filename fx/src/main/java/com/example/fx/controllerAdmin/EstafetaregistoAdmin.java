@@ -109,7 +109,6 @@ public class EstafetaregistoAdmin {
             Estafeta est= new Estafeta();
             Users user = new Users ();
             Codpostais codpostais = new Codpostais();
-
             est.setEmail(email.getText());
             est.setNumtelefone(telefone.getText());
             est.setNome(nome.getText());
@@ -123,7 +122,6 @@ public class EstafetaregistoAdmin {
             codpostais.setLocalidade(localidade.getText());
             //colocar o codpostal
             codpostais.setCodpostal(Integer.parseInt(codpostal.getText()));
-
             UsersBLL.create(user);
             EstafetaBLL.create(est);
             CodPostaisBLL.create(codpostais);

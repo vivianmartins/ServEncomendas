@@ -128,5 +128,7 @@ public class adminEstafetasController implements Initializable {
         nif.setCellValueFactory(new PropertyValueFactory<Estafeta, Number>("nif"));
         telefone.setCellValueFactory(new  PropertyValueFactory<Estafeta, String>("numtelefone"));
         tblEstafeta.setItems(listaEst);
+
+
     }
 }

@@ -30,9 +30,6 @@ public class adminPedidosController {
     private Button btnPesquisar;
 
     @FXML
-    private Button btnRemover;
-
-    @FXML
     private Button btnVoltarEs;
 
     @FXML
@@ -84,10 +81,6 @@ public class adminPedidosController {
 
     }
 
-    @FXML
-    void handleBtnRemover(ActionEvent event) {
-
-    }
 
     @FXML
     void handleBtnVoltarEs(ActionEvent event) throws IOException {

@@ -11,12 +11,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 import java.util.logging.Level;
 import javax.persistence.*;
 import java.util.logging.Logger;
@@ -24,9 +23,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class clientesEstafetasController implements Initializable {
 
+    ObservableList<Clientes> listaClnome =  FXCollections.observableArrayList(ClienteBLL.readAll());;
 
     @FXML
     private Button btnLogout;
@@ -37,8 +38,10 @@ public class clientesEstafetasController implements Initializable {
     @FXML
     private Button btnVoltarEs;
 
-    //@FXML
-    //private TableColumn<Clientes, Integer> codigopostal;
+
+    @FXML
+    private TextField txtSearch;
+
 
     @FXML
     private TableColumn<Clientes, String> morada;
@@ -49,10 +52,10 @@ public class clientesEstafetasController implements Initializable {
     @FXML
     private TableColumn<Clientes, String> telefone;
     @FXML
-    public TableView<Clientes> CltableView ;
+    public TableView<Clientes> tblClEstafeta ;
 
 
-      //  final  ObservableList<Clientes> cli = FXCollections.observableArrayList(listaCl);
+
 
     @FXML
     void handleBtnLogout(ActionEvent event) throws IOException {
@@ -70,10 +73,50 @@ public class clientesEstafetasController implements Initializable {
 
     }
     @FXML
-    void handleBtnPesquisar(ActionEvent event) {
+    void handleBtnPesquisar(ActionEvent event ) {
+/*
+   if (txtSearch.getText().equals(""))
+        tblClEstafeta.getItems().clear();
+        ListCl(ClienteBLL.readAll());
+
+          else {
+
+            ObservableList<Clientes> cl=  FXCollections.observableArrayList(ClienteBLL.readAll(""));;
+
+            for (Clientes cls : ClienteBLL.readAll()){
+                if(cls.getNome().equals(txtSearch.getText()) )
+                cl.add(cls);
+
+            }
+        }
 
     }
 
+
+ */
+    /*
+
+                List<Clientes> clientes = new ArrayList();
+
+                switch (Clientes.getValue()) {
+
+                    case "Nome":
+                      clientes = ClienteBLL.readAll(txtSearch.getText());
+                        break;
+                    case "E-mail":
+                        clientes = ClienteBLL.readAll(txtSearch.getText());
+                        break;
+
+                    default:
+                        break;
+                }
+
+                loadPerson(people);
+            }
+
+*/
+
+    }
     @FXML
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
         Node  source = (Node)  event.getSource();
@@ -83,49 +126,32 @@ public class clientesEstafetasController implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle rb) {
+        ObservableList<Clientes> listaClEst =  FXCollections.observableArrayList(ClienteBLL.readAll());
 
-
-      /*  ClienteBLL listaCl =  new ClienteBLL();
-        nome.setCellValueFactory(new PropertyValueFactory<Clientes, String>("nome"));
-        codigopostal.setCellValueFactory(new PropertyValueFactory<Clientes,Integer>("codpostal"));
-        morada.setCellValueFactory(new PropertyValueFactory<Clientes,String>("rua"));
-        telefone.setCellValueFactory(new PropertyValueFactory<Clientes,String>("numtelemovel"));
-        listaCl.readAll(String.valueOf(CltableView));
-
-       // CltableView.setRowFactory(tv -> {
-        //  TableRow<Clientes> row = new TableRow<>() ;
-          //       Clientes rowData = row.getItem();
-
-
-
-        //    return row;
-      //  });
-
-    //  CltableView.getItems().addAll(listaCl);
-
-       */
-        List<Clientes> listaCl = ClienteBLL.readAll();
-        ObservableList<Clientes> row =  FXCollections.observableArrayList(listaCl);;
-        //CltableView.setItems(row);
-       // ClienteBLL   listCliente = new ClienteBLL();
-      //  row = listCliente.getSelectionModel().getSelectedItems();
-
-        //ClienteBLL listaCl =  new ClienteBLL();
-     //   codigopostal.setCellValueFactory(new PropertyValueFactory<Clientes,Integer>("codpostal"));
-        morada.setCellValueFactory(new PropertyValueFactory<Clientes,String>("rua"));
         nome.setCellValueFactory(new PropertyValueFactory<Clientes,String>("nome"));
         telefone.setCellValueFactory(new PropertyValueFactory<Clientes,String>("numtelemovel"));
-        //nome.setCellValueFactory(cellData -> cellData.getValue().getNome());
-            //String nome = rowData.toString();
-        String nome = row.get(0).getNome();
-
-        //listaCl.addAll(listaCl);
-
-        System.out.println(row);
+        morada.setCellValueFactory(new PropertyValueFactory<Clientes, String>("rua"));
+        tblClEstafeta.setItems(listaClEst);
+        }
 
 
+    private void ListCl( List<Clientes> listOfName) {
 
-         }
+
+        ObservableList<Clientes> listaClName = FXCollections.observableArrayList(ClienteBLL.readAll(""));
+
+
+
+        ObservableList<Clientes> listaClEst = FXCollections.observableArrayList(ClienteBLL.readAll());
+
+        nome.setCellValueFactory(new PropertyValueFactory<Clientes, String>("nome"));
+        telefone.setCellValueFactory(new PropertyValueFactory<Clientes, String>("numtelemovel"));
+        morada.setCellValueFactory(new PropertyValueFactory<Clientes, String>("rua"));
+        tblClEstafeta.setItems(listaClEst);
+
+
+
+        }
 
     }
 

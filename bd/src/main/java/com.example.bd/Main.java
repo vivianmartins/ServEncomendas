@@ -15,11 +15,15 @@ public class Main {
     public static void main(String[] args) {
 
 
-        List<Clientes> lista = ClienteBLL.readAll("Melita");
-        for(Clientes cli1 : lista)
-            System.out.println("ID " + cli1.getIdCliente() + " chama-se " + cli1.getNome() + " e mora em " + cli1.getRua());
+        List<Users> listaUs = UsersBLL.readAllC(true);
+        for(Users l1 : listaUs)
+            System.out.println( " chama-se " + l1.getNomeuser() + "email" + l1.getEmail());
 
 
+
+
+
+    //ClienteBLL.delete(5);
 
       /*  List<Users> listaUser =  UsersBLL.gestor();
         for(Users us : listaUser)
