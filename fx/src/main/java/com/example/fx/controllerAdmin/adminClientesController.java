@@ -34,9 +34,9 @@ import java.util.ResourceBundle;
 
 public class adminClientesController implements Initializable {
 
-    private List <Clientes>  cLista = ClienteBLL.readAll();
+    private List <Clientes>  clisteList = ClienteBLL.readAll();
 
-    ObservableList<Clientes> listaCl = FXCollections.observableArrayList(ClienteBLL.readAll());
+   ObservableList<Clientes> listaCl = FXCollections.observableArrayList(ClienteBLL.readAll());
 
     @FXML
     private TableColumn<TableClientAdmin, String> Encomendas;
@@ -63,8 +63,7 @@ public class adminClientesController implements Initializable {
     private TableColumn<Clientes,String> codigopostal;
 
     @FXML
-    private TableColumn<Encomendas,Number> encomendas;
-
+    private TableColumn<Clientes, Number> id;
 
     @FXML
     private TableColumn<Clientes, String> morada;
@@ -83,15 +82,13 @@ public class adminClientesController implements Initializable {
     @FXML
     void clhandleBtnRemover(ActionEvent event) {
 
-
-/*
         Clientes cls = tblCliente.getSelectionModel().getSelectedItem();
         int id = cls.getIdCliente(); //nome dado ao fazer select
-        cLista.remove(id); //remove das definições
+        listaCl.remove(id); //remove das definições
         ClienteBLL.delete(id); //remove pelo BLL
         tblCliente.setItems(listaCl); //permite listar novamente
 
-        //  pseudo remover ---- volta a aparecer
+  /*      //  pseudo remover ---- volta a aparecer
 
         int selectedID = tblCliente.getSelectionModel().getSelectedIndex();
         tblCliente.getItems().remove(selectedID);
@@ -143,7 +140,6 @@ public class adminClientesController implements Initializable {
 
 
 
-    ObservableList<Clientes> listasCl = FXCollections.observableArrayList();
     @FXML
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
         Stage stage = new Stage();
@@ -161,16 +157,13 @@ public class adminClientesController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-
-        ObservableList<Encomendas> listaEn = FXCollections.observableArrayList(EncomendaBLL.readAll());
-        //UsersBLL users = new UsersBLL();
+        id.setCellValueFactory(new PropertyValueFactory<Clientes,Number>("ID_CLIENTE"));
         nome.setCellValueFactory(new PropertyValueFactory<Clientes,String>("nome"));
         morada.setCellValueFactory(new PropertyValueFactory<Clientes,String>("rua"));
         codigopostal.setCellValueFactory(new PropertyValueFactory<Clientes,String>("codpostal"));
         telefone.setCellValueFactory(new PropertyValueFactory<Clientes,String>("numtelemovel"));
         nif.setCellValueFactory(new PropertyValueFactory<Clientes,Number>("nif"));
-        encomendas.setCellValueFactory(new PropertyValueFactory<Encomendas,Number>("id_encomenda"));
-       
+
         tblCliente.setItems(listaCl);
 
    }

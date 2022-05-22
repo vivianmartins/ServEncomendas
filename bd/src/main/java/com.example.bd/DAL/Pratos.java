@@ -8,6 +8,7 @@ import javax.persistence.*;
         @NamedQuery(name = "Pratos.findAll", query = "SELECT p FROM Pratos p"),
         @NamedQuery(name = "Pratos.findById_Pratos", query = "SELECT p FROM Pratos p WHERE  p.idPrato = :id_prato"),
         @NamedQuery(name = "Pratos.findAllByDescricao", query = "SELECT c FROM Pratos c WHERE c.descricao LIKE :DESCRICAO")
+
 })
 
 public class Pratos {

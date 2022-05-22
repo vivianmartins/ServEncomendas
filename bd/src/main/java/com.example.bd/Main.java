@@ -15,13 +15,6 @@ public class Main {
     public static void main(String[] args) {
 
 
-        List<Users> listaUs = UsersBLL.readAllC(true);
-        for(Users l1 : listaUs)
-            System.out.println( " chama-se " + l1.getNomeuser() + "email" + l1.getEmail());
-
-
-
-
 
     //ClienteBLL.delete(5);
 

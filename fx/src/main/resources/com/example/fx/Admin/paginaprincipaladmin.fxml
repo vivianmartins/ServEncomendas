@@ -85,7 +85,7 @@
 
 
 
-      <Button fx:id="btnEmenta" layoutX="697.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleBtnEmenta" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #F19800;" text="Ementa">
+      <Button fx:id="btnEmenta" layoutX="697.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleBtnEmenta" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #F19800;" text="Pratos">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

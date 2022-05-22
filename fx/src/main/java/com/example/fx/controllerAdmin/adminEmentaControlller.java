@@ -38,7 +38,7 @@ public class adminEmentaControlller implements Initializable {
 
 
     @FXML
-    private Button btnNew;
+    private Button btnCriar;
 
     @FXML
     private Button btnPesquisar;
@@ -83,7 +83,16 @@ public class adminEmentaControlller implements Initializable {
     }
 
     @FXML
-    void handleBtnNew(ActionEvent event) {
+    void handleBtnCriar(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/ementaRegistoAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 668 , 407);
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
 
     }
 

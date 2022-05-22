@@ -11,6 +11,7 @@ import java.math.BigInteger;
         @NamedQuery(name = "Users.findByLogin", query =  "Select c From Users c WHERE c.email = :emailUser and c.password  = :pass"),
         @NamedQuery(name = "Users.findByGestor" , query = "Select c From Users c  where c.gestor = :is_gestor" ),
         @NamedQuery(name = "Users.findByCozinheiro" , query = "Select c From Users c  where c.cozinheiro = :is_cozinheiro" )
+
 })
 public class Users {
     private BigInteger idUser;

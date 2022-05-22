@@ -19,12 +19,12 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="608.0" layoutX="-6.0" layoutY="-1.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
             <TableView fx:id="tblCliente" editable="true" layoutX="21.0" layoutY="130.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="440.0" prefWidth="763.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
                <columns>
-                  <TableColumn fx:id="encomendas" prefWidth="118.0"  text="Encomendas" />
-                  <TableColumn fx:id="telefone" prefWidth="105.0"  text="Telefone" />
-                  <TableColumn fx:id="codigopostal" prefWidth="122.0" text="Código-postal" />
-                  <TableColumn fx:id="morada" prefWidth="104.0"  text="Morada" />
-                  <TableColumn fx:id="nif" minWidth="0.0" prefWidth="122.66665649414062"  text="Nif" />
-                  <TableColumn fx:id="nome" minWidth="0.0" prefWidth="94.0" text="Nome" />
+                  <TableColumn fx:id="telefone" prefWidth="90.0" text="Telefone" />
+                  <TableColumn fx:id="codigopostal" prefWidth="110.66668701171875" text="Código-postal" />
+                  <TableColumn fx:id="morada" prefWidth="231.99996948242188" text="Morada" />
+                  <TableColumn fx:id="nif" minWidth="0.0" prefWidth="99.33334350585938" text="Nif" />
+                  <TableColumn fx:id="nome" minWidth="0.0" prefWidth="112.0" text="Nome" />
+                  <TableColumn fx:id="id" prefWidth="100.6666259765625" text="Id" />
                </columns>
             </TableView>
             <Button fx:id="btnEditarCl" layoutX="791.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleBtnEditarCl" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">
