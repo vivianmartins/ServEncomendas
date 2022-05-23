@@ -1,6 +1,6 @@
 package com.example.fx;
-import com.example.bd.BLL.UsersBLL;
-import com.example.bd.DAL.Users;
+import com.bd.BLL.UsersBLL;
+import com.bd.DAL.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,9 +49,9 @@ public class loginController {
             //loginAlert();
         }
 
-        if(user.isEstafeta()){
+        if(user.isGestor()){
 
-            Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("estafeta/painelEstafeta.fxml"))); //mudar para a pagina do admin
+            Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("gestor/painelGestor.fxml"))); //mudar para a pagina do admin
             stage.setScene(new Scene(root));
             stage.show();
             loginSucess();

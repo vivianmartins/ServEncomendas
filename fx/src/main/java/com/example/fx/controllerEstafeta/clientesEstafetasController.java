@@ -1,7 +1,7 @@
 package com.example.fx.controllerEstafeta;
 
-import com.example.bd.DAL.Clientes;
-import com.example.bd.BLL.ClienteBLL;
+import com.bd.DAL.Clientes;
+import com.bd.BLL.ClienteBLL;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,15 +15,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.logging.Level;
-import javax.persistence.*;
-import java.util.logging.Logger;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
 public class clientesEstafetasController implements Initializable {
 

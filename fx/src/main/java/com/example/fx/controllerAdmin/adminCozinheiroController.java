@@ -1,13 +1,7 @@
 package com.example.fx.controllerAdmin;
 
-import com.example.bd.BLL.ClienteBLL;
-import com.example.bd.BLL.EncomendaBLL;
-import com.example.bd.BLL.PratoBLL;
-import com.example.bd.BLL.UsersBLL;
-import com.example.bd.DAL.Clientes;
-import com.example.bd.DAL.Encomendas;
-import com.example.bd.DAL.Pratos;
-import com.example.bd.DAL.Users;
+import com.bd.BLL.UsersBLL;
+import com.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

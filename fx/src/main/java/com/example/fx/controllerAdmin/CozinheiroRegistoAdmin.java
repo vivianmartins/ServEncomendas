@@ -1,7 +1,7 @@
 package com.example.fx.controllerAdmin;
 
-import com.example.bd.BLL.UsersBLL;
-import com.example.bd.DAL.Users;
+import com.bd.BLL.UsersBLL;
+import com.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

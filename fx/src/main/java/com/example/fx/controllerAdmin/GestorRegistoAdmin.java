@@ -1,9 +1,7 @@
 package com.example.fx.controllerAdmin;
 
-import com.example.bd.BLL.ClienteBLL;
-import com.example.bd.BLL.UsersBLL;
-import com.example.bd.DAL.Clientes;
-import com.example.bd.DAL.Users;
+import com.bd.BLL.UsersBLL;
+import com.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.math.BigInteger;
 
 public class GestorRegistoAdmin {
 

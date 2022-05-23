@@ -1,17 +1,9 @@
 package com.example.fx.controllerAdmin;
 
 
-import com.example.bd.BLL.ClienteBLL;
-import com.example.bd.BLL.EncomendaBLL;
-import com.example.bd.BLL.PratoBLL;
-import com.example.bd.BLL.UsersBLL;
-import com.example.bd.DAL.Clientes;
-import com.example.bd.DAL.Encomendas;
-import com.example.bd.DAL.Pratos;
-import com.example.bd.DAL.Users;
-import com.example.fx.controllerAdmin.adminClRegistoController;
+import com.bd.BLL.ClienteBLL;
+import com.bd.DAL.Clientes;
 import com.example.fx.loginController;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -157,13 +148,12 @@ public class adminClientesController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        id.setCellValueFactory(new PropertyValueFactory<Clientes,Number>("ID_CLIENTE"));
+        id.setCellValueFactory(new PropertyValueFactory<Clientes,Number>("IdCliente"));
         nome.setCellValueFactory(new PropertyValueFactory<Clientes,String>("nome"));
         morada.setCellValueFactory(new PropertyValueFactory<Clientes,String>("rua"));
         codigopostal.setCellValueFactory(new PropertyValueFactory<Clientes,String>("codpostal"));
         telefone.setCellValueFactory(new PropertyValueFactory<Clientes,String>("numtelemovel"));
         nif.setCellValueFactory(new PropertyValueFactory<Clientes,Number>("nif"));
-
         tblCliente.setItems(listaCl);
 
    }

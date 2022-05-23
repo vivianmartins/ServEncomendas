@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <groupId>com</groupId>
     <artifactId>bd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>bd</name>
@@ -28,11 +28,13 @@
             <artifactId>ojdbc10</artifactId>
             <version>19.14.0.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.6.5.Final</version>
         </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -45,6 +47,8 @@
                     <target>9</target>
                 </configuration>
             </plugin>
+
         </plugins>
+
     </build>
 </project>
