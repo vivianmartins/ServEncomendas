@@ -5,11 +5,13 @@ import java.util.Date;
 public class listaPedidos {
     private  int id_encomenda;
     private int id_estafeta;
-    private int id_cliete;
+    private int id_cliente;
     private String descricao;
     private String data;
     private float precodose;
     private int encomendaestados;
+    private  int qtd;
+
 
 
     public int getId_encomenda() {
@@ -29,11 +31,11 @@ public class listaPedidos {
     }
 
     public int getId_cliete() {
-        return id_cliete;
+        return id_cliente;
     }
 
     public void setId_cliete(int id_cliete) {
-        this.id_cliete = id_cliete;
+        this.id_cliente = id_cliete;
     }
 
     public String getDescricao() {
@@ -68,13 +70,22 @@ public class listaPedidos {
         this.encomendaestados = encomendaestados;
     }
 
-    public listaPedidos(Encomendas en, Pratos pra, Encomendaestados ee, PratosEncomendados pre ) {
-        this.id_encomenda = id_encomenda;
-        this.id_estafeta = id_estafeta;
-        this.id_cliete = id_cliete;
-        this.descricao = descricao;
-        this.data = data;
-        this.precodose = precodose;
-        this.encomendaestados = encomendaestados;
+    public int getQtd() {
+        return qtd;
+    }
+
+    public void setQtd(int qtd) {
+        this.qtd = qtd;
+    }
+
+    public listaPedidos(Encomendas en, Pratos pr, Encomendaestados ee, PratosEncomendados prae ) {
+        this.id_encomenda = en.getIdEncomenda();
+        this.id_estafeta = en.getIdEstafeta();
+        this.id_cliente = en.getIdCliente();
+        this.descricao = pr.getDescricao();
+        this.data = String.valueOf(ee.getData());
+        this.precodose = prae.getPrecodose();
+        this.encomendaestados = ee.getIdEstadoencomenda();
+        this.qtd = prae.getQtddoses();
     }
 }

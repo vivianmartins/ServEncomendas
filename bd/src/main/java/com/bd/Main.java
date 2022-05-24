@@ -1,10 +1,9 @@
 package com.bd;
 
+import com.bd.BLL.EncomendaBLL;
 import com.bd.BLL.EstafetaBLL;
 import com.bd.BLL.UsersBLL;
-import com.bd.DAL.Estafeta;
-import com.bd.DAL.Estafetas;
-import com.bd.DAL.Users;
+import com.bd.DAL.*;
 
 import java.util.List;
 
@@ -13,9 +12,9 @@ public class Main {
     public static void main(String[] args) {
 
 
-        List<Estafetas> listaest =  EstafetaBLL.readAll();
-        for(Estafetas est : listaest)
-            System.out.println("nome " + est.getNome() + "mail " + est.getEmail());
+        List<listaPedidos> listaest = EncomendaBLL.readAll();
+        for(listaPedidos est : listaest)
+            System.out.println("nome " + est.getEncomendaestados() + " mail " + est.getId_encomenda());
 
         //ClienteBLL.delete(5);
 /*

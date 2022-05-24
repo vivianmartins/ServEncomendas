@@ -4,6 +4,7 @@ import com.bd.BLL.EncomendaBLL;
 import com.bd.DAL.Pratos;
 import com.bd.DAL.listaPedidos;
 import com.example.fx.loginController;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -73,6 +75,11 @@ public class adminPedidosController implements Initializable {
 
     }
 
+
+    @FXML
+    private TableView<listaPedidos> tblPedidos;
+
+
     @FXML
     void handleBtnNew(ActionEvent event) throws IOException {
         Stage stage = new Stage();
@@ -110,10 +117,16 @@ public class adminPedidosController implements Initializable {
 
         ObservableList<listaPedidos> listaPed = FXCollections.observableArrayList(EncomendaBLL.readAll());
 
-            descricao.setCellValueFactory(new PropertyValueFactory<Pratos,String>("descricao"));
-            stock.setCellValueFactory(new PropertyValueFactory<Pratos,Float>("stockdoses"));
-            valor.setCellValueFactory(new PropertyValueFactory<Pratos,Float>("precoatual"));
-            tblEmenta.setItems(listaPratos);
+            descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+            estado.setCellValueFactory(new PropertyValueFactory<>("encomendaestados"));
+            nPedido.setCellValueFactory(new PropertyValueFactory<>("id_encomenda"));
+            nCliente.setCellValueFactory(new PropertyValueFactory<>("id_cliente"));
+            noEstafeta.setCellValueFactory(new PropertyValueFactory<>("id_estafeta"));
+            valor.setCellValueFactory(new PropertyValueFactory<>("precodose"));
+            data.setCellValueFactory(new PropertyValueFactory<>("data"));
+            Qtd.setCellValueFactory(new PropertyValueFactory<>("qtd"));
+
+            tblPedidos.setItems(listaPed);
 
 
     }
