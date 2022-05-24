@@ -58,7 +58,6 @@ public class CozinheiroRegistoAdmin {
                 user.setNomeuser(username.getText());
                 user.setPassword(passe.getText());
                 user.setCozinheiro(true);
-                //user.setIdUser();
                 UsersBLL.create(user);
 
 
@@ -97,6 +96,9 @@ public class CozinheiroRegistoAdmin {
         if (username.getText().isEmpty() || username.getText().length() == 0) {
             errorMessage += "Username inválido!\n";
         }
+        if(UsersBLL.emailRepetido(email.getText())){
+            errorMessage += "Email já existe!\n";
+        }
 
 
         if (errorMessage.length() == 0) {
@@ -111,7 +113,6 @@ public class CozinheiroRegistoAdmin {
         }
 
     }
-
 
 
 }

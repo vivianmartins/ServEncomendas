@@ -18,7 +18,7 @@ public class Clientes {
     private int codpostal;
     private String numtelemovel;
 
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_CLIENTE", nullable = false, precision = 0)
     public int getIdCliente() {
