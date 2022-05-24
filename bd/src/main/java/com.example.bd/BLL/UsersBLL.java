@@ -125,6 +125,27 @@ public class UsersBLL {
     }
 
 
+    public static boolean emailRepetido(String email){
+        Users user = null;
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Users.findAllEmail");
+        q1.setParameter("email", email);
+        System.out.println(q1.getMaxResults());
+        Object obj = q1.getSingleResult();
+
+        if(obj != null) {
+            user = ((Users) obj);
+        }
+
+        return true;
+
+        }
+
+
 
 
 

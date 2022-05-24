@@ -19,7 +19,7 @@ public class Pratos {
 
 
 
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_PRATO", nullable = false, precision = 0)
     public int getIdPrato() {

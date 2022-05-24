@@ -20,7 +20,7 @@ public class Estafeta {
 
 
 
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_ESTAFETA", nullable = false, precision = 0)
     public int getIdEstafeta() {

@@ -51,7 +51,7 @@ public class loginController {
 
         if(user.isEstafeta()){
 
-            Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("estafeta/painelEstafeta.fxml"))); //mudar para a pagina do admin
+            Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("estafeta/painelEstafeta.fxml")));
             stage.setScene(new Scene(root));
             stage.show();
             loginSucess();
@@ -62,10 +62,19 @@ public class loginController {
         else{
           //  loginAlert();
         }
-        //if(user.isCozinheiro(){
+        if(user.isGestor()){
+        Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("gestor/painelGestor.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
+        loginSucess();
+        Node  source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
 
+       }
+       else{
 
-       // }
+        }
 
         //if(user.isGestor()){
 

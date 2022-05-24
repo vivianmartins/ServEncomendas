@@ -17,7 +17,7 @@ public class Encomendas {
     private Integer idEstafeta;
     private int tipopagamentoid;
 
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_ENCOMENDA", nullable = false, precision = 0)
     public int getIdEncomenda() {

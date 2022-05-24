@@ -2,6 +2,7 @@ package com.example.bd.DAL;
 
 import javax.persistence.*;
 import java.math.BigInteger;
+import java.util.Objects;
 
 @Entity
 @Table(name = "USERS")
@@ -10,7 +11,8 @@ import java.math.BigInteger;
         @NamedQuery(name = "Users.findByUser", query = "SELECT c FROM Users c WHERE c.idUser = :id_user"),
         @NamedQuery(name = "Users.findByLogin", query =  "Select c From Users c WHERE c.email = :emailUser and c.password  = :pass"),
         @NamedQuery(name = "Users.findByGestor" , query = "Select c From Users c  where c.gestor = :is_gestor" ),
-        @NamedQuery(name = "Users.findByCozinheiro" , query = "Select c From Users c  where c.cozinheiro = :is_cozinheiro" )
+        @NamedQuery(name = "Users.findByCozinheiro" , query = "Select c From Users c  where c.cozinheiro = :is_cozinheiro" ),
+        @NamedQuery(name="Users.findAllEmail",query = "Select c from Users c where c.email=:email ")
 
 })
 public class Users {
@@ -112,10 +114,10 @@ public class Users {
 
         Users users = (Users) o;
 
-        if (idUser != null ? !idUser.equals(users.idUser) : users.idUser != null) return false;
-        if (email != null ? !email.equals(users.email) : users.email != null) return false;
-        if (password != null ? !password.equals(users.password) : users.password != null) return false;
-        if (nomeuser != null ? !nomeuser.equals(users.nomeuser) : users.nomeuser != null) return false;
+        if (!Objects.equals(idUser, users.idUser)) return false;
+        if (!Objects.equals(email, users.email)) return false;
+        if (!Objects.equals(password, users.password)) return false;
+        if (!Objects.equals(nomeuser, users.nomeuser)) return false;
 
         return true;
     }

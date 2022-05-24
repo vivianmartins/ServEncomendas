@@ -13,7 +13,12 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-
+        Users user = new Users();
+        user.setEmail("filipe_estafeta@gmail.com");
+        user.setPassword("123"); //temos que encriptar
+        user.setNomeuser("filipeestafeta");
+        user.isEstafeta();
+        UsersBLL.create(user);
 
 
     //ClienteBLL.delete(5);
