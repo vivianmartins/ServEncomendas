@@ -23,7 +23,7 @@
                   <TableColumn fx:id="Qtd" prefWidth="45.0" text="Qtd" />
                   <TableColumn fx:id="valor" prefWidth="54.0" text="Valor" />
                   <TableColumn fx:id="data" prefWidth="75.0" text="Data" />
-                  <TableColumn fx:id="descricao" prefWidth="138.0" text="Prato" />
+                  <TableColumn fx:id="descricao" prefWidth="138.0" text="Descrição" />
                   <TableColumn fx:id="nCliente" prefWidth="141.0" text="Número cliente" />
                   <TableColumn fx:id="noEstafeta" prefWidth="107.3333740234375" text="Nome do estafeta" />
                   <TableColumn fx:id="nPedido" prefWidth="136.0" text="Número pedido" />

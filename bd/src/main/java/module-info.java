@@ -4,6 +4,8 @@ open module com.example.bd  {
     requires java.sql;
     requires org.hibernate.orm.core;
 
-    exports com.example.bd.DAL;
-    exports com.example.bd.BLL;
+    exports com.bd.DAL;
+    exports com.bd.BLL;
+
+
 }

@@ -27,4 +27,3 @@ public class main extends Application {
 
     }
 }
-//fx:controller="com.example.fx.controller.estafetaController"

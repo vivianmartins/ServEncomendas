@@ -1,6 +1,6 @@
 package com.example.fx.controllerAdmin;
 
-import com.example.bd.DAL.Pratos;
+import com.bd.DAL.Pratos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

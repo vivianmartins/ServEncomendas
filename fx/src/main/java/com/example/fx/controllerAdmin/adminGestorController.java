@@ -1,9 +1,7 @@
 package com.example.fx.controllerAdmin;
 
-import com.example.bd.BLL.ClienteBLL;
-import com.example.bd.BLL.UsersBLL;
-import com.example.bd.DAL.Clientes;
-import com.example.bd.DAL.Users;
+import com.bd.BLL.UsersBLL;
+import com.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,7 +19,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class adminGestorController implements Initializable {

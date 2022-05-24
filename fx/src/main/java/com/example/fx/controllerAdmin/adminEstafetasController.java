@@ -1,11 +1,9 @@
 package com.example.fx.controllerAdmin;
 
-import com.example.bd.BLL.EncomendaBLL;
-import com.example.bd.BLL.EstafetaBLL;
-import com.example.bd.BLL.UsersBLL;
-import com.example.bd.DAL.Encomendas;
-import com.example.bd.DAL.Estafeta;
-import com.example.bd.DAL.Users;
+import com.bd.BLL.EstafetaBLL;
+import com.bd.BLL.UsersBLL;
+import com.bd.DAL.Estafetas;
+import com.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -46,22 +44,22 @@ public class adminEstafetasController implements Initializable {
     private Button btnVoltarEs;
 
     @FXML
-    private TableColumn<Estafeta, String> email;
+    private TableColumn<Estafetas, String> email;
 
     @FXML
-    private TableColumn<Estafeta, Number> nif;
+    private TableColumn<Estafetas, Number> nif;
 
     @FXML
-    private TableColumn<Estafeta, String> nome;
+    private TableColumn<Estafetas, String> nome;
 
     @FXML
-    private TableColumn<Users, String> password;
+    private TableColumn<Estafetas, String> password;
 
     @FXML
-    private TableColumn<Estafeta, String> telefone;
+    private TableColumn<Estafetas, String> telefone;
 
     @FXML
-    private TableView<Estafeta> tblEstafeta;
+    private TableView<Estafetas> tblEstafeta;
 
 
 
@@ -119,16 +117,28 @@ public class adminEstafetasController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        ObservableList<Estafeta> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAll());
-        ObservableList<Users> listaus = FXCollections.observableArrayList(UsersBLL.readAll());
-        //UsersBLL users = new UsersBLL();
-        nome.setCellValueFactory(new PropertyValueFactory<Estafeta,String>("nome"));
-        email.setCellValueFactory(new PropertyValueFactory<Estafeta,String>("email"));
-        password.setCellValueFactory(new PropertyValueFactory<Users,String>("password"));
-        nif.setCellValueFactory(new PropertyValueFactory<Estafeta, Number>("nif"));
-        telefone.setCellValueFactory(new  PropertyValueFactory<Estafeta, String>("numtelefone"));
+
+        ObservableList<Estafetas> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAll());
+
+        nome.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("nome"));
+        email.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("email"));
+        password.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("password"));
+        nif.setCellValueFactory(new PropertyValueFactory<Estafetas, Number>("nif"));
+        telefone.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("telefone"));
         tblEstafeta.setItems(listaEst);
 
+        // EstafetaBLL est = new EstafetaBLL();
+        //UsersBLL users = new UsersBLL();
+/*
+         for ( var es : EstafetaBLL.readAll()){
+                for ( var users : UsersBLL.readAll() ){
+                    if(es.g == users.getIdUser())
+                        es.
+                }
 
+
+         }
+         }
+ */
     }
 }
