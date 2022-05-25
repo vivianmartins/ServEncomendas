@@ -14,14 +14,15 @@ import java.math.BigInteger;
 
 
 public class Estafeta {
-        private int idEstafeta;
+    private int idEstafeta;
     private String nome;
     private String numtelefone;
     private int nif;
     private String email;
     private BigInteger idUser;
-
-
+    @Basic
+    @Column(name = "ESTADO", nullable = false, precision = 0)
+    private boolean estado;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -111,5 +112,13 @@ public class Estafeta {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (idUser != null ? idUser.hashCode() : 0);
         return result;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 }

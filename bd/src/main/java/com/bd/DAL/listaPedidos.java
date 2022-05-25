@@ -30,13 +30,6 @@ public class listaPedidos {
         this.id_estafeta = id_estafeta;
     }
 
-    public int getId_cliete() {
-        return id_cliente;
-    }
-
-    public void setId_cliete(int id_cliete) {
-        this.id_cliente = id_cliete;
-    }
 
     public String getDescricao() {
         return descricao;
@@ -76,6 +69,14 @@ public class listaPedidos {
 
     public void setQtd(int qtd) {
         this.qtd = qtd;
+    }
+
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public listaPedidos(Encomendas en, Pratos pr, Encomendaestados ee, PratosEncomendados prae ) {

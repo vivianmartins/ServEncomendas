@@ -1,6 +1,6 @@
 package com.example.fx;
-import com.example.bd.BLL.UsersBLL;
-import com.example.bd.DAL.Users;
+import com.bd.BLL.UsersBLL;
+import com.bd.DAL.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

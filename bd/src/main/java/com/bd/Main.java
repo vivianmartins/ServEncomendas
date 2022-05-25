@@ -1,26 +1,37 @@
 package com.bd;
 
+import com.bd.BLL.ClienteBLL;
 import com.bd.BLL.EncomendaBLL;
 import com.bd.BLL.EstafetaBLL;
 import com.bd.BLL.UsersBLL;
 import com.bd.DAL.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        Users user = new Users();
-        user.setEmail("filipe_estafeta@gmail.com");
-        user.setPassword("123"); //temos que encriptar
-        user.setNomeuser("filipeestafeta");
-        user.isEstafeta();
-        UsersBLL.create(user);
 
-        List<listaPedidos> listaest = EncomendaBLL.readAll();
+
+
+        Clientes cli = new Clientes ();
+        cli.setNome("Ana Lucia Maria");
+        cli.setRua ("Rua Paque maio");
+        cli.setCodpostal (456);
+        cli.setNumtelemovel("60065");
+        cli.setNif(BigInteger.valueOf(930));
+        cli.setEstado(true);
+       ClienteBLL.create(cli);
+
+        System.out.println(cli.getIdCliente()+ cli.getNome());
+/*
+        List<listaPedidos>   listaest = EncomendaBLL.readAll();
         for(listaPedidos est : listaest)
             System.out.println("nome " + est.getEncomendaestados() + " mail " + est.getId_encomenda());
 
+
+ */
         //ClienteBLL.delete(5);
 /*
 

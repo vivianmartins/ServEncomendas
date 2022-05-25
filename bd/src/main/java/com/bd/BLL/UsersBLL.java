@@ -115,7 +115,7 @@ public class UsersBLL {
         q1.setParameter("emailUser", email);
         q1.setParameter("pass",password);
         System.out.println(q1.getMaxResults());
-        Object obj = q1.getSingleResult();
+        Object obj = q1.    getSingleResult();
 
         if(obj != null) {
             user = ((Users) obj);

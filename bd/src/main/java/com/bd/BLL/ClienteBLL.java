@@ -26,7 +26,7 @@ public class ClienteBLL {
         if (em == null) em = factory.createEntityManager();
 
         em.getTransaction().begin(); //iniciando a transação com bd
-       // em.persist(cli); //Persistindo os dados
+       em.persist(cli); //Persistindo os dados
         em.getTransaction().commit();//guardou
     }
 

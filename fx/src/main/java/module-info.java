@@ -7,6 +7,7 @@ module com.example.fx {
     requires org.kordamp.bootstrapfx.core;
     requires com.example.bd;
 
+
     opens com.example.fx to javafx.fxml;
     exports com.example.fx;
     exports com.example.fx.controllerAdmin;

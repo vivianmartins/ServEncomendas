@@ -17,6 +17,7 @@ public class Clientes {
     private String rua;
     private int codpostal;
     private String numtelemovel;
+    private boolean estado;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -29,7 +30,14 @@ public class Clientes {
         this.idCliente = idCliente;
     }
 
-
+    @Basic
+    @Column(name = "ESTADO", nullable = false, precision = 0)
+   public boolean isEstado() {
+        return estado;
+    }
+    public void setEstado(boolean estado) {
+       this.estado = estado;
+    }
     @Basic
     @Column(name = "NOME", nullable = false, length = 100)
     public String getNome() {
@@ -108,4 +116,6 @@ public class Clientes {
         result = 31 * result + (numtelemovel != null ? numtelemovel.hashCode() : 0);
         return result;
     }
+
+
 }

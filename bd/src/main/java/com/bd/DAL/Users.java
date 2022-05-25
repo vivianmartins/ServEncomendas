@@ -24,6 +24,9 @@ public class Users {
     private boolean isEstafeta;
     private boolean isCozinheiro;
     private String nomeuser;
+    @Basic
+    @Column(name = "ESTADO", nullable = false, precision = 0)
+    private boolean estado;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -35,7 +38,6 @@ public class Users {
     public void setIdUser(BigInteger idUser) {
         this.idUser = idUser;
     }
-
 
     @Basic
     @Column(name = "EMAIL", nullable = false, length = 100)
@@ -129,5 +131,13 @@ public class Users {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (nomeuser != null ? nomeuser.hashCode() : 0);
         return result;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 }
