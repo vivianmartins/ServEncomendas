@@ -1,8 +1,11 @@
 package com.example.fx.controllerAdmin;
 
+import com.bd.BLL.ClienteBLL;
 import com.bd.BLL.EstafetaBLL;
 import com.bd.BLL.UsersBLL;
-import com.bd.DAL.Estafetas;
+import com.bd.DAL.Clientes;
+import com.bd.DAL.Estafeta;
+
 import com.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
@@ -20,10 +23,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class adminEstafetasController implements Initializable {
+
+
+
+
+    private List<Estafeta> listEsta = EstafetaBLL.readAll();
+    ObservableList<Estafeta> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAllEst(true));
 
     @FXML
     private Button btnEditar;
@@ -44,23 +55,22 @@ public class adminEstafetasController implements Initializable {
     private Button btnVoltarEs;
 
     @FXML
-    private TableColumn<Estafetas, String> email;
+    private TableColumn<Estafeta, String> email;
 
     @FXML
-    private TableColumn<Estafetas, Number> nif;
+    private TableColumn<Estafeta, Number> nif;
 
     @FXML
-    private TableColumn<Estafetas, String> nome;
+    private TableColumn<Estafeta, String> nome;
 
     @FXML
-    private TableColumn<Estafetas, String> password;
+    private TableColumn<Estafeta, String> password;
 
     @FXML
-    private TableColumn<Estafetas, String> telefone;
+    private TableColumn<Estafeta, String> telefone;
 
     @FXML
-    private TableView<Estafetas> tblEstafeta;
-
+    private TableView<Estafeta> tblEstafeta;
 
 
 
@@ -98,7 +108,14 @@ public class adminEstafetasController implements Initializable {
     @FXML
     void handleBtnRemover(ActionEvent event) {
 
-    }
+            Estafeta est =  tblEstafeta.getSelectionModel().getSelectedItem();
+            tblEstafeta.getItems();
+            int id = est.getIdEstafeta();
+            est.setEstado(false);
+            EstafetaBLL.update(est);
+
+        }
+
 
     @FXML
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
@@ -118,13 +135,13 @@ public class adminEstafetasController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        ObservableList<Estafetas> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAll());
+        //ObservableList<Estafetas> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAll());
 
-        nome.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("nome"));
-        email.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("email"));
-        password.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("password"));
-        nif.setCellValueFactory(new PropertyValueFactory<Estafetas, Number>("nif"));
-        telefone.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("telefone"));
+        nome.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("nome"));
+        email.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("email"));
+        password.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("password"));
+        nif.setCellValueFactory(new PropertyValueFactory<Estafeta, Number>("nif"));
+        telefone.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("numtelefone"));
         tblEstafeta.setItems(listaEst);
 
         // EstafetaBLL est = new EstafetaBLL();

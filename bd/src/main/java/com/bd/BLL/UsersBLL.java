@@ -81,7 +81,7 @@ public class UsersBLL {
 
 
 
-    public static List<Users> readAllC(boolean is_cozinheiro){
+    public static List<Users> readAllC(boolean is_cozinheiro, boolean estado){
 
         List<Users> listaUser = new ArrayList<>();
         if(factory == null)

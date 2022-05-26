@@ -18,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -80,6 +81,12 @@ public class adminCozinheiroController implements Initializable {
 
     @FXML
     void handleBtnRemover(ActionEvent event) {
+        Users users = tblCozinheiro.getSelectionModel().getSelectedItem();
+        tblCozinheiro.getItems();
+        BigInteger id = users.getIdUser();
+        users.setCozinheiro(false);
+        users.setEstado(false);
+        UsersBLL.update(users);
 
     }
     @FXML
@@ -103,7 +110,7 @@ public class adminCozinheiroController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.readAllC(true));
+        ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.readAllC(true, true  ));
 
         //UsersBLL users = new UsersBLL();
         username.setCellValueFactory(new PropertyValueFactory<Users,String>("nomeuser"));

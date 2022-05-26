@@ -50,6 +50,11 @@ public class adminClientesController implements Initializable {
 
     @FXML
     private Button btncriarCl;
+    @FXML
+    private Button btnListaEliminados;
+
+
+
 
     @FXML
     private TableColumn<Clientes,String> codigopostal;
@@ -132,6 +137,19 @@ public class adminClientesController implements Initializable {
     }
 
 
+
+    @FXML
+    void handlebtnListaEliminados(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/clienteseliminadosAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
+    }
     @FXML
     void handleBtnEditarCl(ActionEvent event) {
 

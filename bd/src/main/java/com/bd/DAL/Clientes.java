@@ -10,7 +10,7 @@ import java.math.BigInteger;
         @NamedQuery(name = "Clientes.findByIdcliente", query = "SELECT c FROM Clientes c WHERE c.idCliente = :id_cliente"),
         @NamedQuery(name = "Clientes.findAllByNome", query = "SELECT c FROM Clientes c WHERE c.nome LIKE :nome"),
         @NamedQuery(name = "Clientes.findByEstado" , query = "Select c From Clientes c  where c.estado = :isestado" ),
-        @NamedQuery(name = "Clientes.updateEstado" , query = "UPDATE Clientes c set c.estado = false  where c.idCliente = :id_cliente")
+
 })
 public class Clientes {
     private int idCliente;

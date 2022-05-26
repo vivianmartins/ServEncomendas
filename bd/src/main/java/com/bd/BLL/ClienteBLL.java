@@ -121,6 +121,20 @@ public class ClienteBLL {
 
 
 
+    public static void updateT(Clientes clie) {
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        em.getTransaction().begin();
+        em.merge(clie);
+        em.getTransaction().commit();
+
+    }
+
+
+
     public static List<Clientes> readAll(boolean estado) {
         List<Clientes> listaCli = new ArrayList<>();
         if (factory == null)

@@ -106,22 +106,16 @@ public class EstafetaregistoAdmin {
         {
 
             Estafeta est= new Estafeta();
-            Users user = new Users ();
             Codpostais codpostais = new Codpostais();
             est.setEmail(email.getText());
             est.setNumtelefone(telefone.getText());
             est.setNome(nome.getText());
             est.setNif(Integer.parseInt(nif.getText()));
-            est.setIdEstafeta(62);
-            est.setIdUser(BigInteger.valueOf((62)));
-            user.setNomeuser(username.getText());
-            user.setEmail(email.getText());
-            user.setPassword(passe.getText());
-            user.setEstafeta(true);
+            est.setPassword(passe.getText());
             codpostais.setLocalidade(localidade.getText());
             //colocar o codpostal
             codpostais.setCodpostal(Integer.parseInt(codpostal.getText()));
-            UsersBLL.create(user);
+
             EstafetaBLL.create(est);
             CodPostaisBLL.create(codpostais);
 

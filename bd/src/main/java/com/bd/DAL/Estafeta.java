@@ -8,8 +8,9 @@ import java.math.BigInteger;
 @NamedQueries({
         @NamedQuery(name = "Estafeta.findAll", query = "SELECT c FROM Estafeta c"),
         @NamedQuery(name = "Estafeta.findById_estafeta", query = "SELECT c FROM Estafeta c WHERE c.idEstafeta = :id_estafeta"),
+        @NamedQuery(name = "Estafeta.findByEstado" , query = "Select c From Estafeta c  where c.estado = :isestado" ),
         @NamedQuery(name = "Estafeta.findAllByNome", query = "SELECT c FROM Estafeta c WHERE c.nome LIKE :nome"),
-        @NamedQuery(name = "Estafeta.findAllPass", query = "select new com.bd.DAL.Estafetas (e, u)  from Estafeta  e, Users u where e.idEstafeta = u.idUser"),
+       // @NamedQuery(name = "Estafeta.findAllPass", query = "select new com.bd.DAL.Estafetas (e, u)  from Estafeta  e, Users u where e.idEstafeta = u.idUser and  e.estado = :isestado"),
 })
 
 
@@ -19,10 +20,28 @@ public class Estafeta {
     private String numtelefone;
     private int nif;
     private String email;
-    private BigInteger idUser;
+    @Basic
+    @Column(name = "PASSWORD", nullable = true, length = 50)
+    private String password;
+    private boolean estado;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Basic
     @Column(name = "ESTADO", nullable = false, precision = 0)
-    private boolean estado;
+    public boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -55,6 +74,7 @@ public class Estafeta {
         this.numtelefone = numtelefone;
     }
 
+
     @Basic
     @Column(name = "NIF", nullable = false, precision = 0)
     public int getNif() {
@@ -75,15 +95,8 @@ public class Estafeta {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "ID_USER", nullable = true, precision = 0)
-    public BigInteger getIdUser() {
-        return idUser;
-    }
 
-    public void setIdUser(BigInteger idUser) {
-        this.idUser = idUser;
-    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -98,7 +111,7 @@ public class Estafeta {
         if (numtelefone != null ? !numtelefone.equals(estafeta.numtelefone) : estafeta.numtelefone != null)
             return false;
         if (email != null ? !email.equals(estafeta.email) : estafeta.email != null) return false;
-        if (idUser != null ? !idUser.equals(estafeta.idUser) : estafeta.idUser != null) return false;
+        if (password != null ? !password.equals(estafeta.password) : estafeta.password != null) return false;
 
         return true;
     }
@@ -110,15 +123,9 @@ public class Estafeta {
         result = 31 * result + (numtelefone != null ? numtelefone.hashCode() : 0);
         result = 31 * result + nif;
         result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (idUser != null ? idUser.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }
 
-    public boolean isEstado() {
-        return estado;
-    }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
 }

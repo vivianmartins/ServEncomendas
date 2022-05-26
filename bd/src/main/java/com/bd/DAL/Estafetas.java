@@ -1,4 +1,4 @@
-package com.bd.DAL;
+/*package com.bd.DAL;
 
 import java.math.BigInteger;
 
@@ -9,6 +9,43 @@ public class Estafetas {
     private String telefone;
     private String nome;
     private String password;
+    private boolean estado;
+    private boolean estadous;
+    private BigInteger id_user;
+    private int id_estafeta;
+
+
+    public int getId_estafeta() {
+        return id_estafeta;
+    }
+
+    public void setId_estafeta(int id_estafeta) {
+        this.id_estafeta = id_estafeta;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public boolean isEstadous() {
+        return estadous;
+    }
+
+    public void setEstadous(boolean estadous) {
+        this.estadous = estadous;
+    }
+
+    public void setId_user(BigInteger id_user) {
+        this.id_user = id_user;
+    }
+
+    public BigInteger getId_user() {
+        return id_user;
+    }
 
 
     public BigInteger getNif() {
@@ -61,5 +98,13 @@ public class Estafetas {
         this.telefone = e.getNumtelefone();
         this.nome = e.getNome();
         this.password = u.getPassword();
+        this.id_user = u.getIdUser();
+        this.estado = e.getEstado();
+        this.id_estafeta = e.getIdEstafeta();
     }
+
+
+
 }
+
+ */

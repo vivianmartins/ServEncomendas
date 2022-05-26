@@ -1,8 +1,8 @@
 package com.bd.BLL;
 
+import com.bd.DAL.Clientes;
 import com.bd.DAL.Estafeta;
-import com.bd.DAL.Estafetas;
-import com.bd.DAL.Users;
+
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,15 +27,7 @@ public class EstafetaBLL {
             em.getTransaction().commit();//guardou
         }
 
-    public void merge(Estafeta est) {
-        try {
-           em.getTransaction().begin();
-           em.merge(est);
-           em.getTransaction().commit();
-        } catch (Exception ex) {
-          em.getTransaction().rollback();
-        }
-    }
+
 
 /*    public  static  void  insert (Estafeta es){
 
@@ -76,7 +68,30 @@ public class EstafetaBLL {
             return est;
         }
 
-        public static List<Estafetas> readAll(){
+
+
+    public static List<Estafeta> readAllEst(boolean estado){
+        List<Estafeta> listaEsta = new ArrayList<>();
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+
+        Query q1 = em.createNamedQuery("Estafeta.findByEstado");
+        q1.setParameter("isestado", estado);
+        List<Object> result = q1.getResultList();
+
+        for(Object estafeta: result){
+            listaEsta.add((Estafeta) estafeta);
+        }
+
+
+
+        return listaEsta;
+    }
+/*
+        public static List<Estafetas> readAll(boolean estado){
             List<Estafetas> listaEst = new ArrayList<>();
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
@@ -84,6 +99,7 @@ public class EstafetaBLL {
             if (em == null) em = factory.createEntityManager();
 
             TypedQuery<Estafetas> q1 = em.createNamedQuery("Estafeta.findAllPass", Estafetas.class);
+            q1.setParameter("isestado", estado);
             List<Estafetas> result = q1.getResultList();
 
             for(Estafetas est : result){
@@ -93,7 +109,12 @@ public class EstafetaBLL {
             return listaEst;
         }
 
-        public static List<Estafeta> readAll(String nome){
+
+
+
+ */
+
+    public static List<Estafeta> readAll(String nome){
             List<Estafeta> listaEst = new ArrayList<>();
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
@@ -111,17 +132,37 @@ public class EstafetaBLL {
             return listaEst;
         }
 
-        public static void update(Estafeta est){
+    public static List<Estafeta> readAll() {
+        List<Estafeta> listaEsta = new ArrayList<>();
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Estafeta.findAll");
+        List<Object> result = q1.getResultList();
+
+        for (Object est : result) {
+            listaEsta.add((Estafeta) est);
+        }
+
+        return listaEsta;
+    }
+
+
+    public static void update(Estafeta estafetas){
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
             if (em == null) em = factory.createEntityManager();
 
             em.getTransaction().begin();
-            em.merge(est);
+            em.merge(estafetas);
             em.getTransaction().commit();
 
         }
+
+
 
         public static void delete(int idEst){
             if(factory == null)

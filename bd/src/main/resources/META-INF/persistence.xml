@@ -15,7 +15,6 @@
         <class>com.bd.DAL.PratosEncomendados</class>
         <class>com.bd.DAL.PratosEncomendadosPK</class>
         <class>com.bd.DAL.Tipopagamentos</class>
-        <class>com.bd.DAL.Estafetas</class>
         <class>com.bd.DAL.listaPedidos</class>
         <class>com.bd.DAL.Users</class>
         <class>com.bd.DAL.Estadosencomenda</class>
@@ -36,6 +35,7 @@
             <property name="openjpa.ConnectionDriverName" value="oracle.jdbc.OracleDriver"/>
             <property name="eclipselink.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
             <property name="eclipselink.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+
 
         </properties>
     </persistence-unit>
