@@ -1,5 +1,6 @@
 package com.example.fx.controllerAdmin;
 
+import com.bd.BLL.PratoBLL;
 import com.bd.DAL.Pratos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,12 +42,15 @@ public class ementaRegistoAdmin {
 
     @FXML
     void handleBtnRegistar(ActionEvent event) {
+
         if (isInputValid()) {
             {
-                Pratos pratos = new Pratos();
-                pratos.setStockdoses(Integer.parseInt(stock.getText()));
-                pratos.setPrecoatual(Integer.parseInt(preco.getText()));
-                pratos.setDescricao(prato.getText());
+                Pratos pra = new Pratos();
+
+                pra.setStockdoses(Integer.parseInt(stock.getText()));
+                pra.setPrecoatual(Float.parseFloat(preco.getText()));
+                pra.setDescricao(prato.getText());
+                PratoBLL.create(pra);
 
             }
         }

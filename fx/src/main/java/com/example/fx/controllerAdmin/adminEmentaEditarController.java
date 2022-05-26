@@ -31,7 +31,6 @@ public class adminEmentaEditarController implements Initializable {
 
     private List<Pratos> pList = PratoBLL.readAll();
     ObservableList<Pratos> listaPratos = FXCollections.observableArrayList(PratoBLL.readAll());
-    private List<Pratos> pLists = PratoBLL.readAll();
 
     @FXML
     private Button btnEditar;
@@ -61,10 +60,13 @@ public class adminEmentaEditarController implements Initializable {
     private TextField edStock;
 
     @FXML
+    private TextField eddesc;
+
+    @FXML
     private TableColumn<Pratos, String > descricao;
 
     @FXML
-    private TableColumn<Pratos, Float> stock;
+    private TableColumn<Pratos, Integer> stock;
 
     @FXML
     private TableColumn<Pratos, Float> valor;
@@ -77,6 +79,12 @@ public class adminEmentaEditarController implements Initializable {
     void edPreco(ActionEvent event) {
 
     }
+
+    @FXML
+    void edDesc(ActionEvent event) {
+
+    }
+
 
     @FXML
     void edStock(ActionEvent event) {
@@ -96,15 +104,15 @@ public class adminEmentaEditarController implements Initializable {
     @FXML
     void handleBtnSalvar(ActionEvent event) {
         Pratos pratos = tblEmenta.getSelectionModel().getSelectedItem();
-
-        Pratos stockpUpdate = new Pratos();
-
-        stockpUpdate.setPrecoatual(Integer.parseInt(edPreco.getText()));
-        stockpUpdate.setStockdoses(Integer.parseInt(edStock.getText()));
-        PratoBLL.update(stockpUpdate);
-
-        pLists = PratoBLL.readAll();
+        Pratos pra = new Pratos();
+        pra.setDescricao(eddesc.getText());
+        pra.setPrecoatual(Float.parseFloat(edPreco.getText()));
+        pra.setStockdoses(Integer.parseInt(edStock.getText()));
+        PratoBLL.update(pra);
         tblEmenta.setItems(listaPratos);
+
+
+
 
     }
     @FXML
@@ -165,9 +173,9 @@ public class adminEmentaEditarController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //  ObservableList<Pratos> listaPratos = FXCollections.observableArrayList(PratoBLL.readAll());
         //UsersBLL users = new UsersBLL();
-        descricao.setCellValueFactory(new PropertyValueFactory<Pratos,String>("descricao"));
-        stock.setCellValueFactory(new PropertyValueFactory<Pratos,Float>("stockdoses"));
-        valor.setCellValueFactory(new PropertyValueFactory<Pratos,Float>("precoatual"));
+       descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        stock.setCellValueFactory(new PropertyValueFactory<>("stockdoses"));
+        valor.setCellValueFactory(new PropertyValueFactory<>("precoatual"));
         tblEmenta.setItems(listaPratos);
 
     }

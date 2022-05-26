@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,7 +28,7 @@ public class adminClientesController implements Initializable {
 
     private List <Clientes>  clisteList = ClienteBLL.readAll();
 
-   ObservableList<Clientes> listaCl = FXCollections.observableArrayList(ClienteBLL.readAll());
+   ObservableList<Clientes> listaCl = FXCollections.observableArrayList(ClienteBLL.readAll(true));
 
     @FXML
     private TableColumn<TableClientAdmin, String> Encomendas;
@@ -72,13 +73,32 @@ public class adminClientesController implements Initializable {
 
     @FXML
     void clhandleBtnRemover(ActionEvent event) {
+        Clientes clientes = tblCliente.getSelectionModel().getSelectedItem();
+        tblCliente.getItems();
+        int id = clientes.getIdCliente();
+        clientes.setEstado(false);
+        ClienteBLL.update(clientes);
 
+
+
+/*
+        Clientes cls = tblCliente.getSelectionModel().getSelectedItem();
+        int id = cls.getIdCliente(); //nome dado ao fazer select
+        tblCliente.getItems();
+        if(cls.isEstado(false)) {
+            tblCliente.getBackground(Color.RED);
+        }
+
+
+ remove mm
         Clientes cls = tblCliente.getSelectionModel().getSelectedItem();
         int id = cls.getIdCliente(); //nome dado ao fazer select
         listaCl.remove(id); //remove das definições
         ClienteBLL.delete(id); //remove pelo BLL
         tblCliente.setItems(listaCl); //permite listar novamente
 
+
+ */
   /*      //  pseudo remover ---- volta a aparecer
 
         int selectedID = tblCliente.getSelectionModel().getSelectedIndex();

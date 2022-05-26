@@ -1,5 +1,7 @@
 package com.example.fx.controllerAdmin;
 
+import com.bd.BLL.ClienteBLL;
+import com.bd.DAL.Clientes;
 import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigInteger;
 
 public class adminClRegistoController {
 
@@ -23,10 +26,8 @@ public class adminClRegistoController {
     private Button btnVoltarEs;
 
     @FXML
-    private SplitMenuButton codpostal;
+    private TextField codpostal;
 
-    @FXML
-    private TextField email;
 
     @FXML
     private TextField localidade;
@@ -40,11 +41,7 @@ public class adminClRegistoController {
     @FXML
     private TextField nome;
 
-    @FXML
-    private TextField passe;
 
-    @FXML
-    private TextField passe2;
 
     @FXML
     private TextField telefone;
@@ -73,7 +70,7 @@ public class adminClRegistoController {
     }
 
     @FXML
-    void edPasse2(ActionEvent event) {
+    void codpostal(ActionEvent event) {
 
     }
 
@@ -96,10 +93,22 @@ public class adminClRegistoController {
     void edlocalidade(ActionEvent event) {
 
     }
-
+    Clientes cli = new Clientes();
+    Clientes cliUpdate = null;
     @FXML
     void handleBtnRegistar(ActionEvent event) {
         {
+
+            cliUpdate = cli;
+
+            cliUpdate.setNome(nome.getText());
+            cliUpdate.setCodpostal(Integer.parseInt(codpostal.getText()));
+            cliUpdate.setNumtelemovel(telefone.getText());
+            cliUpdate.setNif(BigInteger.valueOf(Integer.parseInt(nif.getText())));
+            cliUpdate.setRua(morada.getText());
+            ClienteBLL.update(cliUpdate);
+
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registo");
             alert.setHeaderText("Registo efetuado com sucesso!");
@@ -118,6 +127,11 @@ public class adminClRegistoController {
         Node source = (Node)  event.getSource();
         Stage stageAtual  = (Stage) source.getScene().getWindow();
         stageAtual.close();
+
+    }
+
+
+    public void criarCliente (Clientes cli) {
 
     }
 

@@ -59,7 +59,7 @@ public class UsersBLL {
 
 
 
-    public static List<Users> readAll(boolean is_gestor){
+    public static List<Users> readAll(boolean is_gestor, boolean estado){
 
         List<Users> listaUser = new ArrayList<>();
         if(factory == null)

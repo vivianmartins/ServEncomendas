@@ -1,6 +1,8 @@
 package com.example.fx.controllerAdmin;
 
+import com.bd.BLL.ClienteBLL;
 import com.bd.BLL.UsersBLL;
+import com.bd.DAL.Clientes;
 import com.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
@@ -18,13 +20,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class adminGestorController implements Initializable {
 
    // ObservableList<Users> list =    FXCollections.observableArrayList();
-
+   ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.readAll(true, true));
     @FXML
     private Button btnEditar;
 
@@ -85,6 +88,13 @@ public class adminGestorController implements Initializable {
     @FXML
     void handleBtnRemover(ActionEvent event) {
 
+        Users users = tblGestor.getSelectionModel().getSelectedItem();
+        tblGestor.getItems();
+        BigInteger id = users.getIdUser();
+        users.setGestor(false);
+        users.setEstado(false);
+        UsersBLL.update(users);
+
     }
 
 
@@ -109,10 +119,6 @@ public class adminGestorController implements Initializable {
 
 
     public void initialize(URL url, ResourceBundle rb) {
-
-
-        ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.readAll(true));
-
         //UsersBLL users = new UsersBLL();
         username.setCellValueFactory(new PropertyValueFactory<Users,String>("nomeuser"));
         email.setCellValueFactory(new PropertyValueFactory<Users,String>("email"));

@@ -15,7 +15,7 @@ public class Pratos {
     private int idPrato;
     private String descricao;
     private int stockdoses;
-    private int precoatual;
+    private float precoatual;
 
 
 
@@ -52,11 +52,11 @@ public class Pratos {
 
     @Basic
     @Column(name = "PRECOATUAL", nullable = false, precision = 2)
-    public int getPrecoatual() {
+    public float getPrecoatual() {
         return precoatual;
     }
 
-    public void setPrecoatual(int precoatual) {
+    public void setPrecoatual(float precoatual) {
         this.precoatual = precoatual;
     }
 
@@ -80,7 +80,7 @@ public class Pratos {
         int result = idPrato;
         result = 31 * result + (descricao != null ? descricao.hashCode() : 0);
         result = 31 * result + stockdoses;
-        result = 31 * result + precoatual;
+
         return result;
     }
 

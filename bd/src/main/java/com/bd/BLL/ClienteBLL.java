@@ -1,6 +1,8 @@
 package com.bd.BLL;
 
 import com.bd.DAL.Clientes;
+import com.bd.DAL.Users;
+import org.hibernate.annotations.SQLUpdate;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -105,7 +107,7 @@ public class ClienteBLL {
      * @update de todos os cliente
      */
 
-    public static void update(Clientes cli) {
+  public static void update(Clientes cli) {
         if (factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
@@ -117,6 +119,41 @@ public class ClienteBLL {
 
     }
 
+
+
+    public static List<Clientes> readAll(boolean estado) {
+        List<Clientes> listaCli = new ArrayList<>();
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Clientes.findByEstado");
+        q1.setParameter("isestado", estado);
+        List<Object> result = q1.getResultList();
+
+        for (Object cli : result) {
+            listaCli.add((Clientes) cli);
+        }
+
+        return listaCli;
+    }
+
+/*
+    public static void updateEstado(Clientes cli) {
+
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q3 = em.createNamedQuery("Clientes.findByIdcliente");
+        q3.setParameter("id_cliente", idCliente);
+        Object obj = q3.getSingleResult();
+
+
+    }
+*/
     /**
      *
      */

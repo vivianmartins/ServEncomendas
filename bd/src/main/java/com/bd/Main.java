@@ -5,6 +5,7 @@ import com.bd.BLL.EncomendaBLL;
 import com.bd.BLL.EstafetaBLL;
 import com.bd.BLL.UsersBLL;
 import com.bd.DAL.*;
+import org.hibernate.sql.Update;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -13,8 +14,14 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Clientes cli = new Clientes();
+        //cli.getIdCliente();
+        //cli.setEstado(ClienteBLL.read(2));
+       ClienteBLL.update(cli);
 
+        //ClienteBLL.updateEstado(2);
 
+/*
         Clientes cli = new Clientes ();
         cli.setNome("Ana Lucia Maria");
         cli.setRua ("Rua Paque maio");
@@ -25,7 +32,7 @@ public class Main {
        ClienteBLL.create(cli);
 
         System.out.println(cli.getIdCliente()+ cli.getNome());
-/*
+
         List<listaPedidos>   listaest = EncomendaBLL.readAll();
         for(listaPedidos est : listaest)
             System.out.println("nome " + est.getEncomendaestados() + " mail " + est.getId_encomenda());

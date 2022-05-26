@@ -69,11 +69,13 @@
                   <Line endX="191.0" layoutX="392.0" layoutY="126.0" startX="-155.0" stroke="#007687" strokeWidth="5.0" />
                   <TextField fx:id="edStock" layoutX="380.0" layoutY="523.0" onAction="#edStock" prefHeight="45.0" prefWidth="173.0" promptText="Editar stock..." />
                   <TextField fx:id="edPreco" layoutX="586.0" layoutY="523.0" onAction="#edPreco" prefHeight="45.0" prefWidth="173.0" promptText="Editar preço..." />
+                  <TextField fx:id="eddesc" layoutX="181.0" layoutY="523.0" onAction="#edDesc" prefHeight="45.0" prefWidth="173.0" promptText="Editar Descrição.." />
                   <Button fx:id="btnSalvar" layoutX="787.0" layoutY="527.0" mnemonicParsing="false" onAction="#handleBtnSalvar" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Salvar" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
+
                </children>
             </Pane>
          </children>
