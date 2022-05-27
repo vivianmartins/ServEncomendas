@@ -9,8 +9,9 @@ public class listaPedidos {
     private String descricao;
     private String data;
     private float precodose;
-    private int encomendaestados;
+    private String encomendaestados;
     private  int qtd;
+    private  String tp;
 
 
 
@@ -20,6 +21,14 @@ public class listaPedidos {
 
     public void setId_encomenda(int id_encomenda) {
         this.id_encomenda = id_encomenda;
+    }
+
+    public String getTp() {
+        return tp;
+    }
+
+    public void setTp(String tp) {
+        this.tp = tp;
     }
 
     public int getId_estafeta() {
@@ -55,11 +64,11 @@ public class listaPedidos {
         this.precodose = precodose;
     }
 
-    public int getEncomendaestados() {
+    public String getEncomendaestados() {
         return encomendaestados;
     }
 
-    public void setEncomendaestados(int encomendaestados) {
+    public void setEncomendaestados(String encomendaestados) {
         this.encomendaestados = encomendaestados;
     }
 
@@ -79,14 +88,15 @@ public class listaPedidos {
         this.id_cliente = id_cliente;
     }
 
-    public listaPedidos(Encomendas en, Pratos pr, Encomendaestados ee, PratosEncomendados prae ) {
+    public listaPedidos(Encomendas en, Estadosencomenda estenc, Pratos pr, Encomendaestados ee, PratosEncomendados prae, Tipopagamentos  tps ) {
         this.id_encomenda = en.getIdEncomenda();
         this.id_estafeta = en.getIdEstafeta();
         this.id_cliente = en.getIdCliente();
         this.descricao = pr.getDescricao();
         this.data = String.valueOf(ee.getData());
         this.precodose = prae.getPrecodose();
-        this.encomendaestados = ee.getIdEstadoencomenda();
+        this.encomendaestados = estenc.getDescricaoestado();
+        this.tp = tps.getDescricao();
         this.qtd = prae.getQtddoses();
     }
 }

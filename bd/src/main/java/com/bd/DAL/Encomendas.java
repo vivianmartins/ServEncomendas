@@ -8,7 +8,7 @@ import javax.persistence.*;
         @NamedQuery(name = "Encomendas.findAll", query = "SELECT c FROM Encomendas c"),
         @NamedQuery(name = "Encomendas.findByIdencomenda", query = "SELECT c FROM Encomendas c WHERE c.idEncomenda = :id_encomenda"),
         @NamedQuery(name = "Encomendas.findAllByTipoPagamento", query = "SELECT c FROM Encomendas c WHERE c.tipopagamentoid = :id_tipopagamento"),
-        @NamedQuery(name = "Encomendas.findAllPed",  query = "select distinct new   com.bd.DAL.listaPedidos  (en, pr, ee, pre)  from Encomendas  en, Pratos  pr, Encomendaestados ee, PratosEncomendados pre where en.idEncomenda = pre.idEncomenda "),
+        @NamedQuery(name = "Encomendas.findAllPed",  query = "select distinct new   com.bd.DAL.listaPedidos  (en,  estenc, pr, ee, pre, tps)  from Encomendas  en, Estadosencomenda estenc, Pratos  pr, Encomendaestados ee, PratosEncomendados pre, Tipopagamentos  tps where en.idEncomenda = pre.idEncomenda and  pr.idPrato = pre.idPrato"),
 
 })
 

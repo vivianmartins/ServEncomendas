@@ -65,6 +65,10 @@ public class adminPedidosController implements Initializable {
     @FXML
     private TableColumn<listaPedidos, Float> valor;
 
+
+    @FXML
+    private TableColumn<listaPedidos, String> tipoPag;
+
     @FXML
     void handleBtnEditar(ActionEvent event) {
 
@@ -112,6 +116,12 @@ public class adminPedidosController implements Initializable {
         stageAtual.close();
     }
 
+    @FXML
+    void handleTipopag(ActionEvent event) {
+
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -125,6 +135,7 @@ public class adminPedidosController implements Initializable {
             valor.setCellValueFactory(new PropertyValueFactory<>("precodose"));
             data.setCellValueFactory(new PropertyValueFactory<>("data"));
             Qtd.setCellValueFactory(new PropertyValueFactory<>("qtd"));
+            tipoPag.setCellValueFactory(new PropertyValueFactory<>("tp"));
 
             tblPedidos.setItems(listaPed);
 
