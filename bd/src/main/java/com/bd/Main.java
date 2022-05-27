@@ -14,10 +14,15 @@ public class Main {
 
     public static void main(String[] args) {
 
+
+
         Clientes cli = new Clientes();
+       cli.setEstado(true);
+        ClienteBLL.update(cli);
+
         //cli.getIdCliente();
         //cli.setEstado(ClienteBLL.read(2));
-       ClienteBLL.update(cli);
+      // ClienteBLL.update(cli);
 
         //ClienteBLL.updateEstado(2);
 

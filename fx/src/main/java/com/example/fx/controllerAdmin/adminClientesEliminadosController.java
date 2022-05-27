@@ -70,7 +70,7 @@ public class adminClientesEliminadosController implements Initializable {
         tblClienteEli.getItems();
         int id = cl.getIdCliente();
         cl.setEstado(true);
-        ClienteBLL.updateT(cl);
+        ClienteBLL.update(cl);
 
 
 

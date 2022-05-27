@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -48,6 +49,10 @@ public class adminEmentaControlller implements Initializable {
 
     @FXML
     private Button btnVoltarEs;
+
+    @FXML
+    private Button btnAtualizar;
+
 
     @FXML
     private TableColumn<Pratos, String > descricao;
@@ -112,7 +117,29 @@ public class adminEmentaControlller implements Initializable {
          pList.remove(id); //remove das definições
          PratoBLL.delete(id); //remove pelo BLL
          tblEmenta.setItems(listaPratos); //permite listar novamente
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Ementa");
+        alert.setHeaderText("Prato eliminado com sucesso");
+        alert.setContentText("Atualize a página");
+        alert.show();
+
     }
+
+
+    void handleBtnAtualizar(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/ementaAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
+
+    }
+
     @FXML
     private TableView<Pratos> tblEmenta;
 
@@ -145,8 +172,6 @@ public class adminEmentaControlller implements Initializable {
         */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //  ObservableList<Pratos> listaPratos = FXCollections.observableArrayList(PratoBLL.readAll());
-        //UsersBLL users = new UsersBLL();
          descricao.setCellValueFactory(new PropertyValueFactory<Pratos,String>("descricao"));
          stock.setCellValueFactory(new PropertyValueFactory<Pratos,Float>("stockdoses"));
          valor.setCellValueFactory(new PropertyValueFactory<Pratos,Float>("precoatual"));

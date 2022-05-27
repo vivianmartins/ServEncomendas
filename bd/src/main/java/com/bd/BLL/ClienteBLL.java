@@ -28,7 +28,7 @@ public class ClienteBLL {
         if (em == null) em = factory.createEntityManager();
 
         em.getTransaction().begin(); //iniciando a transação com bd
-       em.persist(cli); //Persistindo os dados
+        em.persist(cli); //Persistindo os dados
         em.getTransaction().commit();//guardou
     }
 
@@ -107,7 +107,7 @@ public class ClienteBLL {
      * @update de todos os cliente
      */
 
-  public static void update(Clientes cli) {
+    public static void update(Clientes cli) {
         if (factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
@@ -120,18 +120,6 @@ public class ClienteBLL {
     }
 
 
-
-    public static void updateT(Clientes clie) {
-        if (factory == null)
-            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-
-        if (em == null) em = factory.createEntityManager();
-
-        em.getTransaction().begin();
-        em.merge(clie);
-        em.getTransaction().commit();
-
-    }
 
 
 
@@ -172,16 +160,16 @@ public class ClienteBLL {
      *
      */
 
-   public static void delete(int idCliente){
-            if(factory == null)
-                factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-            if (em == null) em = factory.createEntityManager();
+    public static void delete(int idCliente){
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        if (em == null) em = factory.createEntityManager();
 
-            Clientes C = read(idCliente);
+        Clientes C = read(idCliente);
         em.getTransaction().begin();
         em.remove(C);
         em.getTransaction().commit();
-        }
+    }
 }
 
 
