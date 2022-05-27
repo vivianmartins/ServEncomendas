@@ -10,8 +10,10 @@ import java.util.Objects;
         @NamedQuery(name = "Users.findAll", query = "SELECT c FROM Users c"),
         @NamedQuery(name = "Users.findByUser", query = "SELECT c FROM Users c WHERE c.idUser = :id_user"),
         @NamedQuery(name = "Users.findByLogin", query =  "Select c From Users c WHERE c.email = :emailUser and c.password  = :pass and c.estado = true"),
-        @NamedQuery(name = "Users.findByGestor" , query = "Select c From Users c  where c.gestor = :is_gestor" ),
-        @NamedQuery(name = "Users.findByCozinheiro" , query = "Select c From Users c  where c.cozinheiro = :is_cozinheiro" ),
+        @NamedQuery(name = "Users.findByGestorAtivo" , query = "Select c From Users c  where c.gestor = :is_gestor and c.estado = true" ),
+        @NamedQuery(name = "Users.findByGestorDesativado" , query = "Select c From Users c  where c.gestor = :is_gestor and c.estado = false" ),
+        @NamedQuery(name = "Users.findByCozinheiroAtivo" , query = "Select c From Users c  where c.cozinheiro = :is_cozinheiro and c.estado = true" ),
+        @NamedQuery(name = "Users.findByCozinheiroDesativado" , query = "Select c From Users c  where c.cozinheiro = :is_cozinheiro and c.estado = false" ),
         @NamedQuery(name="Users.findAllEmail",query = "Select c from Users c where c.email=:email ")
 
 })

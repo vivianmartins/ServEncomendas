@@ -16,7 +16,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="608.0" layoutX="4.0" layoutY="9.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
       <TableView fx:id="tblEstafetaEli" editable="true" layoutX="45.0" layoutY="124.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="457.0" prefWidth="768.0" style="-fx-border-color: #F19800; -fx-background-radius: #F19800; -fx-cursor: FFD389;" tableMenuButtonVisible="true">
          <columns>
-            <TableColumn fx:id="nif" prefWidth="110.66668701171875" text="Nif" />
+            <TableColumn  fx:id="nif" prefWidth="110.66668701171875" text="Nif" />
             <TableColumn fx:id="email" prefWidth="243.99996948242188" text="Email" />
             <TableColumn fx:id="telefone" prefWidth="118.0" text="Telefone" />
             <TableColumn fx:id="password" minWidth="0.0" prefWidth="128.66671752929688" text="Password" />

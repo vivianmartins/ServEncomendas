@@ -69,7 +69,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnEstafetaEli" layoutX="812.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleBtnEstafeEli" prefHeight="37.0" prefWidth="131.0" style="-fx-background-color: #007687;" text="Estafetas eliminado" textFill="WHITE">
+      <Button fx:id="btnEstafetaEli" layoutX="812.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleBtnEstafeEli" prefHeight="37.0" prefWidth="131.0" style="-fx-background-color: #007687;" text="Estafetas eliminados" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

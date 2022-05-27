@@ -30,10 +30,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class adminEstafetasController implements Initializable {
-
-
-
-
     private List<Estafeta> listEsta = EstafetaBLL.readAll();
     ObservableList<Estafeta> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAllEst(true));
 

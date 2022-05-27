@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,6 +25,8 @@ import java.util.ResourceBundle;
 
 public class adminCozinheiroController implements Initializable {
 
+    ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.readAllCozAtivo(true,true));
+
     @FXML
     private Button btnEditar;
 
@@ -32,6 +35,12 @@ public class adminCozinheiroController implements Initializable {
 
     @FXML
     private Button btnNew;
+
+    @FXML
+    private Button btnAtualizarCoz;
+
+    @FXML
+    private Button btnListElimCoz;
 
     @FXML
     private Button btnPesquisar;
@@ -50,6 +59,9 @@ public class adminCozinheiroController implements Initializable {
 
     @FXML
     private TableColumn<Users, String> password;
+
+    @FXML
+    private TableView<Users> tblCozinheiro;
 
     @FXML
     void handleBtnEditar(ActionEvent event) {
@@ -84,13 +96,16 @@ public class adminCozinheiroController implements Initializable {
         Users users = tblCozinheiro.getSelectionModel().getSelectedItem();
         tblCozinheiro.getItems();
         BigInteger id = users.getIdUser();
-        users.setCozinheiro(false);
         users.setEstado(false);
         UsersBLL.update(users);
 
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Cozinheiro");
+        alert.setHeaderText("Cozinheiro removido com sucesso");
+        alert.setContentText("Atualize a página");
+        alert.show();
     }
-    @FXML
-    private TableView<Users> tblCozinheiro;
+
 
 
     @FXML
@@ -106,12 +121,35 @@ public class adminCozinheiroController implements Initializable {
         stageAtual.close();
 
     }
+
+    @FXML
+    void handlebtnListElimCoz(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/adminEliminadoCozinheiro.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
+    }
+
+
+    @FXML
+    void handleBtnAtualizarCoz(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/cozinheiroAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
-        ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.readAllC(true, true  ));
-
         //UsersBLL users = new UsersBLL();
         username.setCellValueFactory(new PropertyValueFactory<Users,String>("nomeuser"));
         email.setCellValueFactory(new PropertyValueFactory<Users,String>("email"));

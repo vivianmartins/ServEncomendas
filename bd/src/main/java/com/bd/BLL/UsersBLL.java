@@ -59,7 +59,7 @@ public class UsersBLL {
 
 
 
-    public static List<Users> readAll(boolean is_gestor, boolean estado){
+    public static List<Users> readAllGesAti(boolean is_gestor, boolean estado){
 
         List<Users> listaUser = new ArrayList<>();
         if(factory == null)
@@ -67,7 +67,28 @@ public class UsersBLL {
 
         if (em == null) em = factory.createEntityManager();
 
-        Query q1 = em.createNamedQuery("Users.findByGestor");
+        Query q1 = em.createNamedQuery("Users.findByGestorAtivo");
+        q1.setParameter("is_gestor", is_gestor);
+        List<Object> result = q1.getResultList();
+
+        for(Object user : result){
+            listaUser.add((Users) user);
+        }
+
+        return listaUser;
+
+    }
+
+
+    public static List<Users> readAllGesDes(boolean is_gestor, boolean estado){
+
+        List<Users> listaUser = new ArrayList<>();
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Users.findByGestorDesativado");
         q1.setParameter("is_gestor", is_gestor);
         List<Object> result = q1.getResultList();
 
@@ -81,7 +102,8 @@ public class UsersBLL {
 
 
 
-    public static List<Users> readAllC(boolean is_cozinheiro, boolean estado){
+
+    public static List<Users> readAllCozAtivo(boolean is_cozinheiro, boolean estado){
 
         List<Users> listaUser = new ArrayList<>();
         if(factory == null)
@@ -89,7 +111,7 @@ public class UsersBLL {
 
         if (em == null) em = factory.createEntityManager();
 
-        Query q1 = em.createNamedQuery("Users.findByCozinheiro");
+        Query q1 = em.createNamedQuery("Users.findByCozinheiroAtivo");
         q1.setParameter("is_cozinheiro", is_cozinheiro);
         List<Object> result = q1.getResultList();
 
@@ -102,6 +124,27 @@ public class UsersBLL {
     }
 
 
+
+
+    public static List<Users> readAllCozDes(boolean is_cozinheiro, boolean estado){
+
+        List<Users> listaUser = new ArrayList<>();
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Users.findByCozinheiroDesativado");
+        q1.setParameter("is_cozinheiro", is_cozinheiro);
+        List<Object> result = q1.getResultList();
+
+        for(Object user : result){
+            listaUser.add((Users) user);
+        }
+
+        return listaUser;
+
+    }
 
 
     public static Users login(String email, String password){

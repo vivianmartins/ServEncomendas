@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -27,7 +28,7 @@ import java.util.ResourceBundle;
 public class adminGestorController implements Initializable {
 
    // ObservableList<Users> list =    FXCollections.observableArrayList();
-   ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.readAll(true, true));
+   ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.readAllGesAti(true,true));
     @FXML
     private Button btnEditar;
 
@@ -45,6 +46,17 @@ public class adminGestorController implements Initializable {
 
     @FXML
     private Button btnVoltarEs;
+
+    @FXML
+    private Button btnAtualizarGestor;
+
+
+    @FXML
+    private Button btnListaEliminados;
+
+
+    @FXML
+    private TableView<Users> tblGestor;
 
     @FXML
     private TableColumn<Users, String> email;
@@ -69,7 +81,7 @@ public class adminGestorController implements Initializable {
     void handleBtnNew(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/gestorRegistoAdmin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 668 , 407);
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
         stage.setScene(scene);
         stage.show();
 
@@ -77,6 +89,36 @@ public class adminGestorController implements Initializable {
         Stage stageAtual  = (Stage) source.getScene().getWindow();
         stageAtual.close();
 
+
+    }
+
+    @FXML
+    void handleBtnAtualizarGestor(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/gestorAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
+
+
+    }
+
+
+    @FXML
+    void handleBtnListaEliminados(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/gestorEliminadosAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
 
     }
 
@@ -91,15 +133,16 @@ public class adminGestorController implements Initializable {
         Users users = tblGestor.getSelectionModel().getSelectedItem();
         tblGestor.getItems();
         BigInteger id = users.getIdUser();
-        users.setGestor(false);
         users.setEstado(false);
         UsersBLL.update(users);
 
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Gestor");
+        alert.setHeaderText("Gestor removido com sucesso");
+        alert.setContentText("Atualize a página");
+        alert.show();
+
     }
-
-
-    @FXML
-    private TableView<Users> tblGestor;
 
 
     @FXML
