@@ -1,5 +1,6 @@
 package com.example.fx.controllerAdmin;
 
+import com.bd.BLL.ClienteBLL;
 import com.bd.BLL.CodPostaisBLL;
 import com.bd.BLL.EstafetaBLL;
 import com.bd.BLL.UsersBLL;
@@ -102,32 +103,31 @@ public class EstafetaregistoAdmin {
     void handleBtnRegistar(ActionEvent event) {
 
 
+        if (isInputValid()) {
 
-        {
+            {
 
-            Estafeta est= new Estafeta();
-            Codpostais codpostais = new Codpostais();
-            est.setEmail(email.getText());
-            est.setNumtelefone(telefone.getText());
-            est.setNome(nome.getText());
-            est.setNif(Integer.parseInt(nif.getText()));
-            est.setPassword(passe.getText());
-            codpostais.setLocalidade(localidade.getText());
-            //colocar o codpostal
-            codpostais.setCodpostal(Integer.parseInt(codpostal.getText()));
+                Estafeta est = new Estafeta();
+                Codpostais codpostais = new Codpostais();
+                est.setEmail(email.getText());
+                est.setNumtelefone(telefone.getText());
+                est.setNome(nome.getText());
+                est.setNif(Integer.parseInt(nif.getText()));
+                est.setPassword(passe.getText());
+                est.setEstado(true);
+                codpostais.setLocalidade(localidade.getText());
+                //colocar o codpostal
+                codpostais.setCodpostal(Integer.parseInt(codpostal.getText()));
 
-            EstafetaBLL.create(est);
-            CodPostaisBLL.create(codpostais);
+                EstafetaBLL.create(est);
+                CodPostaisBLL.create(codpostais);
 
-
-
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Registo");
-            alert.setHeaderText("Registo efetuado com sucesso!");
-            alert.show();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Registo");
+                alert.setHeaderText("Registo efetuado com sucesso!");
+                alert.show();
+            }
         }
-
     }
 
     @FXML
@@ -142,6 +142,48 @@ public class EstafetaregistoAdmin {
         Stage stageAtual  = (Stage) source.getScene().getWindow();
         stageAtual.close();
 
+
+    }
+
+
+
+    public boolean isInputValid(){
+
+
+        String errorMessage = "";
+
+        if (nome.getText().isEmpty() || nome.getText().length() == 0) {
+            errorMessage += "Email inválido!\n";
+        }
+
+        if (username.getText() == null || username.getText().length() == 0) {
+            errorMessage += "Username iniválida!\n";
+        }
+        if (passe.getText() == null || passe.getText().length() == 0) {
+            errorMessage += "Passe inválida!\n";
+        }
+
+        if(EstafetaBLL.emailRepetidoEstafeta(email.getText())){
+            errorMessage += "Email  já existe!\n";
+        }
+
+        if(EstafetaBLL.emailRepetidoEstafetaNif(Integer.parseInt(nif.getText()))){
+            errorMessage += "Nif já existe!\n";
+        }
+
+
+
+
+        if (errorMessage.length() == 0 ) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Campos inválidos");
+            alert.setHeaderText("Preencha corretamente os campos!");
+            alert.setContentText(errorMessage);
+            alert.showAndWait();
+            return false;
+        }
 
     }
 

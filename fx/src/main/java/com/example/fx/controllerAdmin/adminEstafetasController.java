@@ -117,7 +117,7 @@ public class adminEstafetasController implements Initializable {
             est.setEstado(false);
             EstafetaBLL.update(est);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Estafeta");
             alert.setHeaderText("Estafeta removido com sucesso");
             alert.setContentText("Atualize a página");

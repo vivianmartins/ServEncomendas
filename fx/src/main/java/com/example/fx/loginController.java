@@ -49,8 +49,8 @@ public class loginController {
         else{
           //  loginAlert();
         }
-        if(user.isGestor()){
-        Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("gestor/painelGestor.fxml")));
+        if(user.isCozinheiro()){
+        Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cozinheiro/painelcozi.fxml")));
         stage.setScene(new Scene(root));
         stage.show();
         loginSucess();

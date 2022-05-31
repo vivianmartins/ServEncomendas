@@ -2,6 +2,7 @@ package com.bd.BLL;
 
 import com.bd.DAL.Clientes;
 import com.bd.DAL.Estafeta;
+import com.bd.DAL.Users;
 
 
 import javax.persistence.*;
@@ -9,23 +10,23 @@ import java.util.ArrayList;
 import java.util.List;
 public class EstafetaBLL {
 
-        private  static final String PERSISTENCE_UNIT_NAME = "default";
-        private static EntityManagerFactory factory = null;
-        @PersistenceContext
-        private static EntityManager em = null;
+    private static final String PERSISTENCE_UNIT_NAME = "default";
+    private static EntityManagerFactory factory = null;
+    @PersistenceContext
+    private static EntityManager em = null;
 
-        public static void create(Estafeta est){
-            if(factory == null) {
-                factory = Persistence.createEntityManagerFactory("default");
-            }
-
-
-            if (em == null) em = factory.createEntityManager();
-
-            em.getTransaction().begin(); //iniciando a transação com bd
-            em.persist(est); //Persistindo os dados
-            em.getTransaction().commit();//guardou
+    public static void create(Estafeta est) {
+        if (factory == null) {
+            factory = Persistence.createEntityManagerFactory("default");
         }
+
+
+        if (em == null) em = factory.createEntityManager();
+
+        em.getTransaction().begin(); //iniciando a transação com bd
+        em.persist(est); //Persistindo os dados
+        em.getTransaction().commit();//guardou
+    }
 
 
 
@@ -90,7 +91,61 @@ public class EstafetaBLL {
 
         return listaEsta;
     }
-/*
+
+
+    public static  boolean emailRepetidoEstafeta(String email) {
+        Estafeta estafetas = null;
+        List<Estafeta> listaEst = new ArrayList<>();
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Estafeta.findAll");
+        //q1.setParameter("email", email);
+
+        List<Estafeta> result = q1.getResultList();
+        System.out.println(q1);
+
+        for (Estafeta es : result) {
+            System.out.println(email);
+            if (email.equals(es.getEmail())) {
+                return true;
+            }
+
+
+
+        }
+        return false;
+    }
+
+
+
+    public static  boolean emailRepetidoEstafetaNif(int nif) {
+        Estafeta estafetas = null;
+        List<Estafeta> listaEst = new ArrayList<>();
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Estafeta.findAll");
+        //q1.setParameter("email", email);
+
+        List<Estafeta> result = q1.getResultList();
+        System.out.println(q1);
+
+        for (Estafeta es : result) {
+
+            if (nif == (es.getNif())) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    /*
         public static List<Estafetas> readAll(boolean estado){
             List<Estafetas> listaEst = new ArrayList<>();
             if(factory == null)
@@ -114,23 +169,24 @@ public class EstafetaBLL {
 
  */
 
-    public static List<Estafeta> readAll(String nome){
+        public static List<Estafeta> readAll (String nome){
             List<Estafeta> listaEst = new ArrayList<>();
-            if(factory == null)
+            if (factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
             if (em == null) em = factory.createEntityManager();
 
             Query q1 = em.createNamedQuery("Estafeta.findAllByNome");
-            q1.setParameter("nome", "%"+nome+"%");
+            q1.setParameter("nome", "%" + nome + "%");
             List<Object> result = q1.getResultList();
 
-            for(Object est : result){
+            for (Object est : result) {
                 listaEst.add((Estafeta) est);
             }
 
             return listaEst;
         }
+
 
     public static List<Estafeta> readAll() {
         List<Estafeta> listaEsta = new ArrayList<>();

@@ -48,15 +48,15 @@ public class PratoBLL {
         return pra;
     }
 
-    public static List<Pratos> readAll(){
+    public static List<Pratos> readAll(boolean estado){
         List<Pratos> listaPra = new ArrayList<> ();
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
 
-        Query q1 = em.createNamedQuery("Pratos.findAll");
-        List<Object> result = q1.getResultList();
+        Query q1 = em.createNamedQuery("Pratos.findAllByEstado");
+         List<Object> result = q1.getResultList();
 
         for(Object pra : result){
             listaPra.add((Pratos) pra);
@@ -114,7 +114,7 @@ public class PratoBLL {
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
-        Pratos p= read(idPrato);
+        Pratos p = read(idPrato);
         em.getTransaction().begin();
         em.remove(p);
         em.getTransaction().commit();

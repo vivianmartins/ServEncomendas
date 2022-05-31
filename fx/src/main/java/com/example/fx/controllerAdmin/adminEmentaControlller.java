@@ -3,7 +3,9 @@ package com.example.fx.controllerAdmin;
 
 import com.bd.BLL.PratoBLL;
 
+import com.bd.BLL.UsersBLL;
 import com.bd.DAL.Pratos;
+import com.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,14 +23,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class adminEmentaControlller implements Initializable {
 
-    private List<Pratos> pList = PratoBLL.readAll();
-    ObservableList<Pratos> listaPratos = FXCollections.observableArrayList(PratoBLL.readAll());
+
+    ObservableList<Pratos> listaPratos = FXCollections.observableArrayList(PratoBLL.readAll(true));
 
 
     @FXML
@@ -112,11 +115,12 @@ public class adminEmentaControlller implements Initializable {
      */
     @FXML
     void handleBtnRemover(ActionEvent event) {
-         Pratos ementas = tblEmenta.getSelectionModel().getSelectedItem();
-         int id = ementas.getIdPrato(); //nome dado ao fazer select
-         pList.remove(id); //remove das definições
-         PratoBLL.delete(id); //remove pelo BLL
-         tblEmenta.setItems(listaPratos); //permite listar novamente
+        Pratos pratos = tblEmenta.getSelectionModel().getSelectedItem();
+        tblEmenta.getItems();
+        int id = pratos.getIdPrato();
+        pratos.setEstado(false);
+        PratoBLL.update(pratos);
+
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Ementa");
@@ -127,6 +131,7 @@ public class adminEmentaControlller implements Initializable {
     }
 
 
+    @FXML
     void handleBtnAtualizar(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/ementaAdmin.fxml"));

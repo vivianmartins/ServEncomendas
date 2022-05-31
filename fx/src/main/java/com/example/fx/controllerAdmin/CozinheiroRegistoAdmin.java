@@ -58,6 +58,7 @@ public class CozinheiroRegistoAdmin {
                 user.setNomeuser(username.getText());
                 user.setPassword(passe.getText());
                 user.setCozinheiro(true);
+                user.setEstado(true);
                 UsersBLL.create(user);
 
 
@@ -72,7 +73,7 @@ public class CozinheiroRegistoAdmin {
     @FXML
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/gestorAdmin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/cozinheiroAdmin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
         stage.setScene(scene);
         stage.show();
@@ -96,9 +97,11 @@ public class CozinheiroRegistoAdmin {
         if (username.getText().isEmpty() || username.getText().length() == 0) {
             errorMessage += "Username inválido!\n";
         }
-        if(UsersBLL.emailRepetido(email.getText())){
+       if(UsersBLL.emailRepetido(email.getText())){
             errorMessage += "Email já existe!\n";
         }
+
+
 
 
         if (errorMessage.length() == 0) {

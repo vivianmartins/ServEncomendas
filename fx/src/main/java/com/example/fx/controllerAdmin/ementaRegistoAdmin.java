@@ -2,11 +2,18 @@ package com.example.fx.controllerAdmin;
 
 import com.bd.BLL.PratoBLL;
 import com.bd.DAL.Pratos;
+import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class ementaRegistoAdmin {
 
@@ -49,15 +56,35 @@ public class ementaRegistoAdmin {
 
                 pra.setStockdoses(Integer.parseInt(stock.getText()));
                 pra.setPrecoatual(Float.parseFloat(preco.getText()));
+                pra.setEstado(true);
                 pra.setDescricao(prato.getText());
                 PratoBLL.create(pra);
+
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Ementa");
+                alert.setHeaderText("Prato criado com sucesso");
+                alert.setContentText("Atualize a página");
+                alert.show();
+
 
             }
         }
         }
 
     @FXML
-    void handleBtnVoltarEs(ActionEvent event) {
+    void handleBtnVoltarEs(ActionEvent event) throws IOException {
+
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/ementaAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
+
 
     }
     public boolean isInputValid(){

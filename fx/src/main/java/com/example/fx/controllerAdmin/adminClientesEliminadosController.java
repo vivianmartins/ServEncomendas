@@ -106,12 +106,12 @@ public class adminClientesEliminadosController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        idCl.setCellValueFactory(new PropertyValueFactory<Clientes,Number>("IdCliente"));
-        nomeCl.setCellValueFactory(new PropertyValueFactory<Clientes,String>("nome"));
-        moradaCl.setCellValueFactory(new PropertyValueFactory<Clientes,String>("rua"));
-        codigopostalCl.setCellValueFactory(new PropertyValueFactory<Clientes,String>("codpostal"));
-        telefoneCl.setCellValueFactory(new PropertyValueFactory<Clientes,String>("numtelemovel"));
-        nifCl.setCellValueFactory(new PropertyValueFactory<Clientes,Number>("nif"));
+        idCl.setCellValueFactory(new PropertyValueFactory<>("IdCliente"));
+        nomeCl.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        moradaCl.setCellValueFactory(new PropertyValueFactory<>("rua"));
+        codigopostalCl.setCellValueFactory(new PropertyValueFactory<>("codpostal"));
+        telefoneCl.setCellValueFactory(new PropertyValueFactory<>("numtelemovel"));
+        nifCl.setCellValueFactory(new PropertyValueFactory<>("nif"));
         tblClienteEli.setItems(listaCls);
 
     }

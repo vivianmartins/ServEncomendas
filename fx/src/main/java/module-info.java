@@ -15,7 +15,9 @@ module com.example.fx {
     exports com.example.fx.controllerEstafeta;
     opens com.example.fx.controllerEstafeta to javafx.fxml;
     exports com.example.fx.controllerGestor;
-    opens com.example.fx.controllerGestor to javafx.fxml;
+    opens com.example.fx.controllerCozinheiro to javafx.fxml;
+    exports com.example.fx.controllerCozinheiro;
+
      //requires java.persistence;
     requires org.hibernate.orm.core;
     requires java.logging;

@@ -1,10 +1,9 @@
 package com.bd.BLL;
 
 import com.bd.DAL.Clientes;
-import com.bd.DAL.Users;
-import org.hibernate.annotations.SQLUpdate;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -170,6 +169,33 @@ public class ClienteBLL {
         em.remove(C);
         em.getTransaction().commit();
     }
+
+
+
+    public static  boolean emailRepetidoCliente(BigInteger nif) {
+        Clientes cls = null;
+        List<Clientes> listaCls = new ArrayList<>();
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Clientes.findAll");
+        //q1.setParameter("email", email);
+
+        List<Clientes> result = q1.getResultList();
+        System.out.println(q1);
+
+        for (Clientes cl : result) {
+            System.out.println(nif);
+            if (nif == (cl.getNif())) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
 }
 
 

@@ -58,7 +58,7 @@ public class GestorRegistoAdmin {
                 user.setNomeuser(username.getText());
                 user.setPassword(passe.getText());
                 user.setGestor(true);
-              //  user.setIdUser(BigInteger.valueOf(61));
+                user.setEstado(true);
                 UsersBLL.create(user);
 
 
@@ -101,7 +101,9 @@ public class GestorRegistoAdmin {
             if (username.getText() == null || username.getText().length() == 0) {
                 errorMessage += "Username inválido!\n";
             }
-
+        if(UsersBLL.emailRepetido(email.getText())){
+            errorMessage += "Email já existe!\n";
+        }
 
             if (errorMessage.length() == 0 ) {
                 return true;

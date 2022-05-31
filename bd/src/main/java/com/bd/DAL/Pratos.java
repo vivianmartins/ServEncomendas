@@ -7,7 +7,10 @@ import javax.persistence.*;
 @NamedQueries({
         @NamedQuery(name = "Pratos.findAll", query = "SELECT p FROM Pratos p"),
         @NamedQuery(name = "Pratos.findById_Pratos", query = "SELECT p FROM Pratos p WHERE  p.idPrato = :id_prato"),
-        @NamedQuery(name = "Pratos.findAllByDescricao", query = "SELECT c FROM Pratos c WHERE c.descricao LIKE :DESCRICAO")
+        @NamedQuery(name = "Pratos.findAllByDescricao", query = "SELECT p FROM Pratos p WHERE p.descricao LIKE :DESCRICAO"),
+        @NamedQuery(name = "Pratos.findAllByEstado", query =    "SELECT p FROM Pratos p WHERE p.estado = true"),
+
+
 
 })
 
@@ -16,7 +19,7 @@ public class Pratos {
     private String descricao;
     private int stockdoses;
     private float precoatual;
-
+    private boolean estado;
 
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +33,16 @@ public class Pratos {
         this.idPrato = idPrato;
     }
 
+    @Basic
+    @Column(name = "ESTADO", nullable = false, precision = 0)
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
     @Basic
     @Column(name = "DESCRICAO", nullable = false, length = 150)
     public String getDescricao() {

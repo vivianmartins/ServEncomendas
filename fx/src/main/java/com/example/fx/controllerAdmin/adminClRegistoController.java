@@ -1,6 +1,7 @@
 package com.example.fx.controllerAdmin;
 
 import com.bd.BLL.ClienteBLL;
+import com.bd.BLL.UsersBLL;
 import com.bd.DAL.Clientes;
 import com.example.fx.loginController;
 import javafx.event.ActionEvent;
@@ -97,23 +98,24 @@ public class adminClRegistoController {
     Clientes cliUpdate = null;
     @FXML
     void handleBtnRegistar(ActionEvent event) {
-        {
 
-            cliUpdate = cli;
+            {
 
-            cliUpdate.setNome(nome.getText());
-            cliUpdate.setCodpostal(Integer.parseInt(codpostal.getText()));
-            cliUpdate.setNumtelemovel(telefone.getText());
-            cliUpdate.setNif(BigInteger.valueOf(Integer.parseInt(nif.getText())));
-            cliUpdate.setRua(morada.getText());
-            ClienteBLL.update(cliUpdate);
+                cliUpdate = cli;
 
+                cliUpdate.setNome(nome.getText());
+                cliUpdate.setCodpostal(Integer.parseInt(codpostal.getText()));
+                cliUpdate.setNumtelemovel(telefone.getText());
+                cliUpdate.setNif(BigInteger.valueOf(Integer.parseInt(nif.getText())));
+                cliUpdate.setRua(morada.getText());
+                ClienteBLL.create(cli);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Registo");
-            alert.setHeaderText("Registo efetuado com sucesso!");
-            alert.show();
-        }
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Registo");
+                alert.setHeaderText("Registo efetuado com sucesso!");
+                alert.show();
+            }
+
     }
 
     @FXML
@@ -135,4 +137,9 @@ public class adminClRegistoController {
 
     }
 
-}
+
+
+
+    }
+
+

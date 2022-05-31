@@ -10,15 +10,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerAdmin.adminPainelController">
+<AnchorPane prefHeight="623.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerAdmin.adminPainelController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="-2.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
-      <ImageView fitHeight="600.0" fitWidth="402.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="629.0" fitWidth="850.0" layoutX="-1.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/3775561.jpg" />
+            <Image url="@../assets/fundo.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="43.0" layoutY="-3.0" stroke="WHITE" strokeType="INSIDE" width="357.0" />
+      <ImageView fitHeight="629.0" fitWidth="850.0" layoutX="158.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/fundo.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="629.0" layoutX="36.0" stroke="WHITE" strokeType="INSIDE" width="928.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="51.0" layoutY="-3.0" stroke="WHITE" strokeType="INSIDE" width="349.0" />
       <ImageView fitHeight="127.0" fitWidth="203.0" layoutX="371.0" layoutY="27.0" pickOnBounds="true">
          <image>
             <Image url="@../assets/icon.png" />

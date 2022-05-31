@@ -29,8 +29,8 @@ import java.util.ResourceBundle;
 public class adminEmentaEditarController implements Initializable {
 
 
-    private List<Pratos> pList = PratoBLL.readAll();
-    ObservableList<Pratos> listaPratos = FXCollections.observableArrayList(PratoBLL.readAll());
+    //private List<Pratos> pList = PratoBLL.readAll();
+    ObservableList<Pratos> listaPratos = FXCollections.observableArrayList(PratoBLL.readAll(true));
 
     @FXML
     private Button btnEditar;
@@ -110,10 +110,6 @@ public class adminEmentaEditarController implements Initializable {
         pra.setStockdoses(Integer.parseInt(edStock.getText()));
         PratoBLL.update(pra);
         tblEmenta.setItems(listaPratos);
-
-
-
-
     }
     @FXML
     void handleBtnNew(ActionEvent event) {
@@ -131,11 +127,6 @@ public class adminEmentaEditarController implements Initializable {
      */
     @FXML
     void handleBtnRemover(ActionEvent event) {
-        Pratos ementas = tblEmenta.getSelectionModel().getSelectedItem();
-        int id = ementas.getIdPrato(); //nome dado ao fazer select
-        pList.remove(id); //remove das definições
-        PratoBLL.delete(id); //remove pelo BLL
-        tblEmenta.setItems(listaPratos); //permite listar novamente
     }
     @FXML
     private TableView<Pratos> tblEmenta;
