@@ -15,22 +15,22 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <ImageView fitHeight="115.0" fitWidth="189.0" layoutX="353.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="115.0" fitWidth="189.0" layoutX="354.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/icon.png" />
          </image>
       </ImageView>
       <TextField fx:id="nome" layoutX="73.0" layoutY="187.0" onAction="#editNo" prefHeight="38.0" prefWidth="529.0" promptText="Primeiro e último nome..." />
       <TextField fx:id="nif" layoutX="610.0" layoutY="187.0" onAction="#edNif" prefHeight="38.0" prefWidth="283.0" promptText="Nif..." />
-      <TextField fx:id="morada" layoutX="73.0" layoutY="328.0" onAction="#edMorada" prefHeight="38.0" prefWidth="818.0" promptText="Rua, número, porta..." />
-      <TextField fx:id="localidade" layoutX="325.0" layoutY="405.0" onAction="#edlocalidade" prefHeight="38.0" prefWidth="259.0" promptText="Localidade...." />
-      <TextField fx:id="telefone" layoutX="587.0" layoutY="405.0" onAction="#edTelefone" prefHeight="38.0" prefWidth="304.0" promptText="Telefone..." />
-      <Button fx:id="btnRegistar" layoutX="338.0" layoutY="485.0" mnemonicParsing="false" onAction="#handleBtnRegistar" prefHeight="38.0" prefWidth="265.0" style="-fx-background-color: #007687;" text="Registar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <TextField fx:id="morada" layoutX="73.0" layoutY="256.0" onAction="#edMorada" prefHeight="38.0" prefWidth="529.0" promptText="Rua, número, porta..." />
+      <TextField fx:id="localidade" layoutX="329.0" layoutY="320.0" onAction="#edlocalidade" prefHeight="38.0" prefWidth="274.0" promptText="Localidade...." />
+      <TextField fx:id="telefone" layoutX="612.0" layoutY="320.0" onAction="#edTelefone" prefHeight="38.0" prefWidth="283.0" promptText="Telefone..." />
+      <Button fx:id="btnRegistar" layoutX="338.0" layoutY="423.0" mnemonicParsing="false" onAction="#handleBtnRegistar" prefHeight="38.0" prefWidth="265.0" style="-fx-background-color: #007687;" text="Registar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Text layoutX="391.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registar cliente" wrappingWidth="160.9912109375">
+      <Text layoutX="387.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registar cliente" wrappingWidth="160.9912109375">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -40,43 +40,37 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="615.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nif" wrappingWidth="38.0556640625">
+      <Text layoutX="612.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nif" wrappingWidth="38.0556640625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="73.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Morada">
+      <Text layoutX="73.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Morada">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="73.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código-Postal">
+      <Text layoutX="77.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código-Postal">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="325.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localidade">
+      <Text layoutX="329.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localidade">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="591.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <TextField fx:id="username" layoutX="73.0" layoutY="256.0" onAction="#edUsername" prefHeight="38.0" prefWidth="529.0" promptText="username..." />
-      <Text layoutX="75.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+      <Text layoutX="615.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
       <TextField fx:id="passe" layoutX="610.0" layoutY="256.0" onAction="#edPasse" prefHeight="38.0" prefWidth="283.0" promptText="Palavra-passe" />
-      <Text layoutX="608.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Palavra-passe">
+      <Text layoutX="611.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Palavra-passe">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="codpostal" layoutX="69.0" layoutY="405.0" onAction="#codpostal" prefHeight="38.0" prefWidth="241.0" promptText="Localidade...." />
+      <TextField fx:id="codpostal" layoutX="73.0" layoutY="320.0" onAction="#codpostal" prefHeight="38.0" prefWidth="241.0" promptText="Localidade...." />
    </children>
 </AnchorPane>

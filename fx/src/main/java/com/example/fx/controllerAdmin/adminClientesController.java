@@ -2,6 +2,7 @@ package com.example.fx.controllerAdmin;
 
 
 import com.bd.BLL.ClienteBLL;
+import com.bd.BLL.EstafetaBLL;
 import com.bd.DAL.Clientes;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
@@ -12,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -28,7 +30,7 @@ public class adminClientesController implements Initializable {
 
     private List <Clientes>  clisteList = ClienteBLL.readAll();
 
-   ObservableList<Clientes> listaCl = FXCollections.observableArrayList(ClienteBLL.readAll(true));
+   ObservableList<Clientes> listaCl = FXCollections.observableArrayList(ClienteBLL.readAllEstli(true));
 
     @FXML
     private TableColumn<TableClientAdmin, String> Encomendas;
@@ -84,42 +86,12 @@ public class adminClientesController implements Initializable {
         clientes.setEstado(false);
         ClienteBLL.update(clientes);
 
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Ementa");
+        alert.setHeaderText("Prato eliminado com sucesso");
+        alert.setContentText("Atualize a página");
+        alert.show();
 
-
-/*
-        Clientes cls = tblCliente.getSelectionModel().getSelectedItem();
-        int id = cls.getIdCliente(); //nome dado ao fazer select
-        tblCliente.getItems();
-        if(cls.isEstado(false)) {
-            tblCliente.getBackground(Color.RED);
-        }
-
-
- remove mm
-        Clientes cls = tblCliente.getSelectionModel().getSelectedItem();
-        int id = cls.getIdCliente(); //nome dado ao fazer select
-        listaCl.remove(id); //remove das definições
-        ClienteBLL.delete(id); //remove pelo BLL
-        tblCliente.setItems(listaCl); //permite listar novamente
-
-
- */
-  /*      //  pseudo remover ---- volta a aparecer
-
-        int selectedID = tblCliente.getSelectionModel().getSelectedIndex();
-        tblCliente.getItems().remove(selectedID);
-        ClienteBLL.delete(selectedID);
-        tblCliente.setItems(listaCl);
-
-
-        /------------------
- Clientes cls = tblCliente.getSelectionModel().getSelectedItem();
-        int id = cls.getIdCliente()
-        clisteList.remove(id);
-        ClienteBLL.delete(id);
-        tblCliente.setItems(listaCl);
-
-*/
     }
 
 
@@ -195,6 +167,7 @@ public class adminClientesController implements Initializable {
         tblCliente.setItems(listaCl);
 
    }
+
 
 
 

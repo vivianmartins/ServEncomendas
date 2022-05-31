@@ -1,8 +1,12 @@
 package com.example.fx.controllerAdmin;
 
 import com.bd.BLL.ClienteBLL;
+import com.bd.BLL.CodPostaisBLL;
+import com.bd.BLL.EstafetaBLL;
 import com.bd.BLL.UsersBLL;
 import com.bd.DAL.Clientes;
+import com.bd.DAL.Codpostais;
+import com.bd.DAL.Estafeta;
 import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,8 +51,7 @@ public class adminClRegistoController {
     @FXML
     private TextField telefone;
 
-    @FXML
-    private TextField username;
+
 
     @FXML
     void edEmail(ActionEvent event) {
@@ -80,10 +83,6 @@ public class adminClRegistoController {
 
     }
 
-    @FXML
-    void edUsername(ActionEvent event) {
-
-    }
 
     @FXML
     void editNo(ActionEvent event) {
@@ -95,27 +94,33 @@ public class adminClRegistoController {
 
     }
     Clientes cli = new Clientes();
-    Clientes cliUpdate = null;
+
     @FXML
     void handleBtnRegistar(ActionEvent event) {
 
+        if (isInputValid()) {
+
             {
 
-                cliUpdate = cli;
+               Clientes cl = new Clientes();
+               Codpostais codpostais = new Codpostais();
+               cl.setNumtelemovel(telefone.getText());
+               cl.setNome(nome.getText());
+               cl.setNif(BigInteger.valueOf(Integer.parseInt(nif.getText())));
+               cl.setRua(morada.getText());
+               cl.setEstado(true);
+               codpostais.setLocalidade(localidade.getText());
+               codpostais.setCodpostal(Integer.parseInt(codpostal.getText()));
 
-                cliUpdate.setNome(nome.getText());
-                cliUpdate.setCodpostal(Integer.parseInt(codpostal.getText()));
-                cliUpdate.setNumtelemovel(telefone.getText());
-                cliUpdate.setNif(BigInteger.valueOf(Integer.parseInt(nif.getText())));
-                cliUpdate.setRua(morada.getText());
-                ClienteBLL.create(cli);
+                ClienteBLL.create(cl);
+                CodPostaisBLL.create(codpostais);
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Registo");
                 alert.setHeaderText("Registo efetuado com sucesso!");
                 alert.show();
             }
-
+        }
     }
 
     @FXML
@@ -137,6 +142,43 @@ public class adminClRegistoController {
 
     }
 
+    public boolean isInputValid(){
+
+
+        String errorMessage = "";
+
+        if (nome.getText().isEmpty() || nome.getText().length() == 0) {
+            errorMessage += "Email inválido!\n";
+        }
+
+        if (morada.getText() == null || morada.getText().length() == 0) {
+            errorMessage += "Username iniválida!\n";
+        }
+        if (codpostal.getText() == null || codpostal.getText().length() == 0) {
+            errorMessage += "Passe inválida!\n";
+        }
+
+
+
+        if(ClienteBLL.nifRepetidoCliente(BigInteger.valueOf(Integer.parseInt(nif.getText())))){
+            errorMessage += "Nif já existe!\n";
+        }
+
+
+
+
+        if (errorMessage.length() == 0 ) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Campos inválidos");
+            alert.setHeaderText("Preencha corretamente os campos!");
+            alert.setContentText(errorMessage);
+            alert.showAndWait();
+            return false;
+        }
+
+    }
 
 
 

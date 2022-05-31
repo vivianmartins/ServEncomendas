@@ -26,7 +26,7 @@ public class adminClientesEliminadosController implements Initializable {
 
 
 
-    ObservableList<Clientes> listaCls = FXCollections.observableArrayList(ClienteBLL.readAll(false));
+    ObservableList<Clientes> listaCls = FXCollections.observableArrayList(ClienteBLL.readAllEstli(false));
 
 
     @FXML

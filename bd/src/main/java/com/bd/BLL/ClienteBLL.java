@@ -122,7 +122,7 @@ public class ClienteBLL {
 
 
 
-    public static List<Clientes> readAll(boolean estado) {
+    public static List<Clientes> readAllEstli(boolean estado) {
         List<Clientes> listaCli = new ArrayList<>();
         if (factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
@@ -172,7 +172,7 @@ public class ClienteBLL {
 
 
 
-    public static  boolean emailRepetidoCliente(BigInteger nif) {
+    public static  boolean nifRepetidoCliente(BigInteger nif) {
         Clientes cls = null;
         List<Clientes> listaCls = new ArrayList<>();
         if (factory == null)
@@ -181,8 +181,6 @@ public class ClienteBLL {
         if (em == null) em = factory.createEntityManager();
 
         Query q1 = em.createNamedQuery("Clientes.findAll");
-        //q1.setParameter("email", email);
-
         List<Clientes> result = q1.getResultList();
         System.out.println(q1);
 
@@ -195,6 +193,7 @@ public class ClienteBLL {
         }
         return false;
     }
+
 
 }
 
