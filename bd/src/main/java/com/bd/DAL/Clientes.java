@@ -38,7 +38,7 @@ public class Clientes {
         return estado;
     }
     public void setEstado(boolean estado) {
-       estado = estado;
+       this.estado = estado;
     }
     @Basic
     @Column(name = "NOME", nullable = false, length = 100)

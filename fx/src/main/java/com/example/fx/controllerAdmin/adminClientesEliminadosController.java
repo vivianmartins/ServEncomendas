@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -63,7 +64,6 @@ public class adminClientesEliminadosController implements Initializable {
 
 
 
-
     @FXML
     void handleBtnClEli(ActionEvent event) {
         Clientes cl = tblClienteEli.getSelectionModel().getSelectedItem();
@@ -72,7 +72,10 @@ public class adminClientesEliminadosController implements Initializable {
         cl.setEstado(true);
         ClienteBLL.update(cl);
 
-
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Cliente");
+        alert.setHeaderText("Cliente efetuado com sucesso!");
+        alert.show();
 
     }
 

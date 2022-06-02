@@ -133,17 +133,6 @@ public class clientesEstafetasController implements Initializable {
     private void ListCl( List<Clientes> listOfName) {
 
 
-        ObservableList<Clientes> listaClName = FXCollections.observableArrayList(ClienteBLL.readAll(""));
-
-
-
-        ObservableList<Clientes> listaClEst = FXCollections.observableArrayList(ClienteBLL.readAll());
-
-        nome.setCellValueFactory(new PropertyValueFactory<Clientes, String>("nome"));
-        telefone.setCellValueFactory(new PropertyValueFactory<Clientes, String>("numtelemovel"));
-        morada.setCellValueFactory(new PropertyValueFactory<Clientes, String>("rua"));
-        tblClEstafeta.setItems(listaClEst);
-
 
 
         }
