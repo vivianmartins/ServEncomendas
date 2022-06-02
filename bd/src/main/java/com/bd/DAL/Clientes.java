@@ -37,9 +37,11 @@ public class Clientes {
    public boolean getEstado() {
         return estado;
     }
+
     public void setEstado(boolean estado) {
        this.estado = estado;
     }
+
     @Basic
     @Column(name = "NOME", nullable = false, length = 100)
     public String getNome() {
@@ -70,10 +72,16 @@ public class Clientes {
         this.rua = rua;
     }
 
+
+
     @Basic
     @Column(name = "CODPOSTAL", nullable = false, precision = 0)
     public int getCodpostal() {
         return codpostal;
+    }
+
+    public void setCodpostal(Integer codpostal) {
+        this.codpostal = codpostal;
     }
 
     public void setCodpostal(int codpostal) {

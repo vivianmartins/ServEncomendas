@@ -1,13 +1,11 @@
 package com.bd.BLL;
-
-import com.bd.DAL.Clientes;
-import com.bd.DAL.Estafeta;
-import com.bd.DAL.Users;
-
-
+import com.bd.DAL.*;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+
+
 public class EstafetaBLL {
 
     private static final String PERSISTENCE_UNIT_NAME = "default";
@@ -93,6 +91,27 @@ public class EstafetaBLL {
     }
 
 
+
+    public static List<Estafetas> readAllEsta(boolean estado){
+        List<Estafetas> listaEst = new ArrayList<>();
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        TypedQuery<Estafetas> q1 = em.createNamedQuery("Estafeta.findAllPass", Estafetas.class);
+        q1.setParameter("isestado", estado);
+        List<Estafetas> result = q1.getResultList();
+
+        for(Estafetas est : result){
+            listaEst.add((Estafetas) est);
+        }
+
+        return listaEst;
+    }
+
+
+    /*
     public static  boolean emailRepetidoEstafeta(String email) {
         Estafeta estafetas = null;
         List<Estafeta> listaEst = new ArrayList<>();
@@ -121,6 +140,8 @@ public class EstafetaBLL {
 
 
 
+
+ */
     public static  boolean emailRepetidoEstafetaNif(int nif) {
         Estafeta estafetas = null;
         List<Estafeta> listaEst = new ArrayList<>();
@@ -168,7 +189,7 @@ public class EstafetaBLL {
 
 
  */
-
+/*
         public static List<Estafeta> readAll (String nome){
             List<Estafeta> listaEst = new ArrayList<>();
             if (factory == null)
@@ -188,6 +209,8 @@ public class EstafetaBLL {
         }
 
 
+ */
+
     public static List<Estafeta> readAll() {
         List<Estafeta> listaEsta = new ArrayList<>();
         if (factory == null)
@@ -206,7 +229,7 @@ public class EstafetaBLL {
     }
 
 
-    public static void update(Estafeta estafetas){
+    public static void update(Estafetas estafetas){
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 

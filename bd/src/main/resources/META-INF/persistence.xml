@@ -12,6 +12,7 @@
         <class>com.bd.DAL.EncomendaestadosPK</class>
         <class>com.bd.DAL.Encomendas</class>
         <class>com.bd.DAL.Estafeta</class>
+        <class>com.bd.DAL.Estafetas</class>
         <class>com.bd.DAL.PratosEncomendados</class>
         <class>com.bd.DAL.PratosEncomendadosPK</class>
         <class>com.bd.DAL.Tipopagamentos</class>

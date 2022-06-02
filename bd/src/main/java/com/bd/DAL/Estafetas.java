@@ -1,16 +1,18 @@
-/*package com.bd.DAL;
+package com.bd.DAL;
 
 import java.math.BigInteger;
+import javax.persistence.Entity;
 
 public class Estafetas {
 
     private BigInteger nif;
     private String email;
+    private String emailEst;
     private String telefone;
     private String nome;
     private String password;
     private boolean estado;
-    private boolean estadous;
+    //private boolean estadous;
     private BigInteger id_user;
     private int id_estafeta;
 
@@ -31,6 +33,9 @@ public class Estafetas {
         this.estado = estado;
     }
 
+
+
+/*
     public boolean isEstadous() {
         return estadous;
     }
@@ -39,6 +44,8 @@ public class Estafetas {
         this.estadous = estadous;
     }
 
+
+ */
     public void setId_user(BigInteger id_user) {
         this.id_user = id_user;
     }
@@ -72,6 +79,14 @@ public class Estafetas {
         this.telefone = telefone;
     }
 
+    public String getEmailEst() {
+        return emailEst;
+    }
+
+    public void setEmailEst(String emailEst) {
+        this.emailEst = emailEst;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -80,31 +95,29 @@ public class Estafetas {
         this.nome = nome;
     }
 
-   public String getPassword() {
+    public String getPassword() {
         return password;
     }
 
 
-
-  public void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
 
-
-    public Estafetas(Estafeta e,Users u) {
+    public Estafetas(Estafeta e, Users u) {
         this.nif = BigInteger.valueOf(e.getNif());
-        this.email = e.getEmail();
+        this.email = u.getEmail();
         this.telefone = e.getNumtelefone();
-        this.nome = e.getNome();
+        this.nome = u.getNomeuser();
         this.password = u.getPassword();
         this.id_user = u.getIdUser();
         this.estado = e.getEstado();
         this.id_estafeta = e.getIdEstafeta();
+        this.emailEst = e.getEmail();
+
     }
-
-
 
 }
 
- */
+

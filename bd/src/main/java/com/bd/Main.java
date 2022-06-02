@@ -15,10 +15,10 @@ public class Main {
     public static void main(String[] args) {
 
 
+        List<Estafetas>   listaest = EstafetaBLL.readAllEsta(true);
+        for(Estafetas est : listaest)
+            System.out.println("email: " + est.getEmailEst() + " nome: " + est.getNome());
 
-        Clientes cli = new Clientes();
-       cli.setEstado(true);
-        ClienteBLL.update(cli);
 
         //cli.getIdCliente();
         //cli.setEstado(ClienteBLL.read(2));

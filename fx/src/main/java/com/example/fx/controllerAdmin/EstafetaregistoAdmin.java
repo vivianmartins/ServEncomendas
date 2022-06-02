@@ -108,19 +108,21 @@ public class EstafetaregistoAdmin {
             {
 
                 Estafeta est = new Estafeta();
-                Codpostais codpostais = new Codpostais();
-                est.setEmail(email.getText());
+
+                Users user = new Users();
+                user.setEmail(email.getText());
                 est.setNumtelefone(telefone.getText());
-                est.setNome(nome.getText());
+                user.setNomeuser(nome.getText());
                 est.setNif(Integer.parseInt(nif.getText()));
-                est.setPassword(passe.getText());
+                user.setPassword(passe.getText());
                 est.setEstado(true);
-                codpostais.setLocalidade(localidade.getText());
+                user.setEstado(true);
+
                 //colocar o codpostal
-                codpostais.setCodpostal(Integer.parseInt(codpostal.getText()));
+
 
                 EstafetaBLL.create(est);
-                CodPostaisBLL.create(codpostais);
+                UsersBLL.create(user);
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Registo");
@@ -163,7 +165,7 @@ public class EstafetaregistoAdmin {
             errorMessage += "Passe inválida!\n";
         }
 
-        if(EstafetaBLL.emailRepetidoEstafeta(email.getText())){
+        if(UsersBLL.emailRepetido(email.getText())){
             errorMessage += "Email  já existe!\n";
         }
 

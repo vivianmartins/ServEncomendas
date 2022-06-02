@@ -87,8 +87,8 @@ public class adminClientesController implements Initializable {
         ClienteBLL.update(clientes);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Ementa");
-        alert.setHeaderText("Prato eliminado com sucesso");
+        alert.setTitle("Cliente");
+        alert.setHeaderText("Cliente eliminado com sucesso");
         alert.setContentText("Atualize a página");
         alert.show();
 

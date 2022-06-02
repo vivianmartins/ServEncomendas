@@ -110,7 +110,7 @@ public class adminClRegistoController {
                cl.setRua(morada.getText());
                cl.setEstado(true);
                codpostais.setLocalidade(localidade.getText());
-               codpostais.setCodpostal(Integer.parseInt(codpostal.getText()));
+               cl.setCodpostal(Integer.parseInt(codpostal.getText()));
 
                 ClienteBLL.create(cl);
                 CodPostaisBLL.create(codpostais);

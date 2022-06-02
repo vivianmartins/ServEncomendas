@@ -25,9 +25,30 @@ public class Users {
     private boolean isGestor;
     private boolean isCozinheiro;
     private String nomeuser;
+    private Boolean isEstafeta;
+    private boolean estado;
+
+
     @Basic
     @Column(name = "ESTADO", nullable = false, precision = 0)
-    private boolean estado;
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    @Basic
+    @Column(name = "IS_ESTAFETA", nullable = true, precision = 0)
+
+    public Boolean getEstafeta() {
+        return isEstafeta;
+    }
+
+    public void setEstafeta(Boolean estafeta) {
+        isEstafeta = estafeta;
+    }
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -49,6 +70,7 @@ public class Users {
     public void setEmail(String email) {
         this.email = email;
     }
+
 
     @Basic
     @Column(name = "PASSWORD", nullable = false, length = 100)
@@ -79,13 +101,7 @@ public class Users {
     public void setGestor(boolean gestor) {
         isGestor = gestor;
     }
-    public boolean isEstado() {
-        return estado;
-    }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
 
     @Basic
     @Column(name = "IS_COZINHEIRO", nullable = false, precision = 0)

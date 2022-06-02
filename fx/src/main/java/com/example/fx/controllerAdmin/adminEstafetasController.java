@@ -6,6 +6,7 @@ import com.bd.BLL.UsersBLL;
 import com.bd.DAL.Clientes;
 import com.bd.DAL.Estafeta;
 
+import com.bd.DAL.Estafetas;
 import com.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
@@ -30,9 +31,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class adminEstafetasController implements Initializable {
-    private List<Estafeta> listEsta = EstafetaBLL.readAll();
-    ObservableList<Estafeta> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAllEst(true));
-
+    //private List<Estafeta> listEsta = EstafetaBLL.readAll();
+    ObservableList<Estafetas> listaEsta =  FXCollections.observableArrayList(EstafetaBLL.readAllEsta(true));
+    //ObservableList<Estafeta> listaEsta =  FXCollections.observableArrayList(EstafetaBLL.readAllEst(true));
     @FXML
     private Button btnEditar;
 
@@ -58,22 +59,22 @@ public class adminEstafetasController implements Initializable {
     private Button btnEstafetaEli;
 
     @FXML
-    private TableColumn<Estafeta, String> email;
+    private TableColumn<Estafetas, String> email;
 
     @FXML
-    private TableColumn<Estafeta, Number> nif;
+    private TableColumn<Estafetas, Number> nif;
 
     @FXML
-    private TableColumn<Estafeta, String> nome;
+    private TableColumn<Estafetas, String> nome;
 
     @FXML
-    private TableColumn<Estafeta, String> password;
+    private TableColumn<Estafetas, String> password;
 
     @FXML
-    private TableColumn<Estafeta, String> telefone;
+    private TableColumn<Estafetas, String> telefone;
 
     @FXML
-    private TableView<Estafeta> tblEstafeta;
+    private TableView<Estafetas> tblEstafeta;
 
 
 
@@ -110,11 +111,12 @@ public class adminEstafetasController implements Initializable {
 
     @FXML
     void handleBtnRemover(ActionEvent event) {
-
-            Estafeta est =  tblEstafeta.getSelectionModel().getSelectedItem();
+            //Estafeta est =  tblEstafeta.getSelectionModel().getSelectedItem();
+            Estafetas est =  tblEstafeta.getSelectionModel().getSelectedItem();
             tblEstafeta.getItems();
-            int id = est.getIdEstafeta();
+            int id = est.getId_estafeta();
             est.setEstado(false);
+            //est.setEstadous(false);
             EstafetaBLL.update(est);
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -174,12 +176,12 @@ public class adminEstafetasController implements Initializable {
 
         //ObservableList<Estafetas> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAll());
 
-        nome.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("nome"));
-        email.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("email"));
-        password.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("password"));
-        nif.setCellValueFactory(new PropertyValueFactory<Estafeta, Number>("nif"));
-        telefone.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("numtelefone"));
-        tblEstafeta.setItems(listaEst);
+        nome.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("nome"));
+        email.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("emailEst"));
+        password.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("password"));
+        nif.setCellValueFactory(new PropertyValueFactory<Estafetas, Number>("nif"));
+        telefone.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("telefone"));
+        tblEstafeta.setItems(listaEsta);
 
         // EstafetaBLL est = new EstafetaBLL();
         //UsersBLL users = new UsersBLL();

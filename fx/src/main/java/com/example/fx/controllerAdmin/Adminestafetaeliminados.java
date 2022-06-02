@@ -2,6 +2,7 @@ package com.example.fx.controllerAdmin;
 
 import com.bd.BLL.EstafetaBLL;
 import com.bd.DAL.Estafeta;
+import com.bd.DAL.Estafetas;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,7 +26,7 @@ import java.util.ResourceBundle;
 
 public class Adminestafetaeliminados implements Initializable {
 
-    ObservableList<Estafeta> listaEsta = FXCollections.observableArrayList(EstafetaBLL.readAllEst(false));
+    ObservableList<Estafetas> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAllEsta(false));
     @FXML
     private Button btnReativar;
 
@@ -33,31 +34,34 @@ public class Adminestafetaeliminados implements Initializable {
     private Button btnListEstafeta;
 
     @FXML
-    private TableColumn<Estafeta, String> email;
+    private TableColumn<Estafetas, String> email;
 
     @FXML
-    private TableColumn<Estafeta, Number> nif;
+    private TableColumn<Estafetas, Number> nif;
 
     @FXML
-    private TableColumn<Estafeta, String> nome;
+    private TableColumn<Estafetas, String> nome;
 
     @FXML
-    private TableColumn<Estafeta, String> password;
+    private TableColumn<Estafetas, String> password;
 
     @FXML
-    private TableColumn<Estafeta, String> telefone;
+    private TableColumn<Estafetas, String> telefone;
 
     @FXML
-    private TableView<Estafeta> tblEstafetaEli;
+    private TableView<Estafetas> tblEstafetaEli;
 
 
 
     @FXML
     void handleBtnReativar(ActionEvent event) {
-        Estafeta estaf =  tblEstafetaEli.getSelectionModel().getSelectedItem();
+
+
+        Estafetas estaf =  tblEstafetaEli.getSelectionModel().getSelectedItem();
         tblEstafetaEli.getItems();
-        int idEstafeta = estaf.getIdEstafeta();
+        int idEstafeta = estaf.getId_estafeta();
         estaf.setEstado(true);
+       // estaf.setEstadous(true);
         EstafetaBLL.update(estaf);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -86,12 +90,12 @@ public class Adminestafetaeliminados implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        nome.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("nome"));
-        email.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("email"));
-        password.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("password"));
-        nif.setCellValueFactory(new PropertyValueFactory<Estafeta, Number>("nif"));
-        telefone.setCellValueFactory(new PropertyValueFactory<Estafeta, String>("numtelefone"));
-        tblEstafetaEli.setItems(listaEsta);
+        nome.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("nome"));
+        email.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("email"));
+        password.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("password"));
+        nif.setCellValueFactory(new PropertyValueFactory<Estafetas, Number>("nif"));
+        telefone.setCellValueFactory(new PropertyValueFactory<Estafetas, String>("numtelefone"));
+        tblEstafetaEli.setItems(listaEst);
 
 
     }
