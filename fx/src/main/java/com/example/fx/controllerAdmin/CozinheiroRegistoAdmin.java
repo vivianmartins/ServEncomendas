@@ -54,12 +54,13 @@ public class CozinheiroRegistoAdmin {
 
             {
                 Users user = new Users();
+                /*Inserir os dados do cozinheiro*/
                 user.setEmail(email.getText());
                 user.setNomeuser(username.getText());
                 user.setPassword(passe.getText());
-                user.setCozinheiro(true);
-                user.setEstado(true);
-                UsersBLL.create(user);
+                user.setCozinheiro(true);//estado do cozinheiro verdadeiro (is_cozinheiro)
+                user.setEstado(true); //estado do cozinheiro verdadeiro
+                UsersBLL.create(user); //criar o user cozinehiro
 
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -83,6 +84,10 @@ public class CozinheiroRegistoAdmin {
         stageAtual.close();
 
     }
+
+    /*
+    *   Comparar se existe algum dado igual e se há campos sem dados
+    * */
     public boolean isInputValid(){
 
         String errorMessage = "";

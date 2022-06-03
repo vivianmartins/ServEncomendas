@@ -30,15 +30,10 @@ public class EstafetaregistoAdmin {
     private Button btnVoltarEs;
 
     @FXML
-    private TextField codpostal;
+    private TextField conEmail;
 
     @FXML
     private TextField email;
-
-    @FXML
-    private TextField localidade;
-
-
 
     @FXML
     private TextField nif;
@@ -57,6 +52,12 @@ public class EstafetaregistoAdmin {
 
     @FXML
     void edEmail(ActionEvent event) {
+
+    }
+
+
+    @FXML
+    void edConEmail(ActionEvent event) {
 
     }
 
@@ -110,12 +111,20 @@ public class EstafetaregistoAdmin {
                 Estafeta est = new Estafeta();
 
                 Users user = new Users();
-                user.setEmail(email.getText());
+
+                /*Inserir os dados no estafeta*/
+
+                est.setEmail(conEmail.getText());
                 est.setNumtelefone(telefone.getText());
-                user.setNomeuser(nome.getText());
-                est.setNif(Integer.parseInt(nif.getText()));
-                user.setPassword(passe.getText());
                 est.setEstado(true);
+                est.setNif(Integer.parseInt(nif.getText()));
+
+                /*Inserir os dados no user*/
+
+                user.setPassword(passe.getText());
+                user.setEmail(email.getText());
+                user.setEstafeta(true);
+                user.setNomeuser(nome.getText());
                 user.setEstado(true);
 
                 //colocar o codpostal
@@ -147,7 +156,9 @@ public class EstafetaregistoAdmin {
 
     }
 
-
+    /*
+     *   Comparar se existe algum dado igual e se há campos sem dados
+     * */
 
     public boolean isInputValid(){
 
@@ -168,7 +179,6 @@ public class EstafetaregistoAdmin {
         if(UsersBLL.emailRepetido(email.getText())){
             errorMessage += "Email  já existe!\n";
         }
-
         if(EstafetaBLL.emailRepetidoEstafetaNif(Integer.parseInt(nif.getText()))){
             errorMessage += "Nif já existe!\n";
         }

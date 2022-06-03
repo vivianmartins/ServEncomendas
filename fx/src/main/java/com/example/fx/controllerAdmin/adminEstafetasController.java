@@ -24,6 +24,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.persistence.Entity;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URL;
@@ -33,7 +34,7 @@ import java.util.ResourceBundle;
 public class adminEstafetasController implements Initializable {
     //private List<Estafeta> listEsta = EstafetaBLL.readAll();
     ObservableList<Estafetas> listaEsta =  FXCollections.observableArrayList(EstafetaBLL.readAllEsta(true));
-    //ObservableList<Estafeta> listaEsta =  FXCollections.observableArrayList(EstafetaBLL.readAllEst(true));
+
     @FXML
     private Button btnEditar;
 
@@ -76,7 +77,8 @@ public class adminEstafetasController implements Initializable {
     @FXML
     private TableView<Estafetas> tblEstafeta;
 
-
+    @FXML
+    private TableView<Estafeta> tblEstadfeta;
 
     @FXML
     void handleBtnEditar(ActionEvent event) {
@@ -112,12 +114,14 @@ public class adminEstafetasController implements Initializable {
     @FXML
     void handleBtnRemover(ActionEvent event) {
             //Estafeta est =  tblEstafeta.getSelectionModel().getSelectedItem();
+           // ObservableList<Estafeta> listaEstaf =  FXCollections.observableArrayList(EstafetaBLL.readAllEst(true));
             Estafetas est =  tblEstafeta.getSelectionModel().getSelectedItem();
             tblEstafeta.getItems();
             int id = est.getId_estafeta();
+            // System.out.println("id " + est.getId_estafeta());
             est.setEstado(false);
             //est.setEstadous(false);
-            EstafetaBLL.update(est);
+            EstafetaBLL.updateEstado(est);
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Estafeta");
@@ -168,7 +172,6 @@ public class adminEstafetasController implements Initializable {
         stageAtual.close();
 
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

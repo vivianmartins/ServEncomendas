@@ -26,7 +26,9 @@ import java.util.ResourceBundle;
 
 public class Adminestafetaeliminados implements Initializable {
 
-    ObservableList<Estafetas> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAllEsta(false));
+ ObservableList<Estafetas> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAllEsta(false));
+
+    //ObservableList<Estafeta> listaEst = FXCollections.observableArrayList(EstafetaBLL.readAllEst(false));
     @FXML
     private Button btnReativar;
 
@@ -62,7 +64,7 @@ public class Adminestafetaeliminados implements Initializable {
         int idEstafeta = estaf.getId_estafeta();
         estaf.setEstado(true);
        // estaf.setEstadous(true);
-        EstafetaBLL.update(estaf);
+        EstafetaBLL.updateEstado(estaf);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Estafeta");

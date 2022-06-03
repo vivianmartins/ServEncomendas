@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        List<Estafetas>   listaest = EstafetaBLL.readAllEsta(true);
+        List<Estafetas>   listaest = EstafetaBLL.readAllEsta( true);
         for(Estafetas est : listaest)
             System.out.println("email: " + est.getEmailEst() + " nome: " + est.getNome());
 

@@ -53,7 +53,7 @@ public class ementaRegistoAdmin {
         if (isInputValid()) {
             {
                 Pratos pra = new Pratos();
-
+                /*Adicionar os dados do novo prato*/
                 pra.setStockdoses(Integer.parseInt(stock.getText()));
                 pra.setPrecoatual(Float.parseFloat(preco.getText()));
                 pra.setEstado(true);
@@ -87,6 +87,10 @@ public class ementaRegistoAdmin {
 
 
     }
+
+    /**
+     * Comparar caso exista algum campo sem dado
+     * */
     public boolean isInputValid(){
 
 
@@ -100,7 +104,7 @@ public class ementaRegistoAdmin {
             errorMessage += "Prato inválido!\n";
         }
         if (stock.getText() == null || stock.getText().length() == 0) {
-            errorMessage += "Username inválido!\n";
+            errorMessage += "Stock inválido!\n";
         }
 
 

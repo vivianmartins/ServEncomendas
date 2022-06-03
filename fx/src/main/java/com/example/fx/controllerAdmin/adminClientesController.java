@@ -77,7 +77,10 @@ public class adminClientesController implements Initializable {
     private TableColumn<Clientes,String> telefone;
 
 
-
+    /**
+     * REMOVER
+     * @param event
+     */
     @FXML
     void clhandleBtnRemover(ActionEvent event) {
         Clientes clientes = tblCliente.getSelectionModel().getSelectedItem();
@@ -94,7 +97,11 @@ public class adminClientesController implements Initializable {
 
     }
 
-
+    /**
+     * Pagina para criar
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void handleBtnCriarCl(ActionEvent event) throws IOException {
         Stage stage = new Stage();
@@ -157,6 +164,7 @@ public class adminClientesController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        /**Listar**/
 
         id.setCellValueFactory(new PropertyValueFactory<Clientes,Number>("IdCliente"));
         nome.setCellValueFactory(new PropertyValueFactory<Clientes,String>("nome"));

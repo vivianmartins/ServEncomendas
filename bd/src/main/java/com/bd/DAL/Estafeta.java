@@ -2,26 +2,32 @@ package com.bd.DAL;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
-import java.math.BigInteger;
+
 
 @Entity
 @Table(name = "Estafeta")
-@NamedQueries({
+@NamedQueries(value = {
         @NamedQuery(name = "Estafeta.findAll", query = "SELECT c FROM Estafeta c"),
         @NamedQuery(name = "Estafeta.findById_estafeta", query = "SELECT c FROM Estafeta c WHERE c.idEstafeta = :id_estafeta"),
-        @NamedQuery(name = "Estafeta.findByEstado" , query = "Select c From Estafeta c  where c.estado = :isestado" ),
+        @NamedQuery(name = "Estafeta.findByEstado", query = "Select c From Estafeta c  where c.estado = :isestado"),
         //@NamedQuery(name = "Estafeta.findAllByNome", query = "SELECT c FROM Estafeta c WHERE c.nome LIKE :nome"),
-       @NamedQuery(name = "Estafeta.findAllPass", query = "select new com.bd.DAL.Estafetas (e, u)  from Estafeta  e, Users u  where u.email =  e.email and  e.estado = :isestado"),
+        @NamedQuery(name = "Estafeta.findAllPass", query = "select new com.bd.DAL.Estafetas (e, u)  from Estafeta  e, Users u  where u.email =  e.email and  e.estado = :isestado "),
+       // @NamedQuery(name = "Estafeta.updates", query = "Update  com.bd.DAL.Estafetas e  set e.estado = true  where e.idEstafeta = :isestado" )
 })
-
+@SqlResultSetMapping(name="updateResult", columns = { @ColumnResult(name = "count")})
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Estafeta.updates", query = "Update  com.bd.DAL.Estafetas e  " +
+                "set e.estado = true  where e.idEstafeta = :isestado"
+                ,resultSetMapping = "updateResult"
+        )
+})
 
 public class Estafeta {
     private int idEstafeta;
     private String nome;
     private String numtelefone;
     private int nif;
-
-
     private boolean estado;
 
     @Basic
@@ -47,6 +53,10 @@ public class Estafeta {
 
     public void setIdEstafeta(int idEstafeta) {
         this.idEstafeta = idEstafeta;
+    }
+
+    public int getIdEstafeta(int idEstafeta) {
+       return idEstafeta;
     }
 
     @Basic

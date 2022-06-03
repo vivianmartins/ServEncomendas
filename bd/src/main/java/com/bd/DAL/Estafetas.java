@@ -1,7 +1,8 @@
 package com.bd.DAL;
 
-import java.math.BigInteger;
 import javax.persistence.Entity;
+import java.math.BigInteger;
+
 
 public class Estafetas {
 
@@ -13,6 +14,7 @@ public class Estafetas {
     private String password;
     private boolean estado;
     //private boolean estadous;
+    private  boolean isEstafeta;
     private BigInteger id_user;
     private int id_estafeta;
 
@@ -31,6 +33,10 @@ public class Estafetas {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public boolean getEstado(boolean estado) {
+            return estado ;
     }
 
 
@@ -69,6 +75,14 @@ public class Estafetas {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isEstafeta() {
+        return isEstafeta;
+    }
+
+    public void setEstafeta(boolean estafeta) {
+        isEstafeta = estafeta;
     }
 
     public String getTelefone() {
@@ -115,6 +129,7 @@ public class Estafetas {
         this.estado = e.getEstado();
         this.id_estafeta = e.getIdEstafeta();
         this.emailEst = e.getEmail();
+        this.isEstafeta = u.getEstafeta();
 
     }
 

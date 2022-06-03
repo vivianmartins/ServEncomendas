@@ -133,7 +133,7 @@ public class adminGestorController implements Initializable {
         Users users = tblGestor.getSelectionModel().getSelectedItem();
         tblGestor.getItems();
         BigInteger id = users.getIdUser();
-        users.setEstado(false);
+        users.setEstado(false); //alterar o estado de verdadeiro para false
         UsersBLL.update(users);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -159,7 +159,11 @@ public class adminGestorController implements Initializable {
 
     }
 
-
+    /**
+     * Dados a serem listados do user Gestor
+     * @param url
+     * @param rb
+     */
 
     public void initialize(URL url, ResourceBundle rb) {
         //UsersBLL users = new UsersBLL();

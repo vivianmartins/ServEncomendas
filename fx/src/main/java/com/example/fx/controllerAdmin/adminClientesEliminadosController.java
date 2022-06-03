@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 public class adminClientesEliminadosController implements Initializable {
 
 
-
+/**Buscar os dados e inserir no array**/
     ObservableList<Clientes> listaCls = FXCollections.observableArrayList(ClienteBLL.readAllEstli(false));
 
 
@@ -66,10 +66,11 @@ public class adminClientesEliminadosController implements Initializable {
 
     @FXML
     void handleBtnClEli(ActionEvent event) {
-        Clientes cl = tblClienteEli.getSelectionModel().getSelectedItem();
+        Clientes cl = tblClienteEli.getSelectionModel().getSelectedItem(); //Seleciona o dado na tabela
         tblClienteEli.getItems();
         int id = cl.getIdCliente();
         cl.setEstado(true);
+        /*Alterar o estado do cliente*/
         ClienteBLL.update(cl);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

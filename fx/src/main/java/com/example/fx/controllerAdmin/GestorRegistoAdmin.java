@@ -85,7 +85,9 @@ public class GestorRegistoAdmin {
         }
 
 
-
+    /**
+     *  Comparar se existe algum dado igual e se há campos sem dados
+     * */
     public boolean isInputValid(){
 
 

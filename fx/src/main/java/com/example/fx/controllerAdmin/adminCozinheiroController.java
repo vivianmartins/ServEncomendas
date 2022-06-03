@@ -90,7 +90,7 @@ public class adminCozinheiroController implements Initializable {
     void handleBtnPesquisar(ActionEvent event) {
 
     }
-
+            /*Remover o cozinheiro*/
     @FXML
     void handleBtnRemover(ActionEvent event) {
         Users users = tblCozinheiro.getSelectionModel().getSelectedItem();
@@ -122,6 +122,7 @@ public class adminCozinheiroController implements Initializable {
 
     }
 
+    /*Remover o Pagina para listar o cozinheiros eliminados*/
     @FXML
     void handlebtnListElimCoz(ActionEvent event) throws IOException {
         Stage stage = new Stage();
@@ -135,7 +136,7 @@ public class adminCozinheiroController implements Initializable {
         stageAtual.close();
     }
 
-
+    /*Refresh da tabela*/
     @FXML
     void handleBtnAtualizarCoz(ActionEvent event) throws IOException {
         Stage stage = new Stage();

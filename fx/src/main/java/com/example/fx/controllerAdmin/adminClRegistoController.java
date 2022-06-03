@@ -104,13 +104,16 @@ public class adminClRegistoController {
 
                Clientes cl = new Clientes();
                Codpostais codpostais = new Codpostais();
+
+               /*Registo do cliente na tabela cliente*/
                cl.setNumtelemovel(telefone.getText());
                cl.setNome(nome.getText());
                cl.setNif(BigInteger.valueOf(Integer.parseInt(nif.getText())));
                cl.setRua(morada.getText());
                cl.setEstado(true);
-               codpostais.setLocalidade(localidade.getText());
                cl.setCodpostal(Integer.parseInt(codpostal.getText()));
+                /*Registo do cliente do Codigo postal*/
+               codpostais.setLocalidade(localidade.getText());
 
                 ClienteBLL.create(cl);
                 CodPostaisBLL.create(codpostais);
@@ -142,6 +145,9 @@ public class adminClRegistoController {
 
     }
 
+    /*
+    *Efetuar a comparação caso exista campos sem dados ou insira dados ja existentes
+    * **/
     public boolean isInputValid(){
 
 
@@ -158,15 +164,10 @@ public class adminClRegistoController {
             errorMessage += "Passe inválida!\n";
         }
 
-
-
+        /*Verifica se ja existe um nif*/
         if(ClienteBLL.nifRepetidoCliente(BigInteger.valueOf(Integer.parseInt(nif.getText())))){
             errorMessage += "Nif já existe!\n";
         }
-
-
-
-
         if (errorMessage.length() == 0 ) {
             return true;
         } else {
@@ -182,6 +183,6 @@ public class adminClRegistoController {
 
 
 
-    }
+}
 
 

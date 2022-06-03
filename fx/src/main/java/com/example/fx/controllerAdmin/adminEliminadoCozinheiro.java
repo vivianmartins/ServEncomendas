@@ -62,6 +62,7 @@ public class adminEliminadoCozinheiro implements Initializable {
         stageAtual.close();
 
     }
+    /*Reativar cozinheiro*/
 
     @FXML
     void handleBtnReativar(ActionEvent event) {
@@ -69,8 +70,8 @@ public class adminEliminadoCozinheiro implements Initializable {
         Users usersCoEli = tblCozinheiroEli.getSelectionModel().getSelectedItem();
         tblCozinheiroEli.getItems();
         BigInteger id = usersCoEli.getIdUser();
-        usersCoEli.setEstado(true);
-        UsersBLL.update(usersCoEli);
+        usersCoEli.setEstado(true); //altera de falso para verdadeiro
+        UsersBLL.update(usersCoEli); //altrar o estado
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Cozinheiro");
