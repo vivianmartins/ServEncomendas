@@ -24,6 +24,9 @@ import java.math.BigInteger;
 
 public class adminClRegistoController {
 
+    Clientes cli = new Clientes();
+
+
     @FXML
     private Button btnRegistar;
 
@@ -33,10 +36,10 @@ public class adminClRegistoController {
     @FXML
     private TextField codpostal;
 
-
+/*
     @FXML
     private TextField localidade;
-
+*/
     @FXML
     private TextField morada;
 
@@ -88,12 +91,13 @@ public class adminClRegistoController {
     void editNo(ActionEvent event) {
 
     }
-
+/*
     @FXML
     void edlocalidade(ActionEvent event) {
 
     }
-    Clientes cli = new Clientes();
+*/
+
 
     @FXML
     void handleBtnRegistar(ActionEvent event) {
@@ -113,10 +117,10 @@ public class adminClRegistoController {
                cl.setEstado(true);
                cl.setCodpostal(Integer.parseInt(codpostal.getText()));
                 /*Registo do cliente do Codigo postal*/
-               codpostais.setLocalidade(localidade.getText());
+              // codpostais.setLocalidade(localidade.getText());
 
                 ClienteBLL.create(cl);
-                CodPostaisBLL.create(codpostais);
+               // CodPostaisBLL.create(codpostais);
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Registo");

@@ -36,6 +36,11 @@ public class Estadosencomenda {
     }
 
     @Override
+    public String toString() {
+        return   descricaoestado;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ementaCozinheiro implements Initializable {
+public class  ementaCozinheiro implements Initializable {
     ObservableList<Pratos> listaPratosCoz = FXCollections.observableArrayList(PratoBLL.readAll(true));
 
 

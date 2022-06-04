@@ -24,6 +24,10 @@ public class Tipopagamentos {
         this.tipopagamentoid = tipopagamentoid;
     }
 
+    public  String toString(){
+        return getDescricao();
+    }
+
     @Basic
     @Column(name = "DESCRICAO", nullable = false, length = 100)
     public String getDescricao() {

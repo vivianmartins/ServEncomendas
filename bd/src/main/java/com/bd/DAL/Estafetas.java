@@ -1,6 +1,5 @@
 package com.bd.DAL;
 
-import javax.persistence.Entity;
 import java.math.BigInteger;
 
 

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -24,16 +23,7 @@
                   <Image url="@../assets/icon.png" />
                </image>
             </ImageView>
-            <TextField fx:id="nome" layoutX="73.0" layoutY="187.0" onAction="#editNo" prefHeight="38.0" prefWidth="431.0" promptText="Primeiro e último nome..." />
-            <TextField fx:id="morada" layoutX="73.0" layoutY="260.0" onAction="#edMorada" prefHeight="38.0" prefWidth="431.0" promptText="Rua, número, porta..." />
-            <SplitMenuButton fx:id="codpostal" layoutX="516.0" layoutY="259.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" text="Código-Postal">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Action 1" />
-                  <MenuItem mnemonicParsing="false" text="Action 2" />
-               </items>
-            </SplitMenuButton>
-            <TextField fx:id="localidade" layoutX="711.0" layoutY="260.0" onAction="#edlocalidade" prefHeight="38.0" prefWidth="168.0" promptText="Localidade...." />
-            <TextField fx:id="telefone" layoutX="522.0" layoutY="187.0" onAction="#edTelefone" prefHeight="38.0" prefWidth="357.0" promptText="Telefone..." />
+            <TextField fx:id="nif" layoutX="73.0" layoutY="187.0" onAction="#editNif" prefHeight="38.0" prefWidth="431.0" promptText="Nif do cliente: ex 0000" />
             <Button fx:id="btnRegistar" layoutX="372.0" layoutY="492.0" mnemonicParsing="false" onAction="#handleBtnRegistar" prefHeight="38.0" prefWidth="265.0" style="-fx-background-color: #007687;" text="Registar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -44,45 +34,43 @@
                   <Font name="System Bold" size="19.0" />
                </font>
             </Text>
-            <Text layoutX="73.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do cliente">
+            <Text layoutX="73.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIF do cliente">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="73.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Morada">
+            <TextField fx:id="prato" layoutX="73.0" layoutY="279.0" onAction="#edPrato" prefHeight="38.0" prefWidth="431.0" promptText="Prato.." />
+            <Text layoutX="75.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prato pedido">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="516.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código-Postal">
+            <TextField fx:id="quantidade" layoutX="573.0" layoutY="281.0" onAction="#quantidade" prefHeight="38.0" prefWidth="200.0" promptText="quantidade" />
+            <Text layoutX="573.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="708.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localidade">
+            <TextField fx:id="emailEstafeta" layoutX="73.0" layoutY="370.0" onAction="#emailEstafeta" prefHeight="38.0" prefWidth="431.0" promptText="Email do estafeta..." />
+            <Text layoutX="73.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email do estafeta">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text layoutX="552.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+            <Text layoutX="573.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="morada1" layoutX="75.0" layoutY="335.0" onAction="#edMorada" prefHeight="38.0" prefWidth="431.0" promptText="Prato.." />
-            <Text layoutX="76.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prato pedido">
+            <Text layoutX="573.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo pagamento">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="quantidade" layoutX="522.0" layoutY="335.0" onAction="#quantidade" prefHeight="38.0" prefWidth="200.0" promptText="quantidade" />
-            <Text layoutX="516.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <TextField fx:id="nomeEstafeta" layoutX="75.0" layoutY="405.0" onAction="#nomeEstafeta" prefHeight="38.0" prefWidth="431.0" promptText="Nome esatfeta..." />
-            <Text layoutX="76.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do estafeta">
+            <ComboBox fx:id="tpPagamento" layoutX="574.0" layoutY="389.0" onAction="#HandleTpPagamento" prefWidth="150.0" />
+            <ComboBox fx:id="tpEstado" layoutX="574.0" layoutY="192.0" onAction="#HandleTpEstado" prefWidth="150.0" />
+            <TextField fx:id="prTotal" layoutX="73.0" layoutY="442.0" onAction="#prTotal" prefHeight="38.0" prefWidth="431.0" promptText="Email do estafeta..." />
+            <Text layoutX="73.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço total">
                <font>
                   <Font size="14.0" />
                </font>

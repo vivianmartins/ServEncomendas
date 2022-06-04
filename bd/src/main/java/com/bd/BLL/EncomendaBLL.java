@@ -84,6 +84,7 @@ public class EncomendaBLL {
             return listaEnc;
         }
 
+
         public static void update(Encomendas enc){
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);

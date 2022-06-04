@@ -23,8 +23,7 @@
       <TextField fx:id="nome" layoutX="73.0" layoutY="187.0" onAction="#editNo" prefHeight="38.0" prefWidth="529.0" promptText="Primeiro e último nome..." />
       <TextField fx:id="nif" layoutX="610.0" layoutY="187.0" onAction="#edNif" prefHeight="38.0" prefWidth="283.0" promptText="Nif..." />
       <TextField fx:id="morada" layoutX="73.0" layoutY="256.0" onAction="#edMorada" prefHeight="38.0" prefWidth="529.0" promptText="Rua, número, porta..." />
-      <TextField fx:id="localidade" layoutX="329.0" layoutY="320.0" onAction="#edlocalidade" prefHeight="38.0" prefWidth="274.0" promptText="Localidade...." />
-      <TextField fx:id="telefone" layoutX="612.0" layoutY="320.0" onAction="#edTelefone" prefHeight="38.0" prefWidth="283.0" promptText="Telefone..." />
+      <TextField fx:id="telefone" layoutX="338.0" layoutY="321.0" onAction="#edTelefone" prefHeight="38.0" prefWidth="283.0" promptText="Telefone..." />
       <Button fx:id="btnRegistar" layoutX="338.0" layoutY="423.0" mnemonicParsing="false" onAction="#handleBtnRegistar" prefHeight="38.0" prefWidth="265.0" style="-fx-background-color: #007687;" text="Registar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -50,17 +49,12 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="77.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código-Postal">
+      <Text layoutX="75.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código-Postal">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="329.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localidade">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <Text layoutX="615.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone">
+      <Text layoutX="341.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone">
          <font>
             <Font size="14.0" />
          </font>

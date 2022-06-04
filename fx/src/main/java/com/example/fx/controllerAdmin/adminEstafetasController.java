@@ -113,7 +113,7 @@ public class adminEstafetasController implements Initializable {
 
     @FXML
     void handleBtnRemover(ActionEvent event) {
-            //Estafeta est =  tblEstafeta.getSelectionModel().getSelectedItem();
+         /*   //Estafeta est =  tblEstafeta.getSelectionModel().getSelectedItem();
            // ObservableList<Estafeta> listaEstaf =  FXCollections.observableArrayList(EstafetaBLL.readAllEst(true));
             Estafetas est =  tblEstafeta.getSelectionModel().getSelectedItem();
             tblEstafeta.getItems();
@@ -128,7 +128,9 @@ public class adminEstafetasController implements Initializable {
             alert.setHeaderText("Estafeta removido com sucesso");
             alert.setContentText("Atualize a página");
             alert.show();
+*/
     }
+
 
 
     @FXML

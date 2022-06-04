@@ -14,6 +14,7 @@ import javax.persistence.Entity;
         @NamedQuery(name = "Estafeta.findAllPass", query = "select new com.bd.DAL.Estafetas (e, u)  from Estafeta  e, Users u  where u.email =  e.email and  e.estado = :isestado "),
        // @NamedQuery(name = "Estafeta.updates", query = "Update  com.bd.DAL.Estafetas e  set e.estado = true  where e.idEstafeta = :isestado" )
 })
+/*
 @SqlResultSetMapping(name="updateResult", columns = { @ColumnResult(name = "count")})
 @NamedNativeQueries({
         @NamedNativeQuery(
@@ -23,6 +24,8 @@ import javax.persistence.Entity;
         )
 })
 
+
+ */
 public class Estafeta {
     private int idEstafeta;
     private String nome;

@@ -166,7 +166,7 @@ public class EstafetaBLL {
         return false;
     }
 
-    /*
+
         public static List<Estafetas> readAll(boolean estado){
             List<Estafetas> listaEst = new ArrayList<>();
             if(factory == null)
@@ -188,7 +188,7 @@ public class EstafetaBLL {
 
 
 
- */
+
 /*
         public static List<Estafeta> readAll (String nome){
             List<Estafeta> listaEst = new ArrayList<>();
@@ -242,7 +242,7 @@ public class EstafetaBLL {
 
 
     }
-
+/*
     public static  void updateEstado(Estafetas estafetas){
 
 
@@ -263,6 +263,8 @@ public class EstafetaBLL {
     }
 
 
+
+ */
 
     public static void delete(int idEst){
             if(factory == null)
