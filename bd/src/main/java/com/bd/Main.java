@@ -10,6 +10,13 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+
+
+        List<Pratos>   listaest = PratoBLL.readAll(true);
+        for( Pratos est : listaest)
+            System.out.println("descriçao: " + est.getDescricao());
+
+
 /*
       //  PratosEncomendados.findAllByListaPratos
         List<listaPedidosCozinheiro>   listaest = PratosEncomendadosBLL.readAllCoz(true);
