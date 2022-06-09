@@ -17,6 +17,7 @@
         <class>com.bd.DAL.PratosEncomendadosPK</class>
         <class>com.bd.DAL.Tipopagamentos</class>
         <class>com.bd.DAL.listaPedidos</class>
+        <class>com.bd.DAL.listaPedidosCozinheiro</class>
         <class>com.bd.DAL.Users</class>
         <class>com.bd.DAL.Estadosencomenda</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>

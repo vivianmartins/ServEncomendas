@@ -33,7 +33,7 @@ public class  ementaCozinheiro implements Initializable {
     private Button btnEditarCoz;
 
     @FXML
-    private TextField edStocKCoz;
+    private TextField edStockCoz;
     @FXML
     private Button btnVoltarEs;
 
@@ -62,9 +62,12 @@ public class  ementaCozinheiro implements Initializable {
     }
     @FXML
     void handleBtnAtualizar(ActionEvent event) throws IOException {
+
+
+
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("cozinheiro/ementa.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        Scene scene = new Scene(fxmlLoader.load(), 1025 , 641);
         stage.setScene(scene);
         stage.show();
 
@@ -77,11 +80,13 @@ public class  ementaCozinheiro implements Initializable {
 
     @FXML
     void handleBtnEditarCoz(ActionEvent event) {
-        Pratos pratos = tblEmentaCoz.getSelectionModel().getSelectedItem();
-        Pratos pra = new Pratos();
-        pra.setStockdoses(Integer.parseInt(edStocKCoz.getText()));
-        PratoBLL.update(pra);
-        tblEmentaCoz.setItems(listaPratosCoz);
+       Pratos pratos = tblEmentaCoz.getSelectionModel().getSelectedItem();
+       tblEmentaCoz.getItems();
+       int id = pratos.getStockdoses();
+       pratos.setStockdoses(Integer.parseInt(edStockCoz.getText()));
+       PratoBLL.update(pratos);
+       tblEmentaCoz.setItems(listaPratosCoz);
+
 
     }
 
@@ -120,5 +125,6 @@ public class  ementaCozinheiro implements Initializable {
     }
 
     public void edStockCoz(ActionEvent actionEvent) {
+
     }
 }

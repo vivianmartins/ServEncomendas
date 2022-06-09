@@ -27,7 +27,7 @@ public class painelCozinheiro {
 
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("cozinheiro/ementa.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        Scene scene = new Scene(fxmlLoader.load(), 1025 , 641);
         stage.setScene(scene);
         stage.show();
 
@@ -43,10 +43,19 @@ public class painelCozinheiro {
 
     @FXML
     void handleBtnPedidosCoz(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("cozinheiro/pedidoCozinheiro.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1025 , 641);
+        stage.setScene(scene);
+        stage.show();
 
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
+    }
 
     }
 
 
 
-}
+

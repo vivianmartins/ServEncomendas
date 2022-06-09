@@ -3,11 +3,13 @@ package com.bd.DAL;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PRATOS_ENCOMENDADOS",  schema = "PROJETOBD", catalog = "")
+@Table(name = "PRATOS_ENCOMENDADOS",  schema = "PROJETOBD")
 @NamedQueries({
         @NamedQuery(name = "PratosEncomendados.findAll", query = "SELECT c FROM PratosEncomendados c"),
+        @NamedQuery(name = "PratosEncomendados.findAllEs", query = "SELECT c FROM PratosEncomendados c where c.estado = :isestado"),
         @NamedQuery(name = "PratosEncomendado.findById_encomendas", query = "SELECT c FROM PratosEncomendados c WHERE c.idEncomenda = :id_encomendas"),
         @NamedQuery(name = "PratosEncomendados.findAllByIdprato", query = "SELECT c FROM PratosEncomendados c WHERE c.idPrato = :ID_PRATO"),
+        @NamedQuery(name = "PratosEncomendados.findAllByListaPratos", query = "select  new com.bd.DAL.listaPedidosCozinheiro (en, estenc, pr, prae)   from Encomendas en, Estadosencomenda estenc, Pratos pr,  PratosEncomendados prae where en.idEncomenda = prae.idEncomenda and  pr.idPrato = prae.idPrato and prae.estado = : isestado")
 })
 
 @IdClass(PratosEncomendadosPK.class)
@@ -16,7 +18,19 @@ public class PratosEncomendados {
     private int idEncomenda;
     private int qtddoses;
     private int precodose;
+    private boolean estado;
 
+
+    @Basic
+    @Column(name = "ESTADO", nullable = true, precision = 0)
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_PRATO", nullable = false, precision = 0)
@@ -82,4 +96,6 @@ public class PratosEncomendados {
         result = 31 * result + precodose;
         return result;
     }
+
+
 }

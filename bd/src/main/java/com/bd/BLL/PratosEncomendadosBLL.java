@@ -1,10 +1,12 @@
 package com.bd.BLL;
 
 import com.bd.DAL.PratosEncomendados;
+import com.bd.DAL.listaPedidosCozinheiro;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class PratosEncomendadosBLL {
         private  static final String PERSISTENCE_UNIT_NAME = "default";
@@ -51,6 +53,58 @@ public class PratosEncomendadosBLL {
         }
 
 
+
+    public static List<PratosEncomendados> readAllEs(boolean estado){
+        List<PratosEncomendados> listaPratEn = new ArrayList<>();
+        //List<listaPedidosCozinheiro> listaPrat = new ArrayList<>();
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("PratosEncomendados.findAllEs");
+        q1.setParameter("isestado", estado);
+        List<Object> result = q1.getResultList();
+
+        for(Object PratEn : result){
+            listaPratEn.add((PratosEncomendados) PratEn);
+        }
+
+        return listaPratEn;
+    }
+
+    public static  List<listaPedidosCozinheiro>  reAllCoz(boolean estado){
+        List<listaPedidosCozinheiro> listaPed = new ArrayList<>();
+
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+         Query q1 = em.createNamedQuery("PratosEncomendados.findAllByListaPratos");
+        q1.setParameter("isestado", estado);
+        List<Object> result = q1.getResultList();
+
+        for(Object PratEn : result){
+            listaPed.add((listaPedidosCozinheiro) PratEn);
+        }
+
+        return listaPed;
+    }
+
+/*
+    public void realAlltale (boolean estado){
+            em.getTransaction().begin();
+
+        List<listaPedidosCozinheiro> listaPed = (List<listaPedidosCozinheiro>)em.createQuery("SELECT l From PratosEncomendados l Order By l.qtddoses").getResultList();
+
+
+
+
+    }
+
+
+ */
     public static List<PratosEncomendados> readAll(Number idPrato){
         List<PratosEncomendados> listaPratEn = new ArrayList<>();
         if(factory == null)
@@ -70,6 +124,21 @@ public class PratosEncomendadosBLL {
     }
 
 
+    public static void update(PratosEncomendados listaPed){
+        List<PratosEncomendados> listaPratEn = new ArrayList<>();
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        em.getTransaction().begin();
+        //em.merge(listaPratEn);
+
+        em.merge(listaPed);
+        em.getTransaction().commit();
+
+
+    }
 
 }
 

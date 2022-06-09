@@ -30,54 +30,53 @@ public class PratoBLL {
 
     public static Pratos read(int id_Prato) {
         Pratos pra = null;
-        if(factory == null)
-            factory = Persistence.createEntityManagerFactory (PERSISTENCE_UNIT_NAME);
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         if (em == null) em = factory.createEntityManager();
 
         Query q1 = em.createNamedQuery("Pratos.findById_Pratos");
         q1.setParameter("id_prato", id_Prato);
         Object obj = q1.getSingleResult();
 
-        if(obj != null){
-            pra = ((Pratos)obj);
-        }
-        else
+        if (obj != null) {
+            pra = ((Pratos) obj);
+        } else
             return null;
 
 
         return pra;
     }
 
-    public static List<Pratos> readAll(boolean estado){
-        List<Pratos> listaPra = new ArrayList<> ();
-        if(factory == null)
+    public static List<Pratos> readAll(boolean estado) {
+        List<Pratos> listaPra = new ArrayList<>();
+        if (factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
 
         Query q1 = em.createNamedQuery("Pratos.findAllByEstado");
-         List<Object> result = q1.getResultList();
+        List<Object> result = q1.getResultList();
 
-        for(Object pra : result){
+        for (Object pra : result) {
             listaPra.add((Pratos) pra);
         }
 
         return listaPra;
     }
 
-    public static List<Pratos> readAll(String DESCRICAO){
+    public static List<Pratos> readAll(String DESCRICAO) {
         List<Pratos> listaPra = new ArrayList<>();
-        if(factory == null)
+        if (factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
 
         Query q2 = em.createNamedQuery("Pratos.findAllByDescricao");
-        q2.setParameter("DESCRICAO", "%"+DESCRICAO+"%");
+        q2.setParameter("DESCRICAO", "%" + DESCRICAO + "%");
         List<Object> result = q2.getResultList();
 
 
-        for(Object pra : result){
+        for (Object pra : result) {
             listaPra.add((Pratos) pra);
         }
 
@@ -86,10 +85,11 @@ public class PratoBLL {
 
     /**
      * FAZER UPDATE DO STOCK, PREÇO E PRATOS
+     *
      * @param pra
      */
-    public static void update(Pratos pra){
-        if(factory == null)
+    public static void update(Pratos pra) {
+        if (factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
@@ -98,16 +98,34 @@ public class PratoBLL {
         em.merge(pra);
         em.getTransaction().commit();
     }
-    public static void update(int idPrato){
-        if(factory == null)
+
+    public static  Pratos updateStock(Pratos stock) {
+        if (factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
-        Pratos p = read(idPrato);
-        em.getTransaction().begin();
-        em.merge(p);
-        em.getTransaction().commit();
+
+
+        Query q1 = em.createNamedQuery("Pratos.findAllByStock");
+        q1.setParameter("stockdoses", stock);
+        Object obj = q1.getSingleResult();
+
+
+        if (obj != null) {
+            stock = ((Pratos) obj);
+
+            em.getTransaction().begin();
+            em.merge(stock);
+            em.getTransaction().commit();
+
+        } else
+            return null;
+
+
+        return stock;
     }
+
+
 
     public static void delete(int idPrato ){
         if(factory == null)

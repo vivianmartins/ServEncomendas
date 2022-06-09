@@ -103,8 +103,7 @@ public class adminEmentaEditarController implements Initializable {
     }
     @FXML
     void handleBtnSalvar(ActionEvent event) {
-        Pratos pratos = tblEmenta.getSelectionModel().getSelectedItem();
-        Pratos pra = new Pratos();
+        Pratos pra = tblEmenta.getSelectionModel().getSelectedItem();
         pra.setDescricao(eddesc.getText());
         pra.setPrecoatual(Float.parseFloat(edPreco.getText()));
         pra.setStockdoses(Integer.parseInt(edStock.getText()));

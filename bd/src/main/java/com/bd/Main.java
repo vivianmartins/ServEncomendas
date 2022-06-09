@@ -1,9 +1,6 @@
 package com.bd;
 
-import com.bd.BLL.ClienteBLL;
-import com.bd.BLL.EncomendaBLL;
-import com.bd.BLL.EstafetaBLL;
-import com.bd.BLL.UsersBLL;
+import com.bd.BLL.*;
 import com.bd.DAL.*;
 import org.hibernate.sql.Update;
 
@@ -13,15 +10,15 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-
 /*
-        List<Estafetas>   listaest = EstafetaBLL.readAllEsta( true);
-        for(Estafetas est : listaest)
-            System.out.println("email: " + est.getEmailEst() + " nome: " + est.getNome());
+      //  PratosEncomendados.findAllByListaPratos
+        List<listaPedidosCozinheiro>   listaest = PratosEncomendadosBLL.readAllCoz(true);
+        for(listaPedidosCozinheiro est : listaest)
+            System.out.println("descriçao: " + est.getDescricao() + " quantidade:  " + est.getQtd() + " numero do pedido: " + est.getId_encomenda() );
 
 
 
- */
+
         //cli.getIdCliente();
         //cli.setEstado(ClienteBLL.read(2));
       // ClienteBLL.update(cli);
