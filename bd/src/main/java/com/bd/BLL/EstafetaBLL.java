@@ -229,7 +229,7 @@ public class EstafetaBLL {
     }
 
 
-    public static  void update(Estafeta estafetas){
+    public static  void update(Estafetas estafetas){
         //List<Estafetas> listaEst = new ArrayList<>();
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
