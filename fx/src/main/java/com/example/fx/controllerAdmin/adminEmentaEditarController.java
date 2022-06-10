@@ -11,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -109,6 +106,11 @@ public class adminEmentaEditarController implements Initializable {
         pra.setStockdoses(Integer.parseInt(edStock.getText()));
         PratoBLL.update(pra);
         tblEmenta.setItems(listaPratos);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Ementa");
+        alert.setHeaderText("Editado  com sucesso!");
+        alert.show();
     }
     @FXML
     void handleBtnNew(ActionEvent event) {

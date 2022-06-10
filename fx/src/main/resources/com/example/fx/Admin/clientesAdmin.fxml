@@ -27,19 +27,19 @@
                   <TableColumn fx:id="id" prefWidth="100.6666259765625" text="Id" />
                </columns>
             </TableView>
-            <Button fx:id="btnEditarCl" layoutX="791.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleBtnEditarCl" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnRemoverCl" layoutX="791.0" layoutY="280.0" mnemonicParsing="false" onAction="#clhandleBtnRemover" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Eliminar cliente" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="47.0" prefWidth="124.0" text="&lt;- voltar" textFill="#000607" underline="true">
+            <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="47.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="#007687" underline="true">
                <font>
                   <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEditarCl" layoutX="791.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleBtnEditarCl" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnRemoverCl" layoutX="791.0" layoutY="290.0" mnemonicParsing="false" onAction="#clhandleBtnRemover" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Eliminar cliente" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
                </font>
             </Button>
             <ImageView fitHeight="102.0" fitWidth="154.0" layoutX="352.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
@@ -52,7 +52,7 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Text>
-            <Button fx:id="btncriarCl" layoutX="791.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleBtnCriarCl" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Criar cliente" textFill="WHITE">
+            <Button fx:id="btncriarCl" layoutX="791.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleBtnCriarCl" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Criar cliente" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -69,6 +69,11 @@
                </font>
             </Button>
             <Button fx:id="btnListaEliminados" layoutX="791.0" layoutY="342.0" mnemonicParsing="false" onAction="#handlebtnListaEliminados" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Lista eliminados" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAtualizar" layoutX="791.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleBtnAtualizar" prefHeight="27.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Atualizar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

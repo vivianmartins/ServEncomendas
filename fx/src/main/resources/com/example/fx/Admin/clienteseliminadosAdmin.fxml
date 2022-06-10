@@ -27,7 +27,7 @@
                   <TableColumn fx:id="idCl" prefWidth="100.6666259765625" text="Id" />
                </columns>
             </TableView>
-            <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="47.0" prefWidth="124.0" text="&lt;- voltar" textFill="#000607" underline="true">
+            <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="47.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="#000607" underline="true">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

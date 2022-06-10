@@ -56,6 +56,8 @@ public class adminClientesController implements Initializable {
     private Button btnListaEliminados;
 
 
+    @FXML
+    private Button btnAtualizar;
 
 
     @FXML
@@ -76,6 +78,8 @@ public class adminClientesController implements Initializable {
     @FXML
     private TableColumn<Clientes,String> telefone;
 
+    @FXML
+    private TableView<Clientes> tblCliente;
 
     /**
      * REMOVER
@@ -94,6 +98,20 @@ public class adminClientesController implements Initializable {
         alert.setHeaderText("Cliente eliminado com sucesso");
         alert.setContentText("Atualize a página");
         alert.show();
+
+    }
+
+    @FXML
+    void handleBtnAtualizar(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/clientesAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
 
     }
 
@@ -130,7 +148,16 @@ public class adminClientesController implements Initializable {
         stageAtual.close();
     }
     @FXML
-    void handleBtnEditarCl(ActionEvent event) {
+    void handleBtnEditarCl(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/clienteUpdateAdmin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        stage.setScene(scene);
+        stage.show();
+
+        Node source = (Node)  event.getSource();
+        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        stageAtual.close();
 
     }
 
@@ -143,8 +170,6 @@ public class adminClientesController implements Initializable {
     void handleBtnPesquisar(ActionEvent event) {
 
     }
-    @FXML
-    private TableView<Clientes> tblCliente;
 
 
 

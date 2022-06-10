@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class ClienteBLL {
@@ -194,6 +195,29 @@ public class ClienteBLL {
         return false;
     }
 
+
+
+    public static  boolean TelefoneRepetidoCliente(String numTelefone) {
+        Clientes cls = null;
+        List<Clientes> listaCls = new ArrayList<>();
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        Query q1 = em.createNamedQuery("Clientes.findAll");
+        List<Clientes> result = q1.getResultList();
+        System.out.println(q1);
+
+        for (Clientes cl : result) {
+            System.out.println(numTelefone);
+            if (Objects.equals(numTelefone, cl.getNumtelemovel())) {
+                return true;
+            }
+
+        }
+        return false;
+    }
 
 }
 
