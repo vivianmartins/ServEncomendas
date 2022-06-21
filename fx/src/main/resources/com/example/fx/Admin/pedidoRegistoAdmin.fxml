@@ -13,11 +13,6 @@
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Button fx:id="btnVoltarEs" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="27.0" prefWidth="90.0" text="&lt;- voltar" textFill="#007687" underline="true">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
             <ImageView fitHeight="115.0" fitWidth="189.0" layoutX="353.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icon.png" />
@@ -39,13 +34,12 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="prato" layoutX="73.0" layoutY="279.0" onAction="#edPrato" prefHeight="38.0" prefWidth="431.0" promptText="Prato.." />
             <Text layoutX="75.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prato pedido">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField fx:id="quantidade" layoutX="573.0" layoutY="281.0" onAction="#quantidade" prefHeight="38.0" prefWidth="200.0" promptText="quantidade" />
+            <TextField fx:id="quantidade" layoutX="575.0" layoutY="275.0" onAction="#quantidade" prefHeight="38.0" prefWidth="200.0" promptText="quantidade" />
             <Text layoutX="573.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:">
                <font>
                   <Font size="14.0" />
@@ -69,13 +63,19 @@
             </Text>
             <ComboBox fx:id="tpPagamento" layoutX="574.0" layoutY="389.0" onAction="#HandleTpPagamento" prefWidth="150.0" />
             <ComboBox fx:id="tpEstado" layoutX="574.0" layoutY="192.0" onAction="#HandleTpEstado" prefWidth="150.0" />
-            <TextField fx:id="prTotal" layoutX="73.0" layoutY="442.0" onAction="#prTotal" prefHeight="38.0" prefWidth="431.0" promptText="Email do estafeta..." />
+            <TextField fx:id="prTotal" layoutX="73.0" layoutY="442.0" onAction="#prTotal" prefHeight="38.0" prefWidth="431.0" promptText="Preço total..." />
             <Text layoutX="73.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço total">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
+            <ComboBox fx:id="tpPrato" layoutX="73.0" layoutY="281.0" onAction="#HandleTpPrato" prefHeight="26.0" prefWidth="431.0" />
          </children>
       </AnchorPane>
+      <Button fx:id="btnVoltarEs" layoutX="43.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="38.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

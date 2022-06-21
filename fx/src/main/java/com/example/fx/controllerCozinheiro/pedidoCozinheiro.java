@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 
 public class pedidoCozinheiro implements Initializable {
 
-    ObservableList<PratosEncomendados> listPeCoz = FXCollections.observableArrayList(PratosEncomendadosBLL.readAll());
+    ObservableList<listaPedidosCozinheiro> listPeCoz = FXCollections.observableArrayList(PratosEncomendadosBLL.reAllCoz(true));
 
     @FXML
     private Button btnAtualizar;
@@ -38,8 +38,8 @@ public class pedidoCozinheiro implements Initializable {
     private Button btnVoltar;
 
     @FXML
-    //private TableColumn<listaPedidosCozinheiro, String> descricao;
-    private TableColumn<PratosEncomendados, Number> descricao;
+    private TableColumn<listaPedidosCozinheiro, String> descricao;
+   // private TableColumn<PratosEncomendados, Number> descricao;
 
     @FXML
     private TextField edStockCoz;
@@ -47,13 +47,13 @@ public class pedidoCozinheiro implements Initializable {
 
 
     @FXML
-    private TableColumn<PratosEncomendados, Number> npedido;
+    private TableColumn<listaPedidosCozinheiro, Number> npedido;
 
     @FXML
-    private TableColumn<PratosEncomendados, Number> quantidade;
+    private TableColumn<listaPedidosCozinheiro, Number> quantidade;
 
     @FXML
-    private TableView<PratosEncomendados> tblPedidosCoz;
+    private TableView<listaPedidosCozinheiro> tblPedidosCoz;
 
     @FXML
     void descricao(ActionEvent event) {
@@ -88,18 +88,18 @@ public class pedidoCozinheiro implements Initializable {
     @FXML
     void handleBtnEditarCoz(ActionEvent event) {
 
-       ObservableList<PratosEncomendados> selectedRows;
+       ObservableList<listaPedidosCozinheiro> selectedRows;
         selectedRows =   tblPedidosCoz.getSelectionModel().getSelectedItems();
         tblPedidosCoz.getItems().remove(selectedRows);
+/*
 
-
-      /*  PratosEncomendados listCoz = tblPedidosCoz.getSelectionModel().getSelectedItem();
+        listaPedidosCozinheiro listCoz = tblPedidosCoz.getSelectionModel().getSelectedItem();
         tblPedidosCoz.getItems();
-        int id = listCoz.getIdEncomenda();
+        int id = listCoz.getId_encomenda();
         listCoz.setEstado(false);
-        PratosEncomendadosBLL.update(listCoz);
-
+        PratosEncomendadosBLL.update();
 */
+
 
 
     }
@@ -131,11 +131,13 @@ public class pedidoCozinheiro implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-
-            descricao.setCellValueFactory(new PropertyValueFactory<PratosEncomendados, Number>("idPrato"));
-            npedido.setCellValueFactory(new PropertyValueFactory<PratosEncomendados,Number>("idEncomenda"));
-            quantidade.setCellValueFactory(new PropertyValueFactory<PratosEncomendados,Number>("qtddoses"));
+/*
+            descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+            npedido.setCellValueFactory(new PropertyValueFactory<>("id_encomenda"));
+            quantidade.setCellValueFactory(new PropertyValueFactory<>("qtd"));
             tblPedidosCoz.setItems(listPeCoz);
+
+ */
         }
 
     }

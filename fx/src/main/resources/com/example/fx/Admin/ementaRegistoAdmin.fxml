@@ -10,11 +10,6 @@
 
 <AnchorPane prefHeight="407.0" prefWidth="688.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerAdmin.ementaRegistoAdmin">
    <children>
-      <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="38.0" prefWidth="116.0" style="-fx-background-color: #ffff;" text="&lt;- voltar" textFill="#007687" underline="true">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
       <ImageView fitHeight="96.0" fitWidth="161.0" layoutX="254.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/icon.png" />
@@ -48,5 +43,10 @@
             <Font size="14.0" />
          </font>
       </Text>
+      <Button fx:id="btnVoltarEs" layoutX="22.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

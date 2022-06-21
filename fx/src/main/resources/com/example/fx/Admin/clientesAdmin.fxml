@@ -27,11 +27,6 @@
                   <TableColumn fx:id="id" prefWidth="100.6666259765625" text="Id" />
                </columns>
             </TableView>
-            <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="47.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="#007687" underline="true">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
             <Button fx:id="btnEditarCl" layoutX="791.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleBtnEditarCl" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -76,6 +71,11 @@
             <Button fx:id="btnAtualizar" layoutX="791.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleBtnAtualizar" prefHeight="27.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Atualizar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnVoltarEs" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
                </font>
             </Button>
          </children>

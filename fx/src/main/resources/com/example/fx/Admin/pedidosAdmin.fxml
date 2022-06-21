@@ -40,11 +40,6 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: #ffff;" text="&lt;- voltar" textFill="#007687" underline="true">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
             <ImageView fitHeight="90.0" fitWidth="187.0" layoutX="341.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icon.png" />
@@ -64,6 +59,11 @@
             <Button fx:id="btnLogout" layoutX="820.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleBtnLogout" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: #F19800;" text="Terminar sessão" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnVoltarEs" layoutX="25.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
                </font>
             </Button>
          </children>

@@ -91,7 +91,7 @@ public class adminGestorController implements Initializable {
     void handleBtnNew(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/gestorRegistoAdmin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        Scene scene = new Scene(fxmlLoader.load(), 668 , 407);
         stage.setScene(scene);
         stage.show();
 

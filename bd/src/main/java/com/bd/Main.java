@@ -12,13 +12,16 @@ public class Main {
     public static void main(String[] args) {
 
 
+
+
+/*
+
         List<Pratos>   listaest = PratoBLL.readAll(true);
         for( Pratos est : listaest)
             System.out.println("descriçao: " + est.getDescricao());
 
 
-/*
-      //  PratosEncomendados.findAllByListaPratos
+     //  PratosEncomendados.findAllByListaPratos
         List<listaPedidosCozinheiro>   listaest = PratosEncomendadosBLL.readAllCoz(true);
         for(listaPedidosCozinheiro est : listaest)
             System.out.println("descriçao: " + est.getDescricao() + " quantidade:  " + est.getQtd() + " numero do pedido: " + est.getId_encomenda() );

@@ -27,11 +27,6 @@
                   <TableColumn fx:id="idCl" prefWidth="100.6666259765625" text="Id" />
                </columns>
             </TableView>
-            <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="47.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="#000607" underline="true">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
             <ImageView fitHeight="102.0" fitWidth="154.0" layoutX="352.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icon.png" />
@@ -56,6 +51,11 @@
             <Button fx:id="btnLogout" layoutX="822.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnLogout" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: #F19800;" text="Terminar sessão" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnVoltarEs" layoutX="21.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
                </font>
             </Button>
          </children>

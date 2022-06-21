@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URL;
@@ -26,6 +27,8 @@ public class PedidoRegistoAdmin implements Initializable {
 
 
     ObservableList<Tipopagamentos> listTp = FXCollections.observableArrayList(TipoPagamentoBLL.readAll());
+
+    ObservableList<Pratos> listaPratos = FXCollections.observableArrayList(PratoBLL.readAll(true));
 
 
 
@@ -41,8 +44,6 @@ public class PedidoRegistoAdmin implements Initializable {
         @FXML
         private TextField emailEstafeta;
 
-        @FXML
-        private TextField prato;
 
         @FXML
         private TextField quantidade;
@@ -57,6 +58,8 @@ public class PedidoRegistoAdmin implements Initializable {
 
         }
 
+        @FXML
+        private ComboBox<Pratos> tpPrato;
         @FXML
         private ComboBox<Estadosencomenda> tpEstado ;
 
@@ -78,6 +81,8 @@ public class PedidoRegistoAdmin implements Initializable {
 
         }
 
+    @FXML
+    private TextField data;
 
 
 
@@ -92,11 +97,15 @@ public class PedidoRegistoAdmin implements Initializable {
         }
 
     @FXML
-    void prTotal(ActionEvent event) {
+    void HandleTpPrato(ActionEvent event) {
 
     }
 
 
+    @FXML
+    void data(ActionEvent event) {
+
+    }
     @FXML
     void handleBtnRegistar(ActionEvent event) {
 
@@ -110,12 +119,21 @@ public class PedidoRegistoAdmin implements Initializable {
 
 
        es.setDescricaoestado(String.valueOf(tpEstado.getSelectionModel().getSelectedItem()));
-       tp.setDescricao(String.valueOf(tpPagamento.getSelectionModel().getSelectedItem()));
-       cl.setNif(BigInteger.valueOf(Integer.valueOf(nif.getText())));
-       pr.setDescricao(prato.getText());
-       est.getEmail();
-       pre.setQtddoses(Integer.parseInt(quantidade.getText()));
-       pr.setPrecoatual(Integer.parseInt(prTotal.getText()));
+       enc.setIdCliente(Integer.parseInt(nif.getText()));
+       enc.setIdEstafeta(Integer.parseInt(emailEstafeta.getText()));
+       enc.setValortotal(Integer.parseInt(prTotal.getText()));
+       enc.setTipopagamentoid(Integer.parseInt(quantidade.getText()));
+      //enc.setTipopagamentoid(tp.getTipopagamentoid());
+
+        EncomendaBLL.create(enc);
+        EstadosencomendaBLL.create(es);
+
+
+       //tp.setDescricao(String.valueOf(tpPagamento.getSelectionModel().getSelectedItem()));
+       //cl.setNif(BigInteger.valueOf(Integer.valueOf(nif.getText())));
+       //est.getEmail();
+       //pre.setQtddoses(Integer.parseInt(quantidade.getText()));
+       //pr.setPrecoatual(Integer.parseInt(prTotal.getText()));
 
 
 
@@ -142,7 +160,10 @@ public class PedidoRegistoAdmin implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
       tpPagamento.setItems(FXCollections.observableArrayList(listTp));
       tpEstado.setItems(FXCollections.observableArrayList(listaEncEst));
+      tpPrato.setItems(FXCollections.observableArrayList(listaPratos));
     }
 
 
+    public void prTotal(ActionEvent actionEvent) {
+    }
 }

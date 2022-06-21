@@ -75,6 +75,11 @@ public class Pratos {
     }
 
     @Override
+    public String toString() {
+        return descricao;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

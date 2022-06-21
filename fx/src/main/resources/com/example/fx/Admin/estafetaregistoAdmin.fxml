@@ -12,11 +12,6 @@
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Button fx:id="btnVoltarEs" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: #ffff;" text="&lt;- voltar" textFill="#007687" underline="true">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
             <ImageView fitHeight="115.0" fitWidth="189.0" layoutX="353.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icon.png" />
@@ -77,5 +72,10 @@
 
          </children>
       </AnchorPane>
+      <Button fx:id="btnVoltarEs" layoutX="34.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="38.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

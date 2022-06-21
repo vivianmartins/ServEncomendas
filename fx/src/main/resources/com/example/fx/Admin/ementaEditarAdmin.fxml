@@ -25,24 +25,19 @@
                         <TableColumn fx:id="descricao" onEditStart="#desc" prefWidth="222.66668701171875" text="Descrição" />
                      </columns>
                   </TableView>
-                  <Button fx:id="btnEditar" layoutX="787.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleBtnEditar" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Editar pedido" textFill="WHITE">
+                  <Button fx:id="btnEditar" layoutX="787.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleBtnEditar" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Editar prato" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnRemover" layoutX="787.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleBtnRemover" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Eliminar estafeta" textFill="WHITE">
+                  <Button fx:id="btnRemover" layoutX="787.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleBtnRemover" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Eliminar prato" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnNew" layoutX="787.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleBtnNew" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Criar pedido" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Button fx:id="btnNew" layoutX="787.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleBtnNew" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Criar prato" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: #ffff;" text="&lt;- voltar" textFill="#007687" underline="true">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
                   <ImageView fitHeight="90.0" fitWidth="187.0" layoutX="341.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -80,5 +75,10 @@
             </Pane>
          </children>
       </AnchorPane>
+      <Button fx:id="btnVoltarEs" layoutX="34.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="38.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
