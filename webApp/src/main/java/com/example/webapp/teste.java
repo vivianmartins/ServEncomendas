@@ -19,13 +19,22 @@ import java.util.List;
 public class teste {
 
         @GetMapping("listar")
-            public String helloWorld(Model model){
+            public String listar (Model model){
+            List<Pratos> listEnc = PratoBLL.readAll(true);
+           // for( Pratos     pr : listEnc)
+
+            model.addAttribute("listEnc", listEnc);
+
+            return   "listar";
+        }
+        @GetMapping("/")
+        public String ViewHomePage(Model model){
             List<Pratos> listEnc = PratoBLL.readAll(true);
             for( Pratos en : listEnc)
 
-            model.addAttribute("Nome", listEnc);
+                model.addAttribute("Nome", listEnc);
 
-            return   "listar";
+            return   "login";
         }
 
 }
