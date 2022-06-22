@@ -1,7 +1,9 @@
 package com.example.fx.controllerCozinheiro;
 
+import com.bd.BLL.EncomendaBLL;
 import com.bd.BLL.PratosEncomendadosBLL;
 import com.bd.DAL.PratosEncomendados;
+import com.bd.DAL.listaPedidos;
 import com.bd.DAL.listaPedidosCozinheiro;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
@@ -26,7 +28,7 @@ import java.util.ResourceBundle;
 
 public class pedidoCozinheiro implements Initializable {
 
-    ObservableList<listaPedidosCozinheiro> listPeCoz = FXCollections.observableArrayList(PratosEncomendadosBLL.reAllCoz(true));
+    ObservableList<listaPedidos> listPeCoz = FXCollections.observableArrayList(EncomendaBLL.readAll());
 
     @FXML
     private Button btnAtualizar;
@@ -47,13 +49,13 @@ public class pedidoCozinheiro implements Initializable {
 
 
     @FXML
-    private TableColumn<listaPedidosCozinheiro, Number> npedido;
+    private TableColumn<listaPedidos, Number> npedido;
 
     @FXML
-    private TableColumn<listaPedidosCozinheiro, Number> quantidade;
+    private TableColumn<listaPedidos, Number> quantidade;
 
     @FXML
-    private TableView<listaPedidosCozinheiro> tblPedidosCoz;
+    private TableView<listaPedidos> tblPedidosCoz;
 
     @FXML
     void descricao(ActionEvent event) {
@@ -93,10 +95,10 @@ public class pedidoCozinheiro implements Initializable {
         //tblPedidosCoz.getItems().remove(selectedRows);
 
 
-        listaPedidosCozinheiro listCoz = tblPedidosCoz.getSelectionModel().getSelectedItem();
+        listaPedidos listCoz = tblPedidosCoz.getSelectionModel().getSelectedItem();
         tblPedidosCoz.getItems();
         int id = listCoz.getId_encomenda();
-        listCoz.setEstado(false);
+
        // PratosEncomendadosBLL.update(listCoz);
 
 

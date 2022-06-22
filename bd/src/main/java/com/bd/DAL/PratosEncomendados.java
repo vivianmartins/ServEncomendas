@@ -9,7 +9,8 @@ import javax.persistence.*;
         @NamedQuery(name = "PratosEncomendados.findAllEs", query = "SELECT c FROM PratosEncomendados c where c.estado = :isestado"),
         @NamedQuery(name = "PratosEncomendado.findById_encomendas", query = "SELECT c FROM PratosEncomendados c WHERE c.idEncomenda = :id_encomendas"),
         @NamedQuery(name = "PratosEncomendados.findAllByIdprato", query = "SELECT c FROM PratosEncomendados c WHERE c.idPrato = :ID_PRATO"),
-        @NamedQuery(name = "PratosEncomendados.findAllByListaPratos", query = "select  new com.bd.DAL.listaPedidosCozinheiro (en, estenc, pr, prae)   from Encomendas en, Estadosencomenda estenc, Pratos pr,  PratosEncomendados prae where en.idEncomenda = prae.idEncomenda and  pr.idPrato = prae.idPrato and prae.estado = : isestado")
+        @NamedQuery(name = "PratosEncomendados.findAllByListaPratos", query = "select  new com.bd.DAL.listaPedidosCozinheiro (en, estenc, pr, prae)   from Encomendas en, Estadosencomenda estenc, Pratos pr,  PratosEncomendados prae where " +
+                "en.idEncomenda = prae.idEncomenda and  pr.idPrato = prae.idPrato and prae.estado = : isestado " )
 })
 
 @IdClass(PratosEncomendadosPK.class)
