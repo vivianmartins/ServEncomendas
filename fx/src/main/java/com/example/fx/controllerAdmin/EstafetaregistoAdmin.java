@@ -114,10 +114,8 @@ public class EstafetaregistoAdmin {
 
                 /*Inserir os dados no estafeta*/
 
-                est.setEmail(conEmail.getText());
-                est.setNumtelefone(telefone.getText());
-                est.setEstado(true);
-                est.setNif(Integer.parseInt(nif.getText()));
+
+
 
                 /*Inserir os dados no user*/
 
@@ -127,11 +125,20 @@ public class EstafetaregistoAdmin {
                 user.setNomeuser(nome.getText());
                 user.setEstado(true);
 
-                //colocar o codpostal
+
+                UsersBLL.create(user);
+
+                est.setEmail(conEmail.getText());
+                est.setNumtelefone(telefone.getText());
+                est.setEstado(true);
+                est.setNif(Integer.parseInt(nif.getText()));
+                est.setIdUser(user.getIdUser());
+
+
 
 
                 EstafetaBLL.create(est);
-                UsersBLL.create(user);
+
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Registo");

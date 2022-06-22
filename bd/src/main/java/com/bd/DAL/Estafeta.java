@@ -2,11 +2,13 @@ package com.bd.DAL;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+import java.math.BigInteger;
 
 
 @Entity
 @Table(name = "Estafeta")
 @NamedQueries(value = {
+        @NamedQuery(name = "Estafeta.findByEmail", query = "SELECT c FROM Estafeta c Where c.email = :email"),
         @NamedQuery(name = "Estafeta.findAll", query = "SELECT c FROM Estafeta c"),
         @NamedQuery(name = "Estafeta.findById_estafeta", query = "SELECT c FROM Estafeta c WHERE c.idEstafeta = :id_estafeta"),
         @NamedQuery(name = "Estafeta.findByEstado", query = "Select c From Estafeta c  where c.estado = :isestado"),
@@ -32,6 +34,19 @@ public class Estafeta {
     private String numtelefone;
     private int nif;
     private boolean estado;
+
+    private BigInteger idUser;
+
+
+    @Basic
+    @Column(name = "ID_USER", nullable = true, precision = 0)
+    public BigInteger getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(BigInteger idUser) {
+        this.idUser = idUser;
+    }
 
     @Basic
     @Column(name = "EMAIL", nullable = true, length = 60)
@@ -95,7 +110,7 @@ public class Estafeta {
         if (numtelefone != null ? !numtelefone.equals(estafeta.numtelefone) : estafeta.numtelefone != null)
             return false;
         if (email != null ? !email.equals(estafeta.email) : estafeta.email != null) return false;
-
+        if (idUser != null ? !idUser.equals(estafeta.idUser) : estafeta.idUser != null) return false;
 
         return true;
     }
@@ -107,6 +122,7 @@ public class Estafeta {
         result = 31 * result + (numtelefone != null ? numtelefone.hashCode() : 0);
         result = 31 * result + nif;
         result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (idUser != null ? idUser.hashCode() : 0);
 
         return result;
     }

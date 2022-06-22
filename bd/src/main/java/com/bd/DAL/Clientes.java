@@ -6,7 +6,9 @@ import java.math.BigInteger;
 @Entity
 @Table(name = "CLIENTES")
 @NamedQueries({
+
         @NamedQuery(name = "Clientes.findAll", query = "SELECT c FROM Clientes c"),
+        @NamedQuery(name = "Clientes.findByNif", query = "SELECT c FROM Clientes c where c.nif= :nif"),
         @NamedQuery(name = "Clientes.findByIdcliente", query = "SELECT c FROM Clientes c WHERE c.idCliente = :id_cliente"),
         @NamedQuery(name = "Clientes.findAllByNome", query = "SELECT c FROM Clientes c WHERE c.nome LIKE :nome"),
         @NamedQuery(name = "Clientes.findByEstado" , query = "Select c From Clientes c  where c.estado = :isestado" ),

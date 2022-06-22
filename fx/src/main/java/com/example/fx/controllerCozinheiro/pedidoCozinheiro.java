@@ -88,17 +88,17 @@ public class pedidoCozinheiro implements Initializable {
     @FXML
     void handleBtnEditarCoz(ActionEvent event) {
 
-       ObservableList<listaPedidosCozinheiro> selectedRows;
-        selectedRows =   tblPedidosCoz.getSelectionModel().getSelectedItems();
-        tblPedidosCoz.getItems().remove(selectedRows);
-/*
+      // ObservableList<listaPedidosCozinheiro> selectedRows;
+        //selectedRows =   tblPedidosCoz.getSelectionModel().getSelectedItems();
+        //tblPedidosCoz.getItems().remove(selectedRows);
+
 
         listaPedidosCozinheiro listCoz = tblPedidosCoz.getSelectionModel().getSelectedItem();
         tblPedidosCoz.getItems();
         int id = listCoz.getId_encomenda();
         listCoz.setEstado(false);
-        PratosEncomendadosBLL.update();
-*/
+       // PratosEncomendadosBLL.update(listCoz);
+
 
 
 
@@ -131,13 +131,13 @@ public class pedidoCozinheiro implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-/*
+
             descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
             npedido.setCellValueFactory(new PropertyValueFactory<>("id_encomenda"));
             quantidade.setCellValueFactory(new PropertyValueFactory<>("qtd"));
             tblPedidosCoz.setItems(listPeCoz);
 
- */
+
         }
 
     }

@@ -22,6 +22,7 @@ module com.example.fx {
     requires org.hibernate.orm.core;
     requires java.logging;
     requires java.persistence;
+    requires java.sql;
 
 
 }

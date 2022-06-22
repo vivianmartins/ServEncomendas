@@ -18,6 +18,9 @@ import javax.persistence.criteria.CriteriaBuilder;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class PedidoRegistoAdmin implements Initializable {
@@ -31,22 +34,21 @@ public class PedidoRegistoAdmin implements Initializable {
     ObservableList<Pratos> listaPratos = FXCollections.observableArrayList(PratoBLL.readAll(true));
 
 
+    @FXML
+    private Button btnRegistar;
 
     @FXML
-        private Button btnRegistar;
+    private Button btnVoltarEs;
 
-        @FXML
-        private Button btnVoltarEs;
+    @FXML
+    private TextField nif;
 
-        @FXML
-        private TextField nif;
-
-        @FXML
-        private TextField emailEstafeta;
+    @FXML
+    private TextField emailEstafeta;
 
 
-        @FXML
-        private TextField quantidade;
+    @FXML
+    private TextField quantidade;
 
 
     @FXML
@@ -54,47 +56,47 @@ public class PedidoRegistoAdmin implements Initializable {
 
 
     @FXML
-        void edPrato(ActionEvent event) {
+    void edPrato(ActionEvent event) {
 
-        }
+    }
 
-        @FXML
-        private ComboBox<Pratos> tpPrato;
-        @FXML
-        private ComboBox<Estadosencomenda> tpEstado ;
+    @FXML
+    private ComboBox<Pratos> tpPrato;
+    @FXML
+    private ComboBox<Estadosencomenda> tpEstado;
 
-        @FXML
-        private ComboBox<Tipopagamentos> tpPagamento ;
+    @FXML
+    private ComboBox<Tipopagamentos> tpPagamento;
 
-        @FXML
-        void editNif(ActionEvent event) {
+    @FXML
+    void editNif(ActionEvent event) {
 
-        }
-        @FXML
-        void HandleTpEstado(ActionEvent event) {
+    }
 
-        }
+    @FXML
+    void HandleTpEstado(ActionEvent event) {
 
-        @FXML
-        void HandleTpPagamento(ActionEvent event) {
+    }
+
+    @FXML
+    void HandleTpPagamento(ActionEvent event) {
 
 
-        }
+    }
 
     @FXML
     private TextField data;
 
 
+    @FXML
+    void emailEstafeta(ActionEvent event) {
 
-        @FXML
-        void emailEstafeta(ActionEvent event) {
+    }
 
-        }
+    @FXML
+    void quantidade(ActionEvent event) {
 
-        @FXML
-        void quantidade(ActionEvent event) {
-
-        }
+    }
 
     @FXML
     void HandleTpPrato(ActionEvent event) {
@@ -106,34 +108,57 @@ public class PedidoRegistoAdmin implements Initializable {
     void data(ActionEvent event) {
 
     }
+
     @FXML
     void handleBtnRegistar(ActionEvent event) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime now = LocalDateTime.now();
+
 
         Encomendas enc = new Encomendas();
         Clientes cl = new Clientes();
         Pratos pr = new Pratos();
         Estadosencomenda es = new Estadosencomenda();
-        Tipopagamentos tp= new Tipopagamentos();
+        Tipopagamentos tp = new Tipopagamentos();
         Estafeta est = new Estafeta();
         PratosEncomendados pre = new PratosEncomendados();
 
+        Encomendaestados encEst = new Encomendaestados();
 
-       es.setDescricaoestado(String.valueOf(tpEstado.getSelectionModel().getSelectedItem()));
-       enc.setIdCliente(Integer.parseInt(nif.getText()));
-       enc.setIdEstafeta(Integer.parseInt(emailEstafeta.getText()));
-       enc.setValortotal(Integer.parseInt(prTotal.getText()));
-       enc.setTipopagamentoid(Integer.parseInt(quantidade.getText()));
-      //enc.setTipopagamentoid(tp.getTipopagamentoid());
+        est = EstafetaBLL.readByEmail(emailEstafeta.getText());
+        cl = ClienteBLL.readByNif(BigInteger.valueOf(Integer.parseInt(nif.getText())));
+        if (est != null && cl != null){
+            enc.setIdEstafeta(est.getIdEstafeta());
+            enc.setIdCliente(cl.getIdCliente());
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Registo encomenda");
+            alert.setHeaderText("Dados inválidos!");
+            alert.show();
 
+        }
+        enc.setValortotal(Integer.parseInt(prTotal.getText()));
+        enc.setTipopagamentoid(tpPagamento.getSelectionModel().getSelectedItem().getTipopagamentoid());
         EncomendaBLL.create(enc);
-        EstadosencomendaBLL.create(es);
+
+        pre.setIdPrato(tpPrato.getSelectionModel().getSelectedItem().getIdPrato());
+        pre.setIdEncomenda(enc.getIdEncomenda());
+        pre.setQtddoses(Integer.parseInt(quantidade.getText()));
+        float preco = tpPrato.getSelectionModel().getSelectedItem().getPrecoatual();
+        int preco2 = ((int) preco);
+        pre.setPrecodose(preco2);
+        pre.setEstado(true);
+
+        PratosEncomendadosBLL.create(pre);
 
 
-       //tp.setDescricao(String.valueOf(tpPagamento.getSelectionModel().getSelectedItem()));
-       //cl.setNif(BigInteger.valueOf(Integer.valueOf(nif.getText())));
-       //est.getEmail();
-       //pre.setQtddoses(Integer.parseInt(quantidade.getText()));
-       //pr.setPrecoatual(Integer.parseInt(prTotal.getText()));
+        encEst.setIdEncomenda(enc.getIdEncomenda());
+        int estado = tpEstado.getSelectionModel().getSelectedItem().getIdEstadoencomenda();
+        encEst.setIdEstadoencomenda(estado);
+        encEst.setData(Date.valueOf(dtf.format(now)));
+
+        EncomendaestadosBLL.create(encEst);
+
 
 
 
@@ -147,20 +172,22 @@ public class PedidoRegistoAdmin implements Initializable {
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/pedidosAdmin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        Scene scene = new Scene(fxmlLoader.load(), 960, 600);
         stage.setScene(scene);
         stage.show();
 
-        Node source = (Node)  event.getSource();
-        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        Node source = (Node) event.getSource();
+        Stage stageAtual = (Stage) source.getScene().getWindow();
         stageAtual.close();
 
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      tpPagamento.setItems(FXCollections.observableArrayList(listTp));
-      tpEstado.setItems(FXCollections.observableArrayList(listaEncEst));
-      tpPrato.setItems(FXCollections.observableArrayList(listaPratos));
+        tpPagamento.setItems(FXCollections.observableArrayList(listTp));
+        tpEstado.setItems(FXCollections.observableArrayList(listaEncEst));
+        tpPrato.setItems(FXCollections.observableArrayList(listaPratos));
+
     }
 
 

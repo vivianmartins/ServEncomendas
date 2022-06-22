@@ -42,7 +42,7 @@ public class PratosEncomendados {
         this.idPrato = idPrato;
     }
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_ENCOMENDA", nullable = false, precision = 0)
     public int getIdEncomenda() {

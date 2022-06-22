@@ -1,5 +1,6 @@
 package com.bd.BLL;
 
+import com.bd.DAL.Pratos;
 import com.bd.DAL.PratosEncomendados;
 import com.bd.DAL.listaPedidosCozinheiro;
 
@@ -13,6 +14,19 @@ public class PratosEncomendadosBLL {
         private static EntityManagerFactory factory = null;
         @PersistenceContext
         private static EntityManager em = null;
+
+
+    public static void create(PratosEncomendados praenc) {
+        if (factory == null) {
+            factory = Persistence.createEntityManagerFactory("default");
+        }
+
+        if (em == null) em = factory.createEntityManager();
+
+        em.getTransaction().begin(); //iniciando a transação com bd
+        em.persist(praenc); //Persistindo os dados
+        em.getTransaction().commit();//guardou
+    }
 
         public static PratosEncomendados read(int id_encomendas){
            PratosEncomendados PratEn = null;

@@ -9,7 +9,7 @@ public class PratosEncomendadosPK implements Serializable {
 
     @Column(name = "ID_PRATO", nullable = false, precision = 0)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdPrato() {
         return idPrato;
     }
@@ -20,7 +20,7 @@ public class PratosEncomendadosPK implements Serializable {
 
     @Column(name = "ID_ENCOMENDA", nullable = false, precision = 0)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdEncomenda() {
         return idEncomenda;
     }
