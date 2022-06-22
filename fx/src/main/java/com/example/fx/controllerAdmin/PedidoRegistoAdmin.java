@@ -135,6 +135,7 @@ public class PedidoRegistoAdmin implements Initializable {
             alert.setTitle("Registo encomenda");
             alert.setHeaderText("Dados inválidos!");
             alert.show();
+            return;
 
         }
         enc.setValortotal(Integer.parseInt(prTotal.getText()));
