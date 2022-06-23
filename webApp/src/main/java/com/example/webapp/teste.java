@@ -1,5 +1,9 @@
 package com.example.webapp;
 
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import com.bd.BLL.EncomendaBLL;
 import com.bd.BLL.PratoBLL;
 import com.bd.DAL.Encomendas;
@@ -21,18 +25,12 @@ public class teste {
         @GetMapping("listar")
             public String listar (Model model){
             List<Pratos> listEnc = PratoBLL.readAll(true);
-           // for( Pratos     pr : listEnc)
-
-            model.addAttribute("listEnc", listEnc);
+             model.addAttribute("listEnc", listEnc);
 
             return   "listar";
         }
         @GetMapping("/")
         public String ViewHomePage(Model model){
-            List<Pratos> listEnc = PratoBLL.readAll(true);
-            for( Pratos en : listEnc)
-
-                model.addAttribute("Nome", listEnc);
 
             return   "login";
         }
