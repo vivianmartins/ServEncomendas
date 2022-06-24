@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
 
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -30,11 +32,28 @@
     </div>
 </nav>
 <body>
+<table>
 
-<!--/*@thymesVar id="listEnc" type="com.bd.BLL.PratoBLL.readAll(true)"*/-->
-<tr th:each=" pra : ${listEnc}">
-    <td th:text="${}"> Nome: </td>
+<tr>
+    <th > Nome:  </th>
 
 </tr>
+
+
+
+    <!--/*@thymesVar id="Pratos" type="com.bd.DAL.Pratos"*/-->
+    <tr  th:each=" pratoList : ${Pratos}">
+                <td th:text="${pratoList}" > Nome:  </td>
+
+    </tr>
+
+
+</div>
+
+
+
+
+
+</table>
 </body>
 </html>
