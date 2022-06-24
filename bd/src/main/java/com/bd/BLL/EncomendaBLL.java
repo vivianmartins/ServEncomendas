@@ -1,7 +1,6 @@
 package com.bd.BLL;
 
-import com.bd.DAL.Encomendas;
-import com.bd.DAL.listaPedidos;
+import com.bd.DAL.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -65,6 +64,57 @@ public class EncomendaBLL {
 
             return listaPed;
         }
+
+    public static List<listaPedidos> readAllCanc(){
+        List<listaPedidos> listaPedcanc = new ArrayList<>();
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        TypedQuery<listaPedidos> q1 = em.createNamedQuery("Encomendas.findAllPedCancelados", listaPedidos.class);
+        List<listaPedidos> result = q1.getResultList();
+
+        for(listaPedidos lp : result){
+            listaPedcanc.add((listaPedidos) lp);
+        }
+
+        return listaPedcanc;
+    }
+
+    public static List<listaPedidos> readAllMarc(){
+        List<listaPedidos> listaPedmarc = new ArrayList<>();
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        TypedQuery<listaPedidos> q1 = em.createNamedQuery("Encomendas.findAllPedMarcados", listaPedidos.class);
+        List<listaPedidos> result = q1.getResultList();
+
+        for(listaPedidos lp : result){
+            listaPedmarc.add((listaPedidos) lp);
+        }
+
+        return listaPedmarc;
+    }
+
+    public static List<listaPedidos> readAllConc(){
+        List<listaPedidos> listaPedconc = new ArrayList<>();
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        TypedQuery<listaPedidos> q1 = em.createNamedQuery("Encomendas.findAllPedConcluidos", listaPedidos.class);
+        List<listaPedidos> result = q1.getResultList();
+
+        for(listaPedidos lp : result){
+            listaPedconc.add((listaPedidos) lp);
+        }
+
+        return listaPedconc;
+    }
 
         public static List<Encomendas> readAll(String tipoPagamento ){
             List<Encomendas> listaEnc = new ArrayList<>();

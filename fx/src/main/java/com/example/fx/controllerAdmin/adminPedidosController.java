@@ -1,7 +1,6 @@
 package com.example.fx.controllerAdmin;
 
 import com.bd.BLL.EncomendaBLL;
-import com.bd.DAL.Pratos;
 import com.bd.DAL.listaPedidos;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
@@ -18,14 +17,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class adminPedidosController implements Initializable {
 
-
+    public Button btnConcluido;
+    public Button btnMarcados;
+    public Button btnCancelados;
     @FXML
     private Button btnEditar;
 
@@ -84,6 +84,7 @@ public class adminPedidosController implements Initializable {
     private TableView<listaPedidos> tblPedidos;
 
 
+
     @FXML
     void handleBtnNew(ActionEvent event) throws IOException {
         Stage stage = new Stage();
@@ -121,6 +122,64 @@ public class adminPedidosController implements Initializable {
 
     }
 
+    @FXML
+    void handleBtnCancelados(ActionEvent event) {
+        tblPedidos.getItems().clear();
+
+        ObservableList<listaPedidos> listaPedCanc = FXCollections.observableArrayList(EncomendaBLL.readAllCanc());
+        descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        estado.setCellValueFactory(new PropertyValueFactory<>("encomendaestados"));
+        nPedido.setCellValueFactory(new PropertyValueFactory<>("id_encomenda"));
+        nCliente.setCellValueFactory(new PropertyValueFactory<>("id_cliente"));
+        noEstafeta.setCellValueFactory(new PropertyValueFactory<>("id_estafeta"));
+        valor.setCellValueFactory(new PropertyValueFactory<>("precodose"));
+        data.setCellValueFactory(new PropertyValueFactory<>("data"));
+        Qtd.setCellValueFactory(new PropertyValueFactory<>("qtd"));
+        tipoPag.setCellValueFactory(new PropertyValueFactory<>("tp"));
+
+        tblPedidos.setItems(listaPedCanc);
+    }
+
+    @FXML
+    void handleBtnMarcados(ActionEvent event) throws IOException{
+        tblPedidos.getItems().clear();
+
+        ObservableList<listaPedidos> listaPedMarc = FXCollections.observableArrayList(EncomendaBLL.readAllMarc());
+        descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        estado.setCellValueFactory(new PropertyValueFactory<>("encomendaestados"));
+        nPedido.setCellValueFactory(new PropertyValueFactory<>("id_encomenda"));
+        nCliente.setCellValueFactory(new PropertyValueFactory<>("id_cliente"));
+        noEstafeta.setCellValueFactory(new PropertyValueFactory<>("id_estafeta"));
+        valor.setCellValueFactory(new PropertyValueFactory<>("precodose"));
+        data.setCellValueFactory(new PropertyValueFactory<>("data"));
+        Qtd.setCellValueFactory(new PropertyValueFactory<>("qtd"));
+        tipoPag.setCellValueFactory(new PropertyValueFactory<>("tp"));
+
+        tblPedidos.setItems(listaPedMarc);
+
+    }
+
+
+
+    @FXML
+    void handleBtnConcluidos(ActionEvent event) throws IOException{
+        tblPedidos.getItems().clear();
+
+        ObservableList<listaPedidos> listaPedConc = FXCollections.observableArrayList(EncomendaBLL.readAllConc());
+        descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        estado.setCellValueFactory(new PropertyValueFactory<>("encomendaestados"));
+        nPedido.setCellValueFactory(new PropertyValueFactory<>("id_encomenda"));
+        nCliente.setCellValueFactory(new PropertyValueFactory<>("id_cliente"));
+        noEstafeta.setCellValueFactory(new PropertyValueFactory<>("id_estafeta"));
+        valor.setCellValueFactory(new PropertyValueFactory<>("precodose"));
+        data.setCellValueFactory(new PropertyValueFactory<>("data"));
+        Qtd.setCellValueFactory(new PropertyValueFactory<>("qtd"));
+        tipoPag.setCellValueFactory(new PropertyValueFactory<>("tp"));
+
+        tblPedidos.setItems(listaPedConc);
+
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -141,4 +200,5 @@ public class adminPedidosController implements Initializable {
 
 
     }
+
 }

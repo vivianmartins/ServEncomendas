@@ -66,6 +66,21 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
+            <Button fx:id="btnCancelados" layoutX="820.0" layoutY="249.0" mnemonicParsing="false" onAction="#handleBtnCancelados" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Cancelados" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnMarcados" layoutX="820.0" layoutY="299.0" mnemonicParsing="false" onAction="#handleBtnMarcados" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Marcados" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnConcluido" layoutX="820.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleBtnConcluidos" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Concluídos" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>
