@@ -127,21 +127,15 @@ public class PedidoRegistoAdmin implements Initializable {
 
         est = EstafetaBLL.readByEmail(emailEstafeta.getText());
         cl = ClienteBLL.readByNif(BigInteger.valueOf(Integer.parseInt(nif.getText())));
-        if (est != null && cl != null){
+        int qtd = Integer.parseInt(quantidade.getText());
+        int qtdAtual = tpPrato.getSelectionModel().getSelectedItem().getStockdoses();
+        if (est != null && cl != null && qtdAtual>qtd){
             enc.setIdEstafeta(est.getIdEstafeta());
             enc.setIdCliente(cl.getIdCliente());
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Registo encomenda");
-            alert.setHeaderText("Dados inválidos!");
-            alert.show();
-            return;
 
-        }
         enc.setValortotal(Integer.parseInt(prTotal.getText()));
         enc.setTipopagamentoid(tpPagamento.getSelectionModel().getSelectedItem().getTipopagamentoid());
         EncomendaBLL.create(enc);
-
         pre.setIdPrato(tpPrato.getSelectionModel().getSelectedItem().getIdPrato());
         pre.setIdEncomenda(enc.getIdEncomenda());
         pre.setQtddoses(Integer.parseInt(quantidade.getText()));
@@ -160,13 +154,18 @@ public class PedidoRegistoAdmin implements Initializable {
 
         EncomendaestadosBLL.create(encEst);
 
-
-
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Registo");
-        alert.setHeaderText("Registo efetuado com sucesso!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Registo");
+            alert.setHeaderText("Registo efetuado com sucesso!");
+            alert.show();
+    } else {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Registo encomenda");
+        alert.setHeaderText("Dados inválidos! Atenção à quantidade pedida ou verifique a disponibilidade do estafeta");
         alert.show();
+    }
+
+
     }
 
     @FXML

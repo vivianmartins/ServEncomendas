@@ -86,8 +86,6 @@ public class  ementaCozinheiro implements Initializable {
        pratos.setStockdoses(Integer.parseInt(edStockCoz.getText()));
        PratoBLL.update(pratos);
        tblEmentaCoz.setItems(listaPratosCoz);
-
-
     }
 
     @FXML

@@ -11,6 +11,16 @@ import javax.persistence.*;
         @NamedQuery(name = "Encomendas.findAllPed",  query = "select distinct new   com.bd.DAL.listaPedidos  (en,  estenc, pr, ee, pre, tps) " +
                 " from Encomendas  en, Estadosencomenda estenc, Pratos  pr, Encomendaestados ee, PratosEncomendados pre, Tipopagamentos  tps where en.idEncomenda = pre.idEncomenda and " +
                 " pr.idPrato = pre.idPrato and ee.idEncomenda = en.idEncomenda and estenc.idEstadoencomenda = ee.idEstadoencomenda and tps.tipopagamentoid= en.tipopagamentoid "),
+        @NamedQuery(name = "Encomendas.findAllPedMarcados",  query = "select distinct new   com.bd.DAL.listaPedidos  (en,  estenc, pr, ee, pre, tps) " +
+                " from Encomendas  en, Estadosencomenda estenc, Pratos  pr, Encomendaestados ee, PratosEncomendados pre, Tipopagamentos  tps where en.idEncomenda = pre.idEncomenda and " +
+                " pr.idPrato = pre.idPrato and ee.idEncomenda = en.idEncomenda and estenc.idEstadoencomenda = ee.idEstadoencomenda and tps.tipopagamentoid= en.tipopagamentoid and estenc.idEstadoencomenda=1"),
+        @NamedQuery(name = "Encomendas.findAllPedConcluidos",  query = "select distinct new   com.bd.DAL.listaPedidos (en,  estenc, pr, ee, pre, tps) " +
+                " from Encomendas  en, Estadosencomenda estenc, Pratos  pr, Encomendaestados ee, PratosEncomendados pre, Tipopagamentos  tps where en.idEncomenda = pre.idEncomenda and " +
+                " pr.idPrato = pre.idPrato and ee.idEncomenda = en.idEncomenda and estenc.idEstadoencomenda = ee.idEstadoencomenda and tps.tipopagamentoid= en.tipopagamentoid and estenc.idEstadoencomenda=2"),
+        @NamedQuery(name = "Encomendas.findAllPedCancelados",  query = "select distinct new   com.bd.DAL.listaPedidos  (en,  estenc, pr, ee, pre, tps) " +
+                " from Encomendas  en, Estadosencomenda estenc, Pratos  pr, Encomendaestados ee, PratosEncomendados pre, Tipopagamentos  tps where en.idEncomenda = pre.idEncomenda and " +
+                " pr.idPrato = pre.idPrato and ee.idEncomenda = en.idEncomenda and estenc.idEstadoencomenda = ee.idEstadoencomenda and tps.tipopagamentoid= en.tipopagamentoid and estenc.idEstadoencomenda=3"),
+
 
 })
 
