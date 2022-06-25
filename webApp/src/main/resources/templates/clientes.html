@@ -9,7 +9,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Encomendas</title>
+    <title>Clientes</title>
 </head>
 
 
@@ -34,7 +34,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="codPostais"> Códigos postais</a>
+                <a class="nav-link" href="codPostais">Clientes</a>
             </li>
 
             <li class="nav-item">
@@ -46,53 +46,51 @@
 <body>
 <table>
 
-<tr>
+    <tr>
 
 
-</tr>
+    </tr>
 
 
 
-<div>
+    <div>
 
 
-    <!--/*@thymesVar id="Pratos" type="com.bd.DAL.Pratos"*/-->
+        <!--/*@thymesVar id="Pratos" type="com.bd.DAL.Pratos"*/-->
 
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">ID Encomenda</th>
-            <th scope="col">ID Estafeta</th>
-            <th scope="col">ID Cliente</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Data</th>
-            <th scope="col">Preço dose</th>
-            <th scope="col">Encomenda estado</th>
-            <th scope="col">Quantidade</th>
-            <th scope="col">Tipo pagamento</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        <tr  th:each=" listaPedidos : ${listaPedidos}">
-            <td th:text="${listaPedidos.id_encomenda}" > ID da Encomenda  </td>
-            <td th:text="${listaPedidos.id_estafeta}" > ID do Estafeta:  </td>
-            <td th:text="${listaPedidos.id_cliente}" > ID do Cliente:  </td>
-            <td th:text="${listaPedidos.descricao}" > Descrição:  </td>
-            <td th:text="${listaPedidos.data}" > Data:  </td>
-            <td th:text="${listaPedidos.precodose}" > Preço dose:  </td>
-            <td th:text="${listaPedidos.encomendaestados}" > Encomenda estado:  </td>
-            <td th:text="${listaPedidos.qtd}" > Quantidade:  </td>
-            <td th:text="${listaPedidos.tp}" > Tipo pagamento:  </td>
-
-        </tr>
-
-        </tbody>
-    </table>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID cliente</th>
+                <th scope="col">Nome</th>
+                <th scope="col">NIF</th>
+                <th scope="col">Rua</th>
+                <th scope="col">Codpostal</th>
+                <th scope="col">Número telemóvel</th>
+                <th scope="col">Estado</th>
 
 
-</div>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each=" clientes : ${clientes}">
+                <td th:text="${clientes.idCliente}" > ID da Encomenda  </td>
+                <td th:text="${clientes.nome}" > ID do Estafeta:  </td>
+                <td th:text="${clientes.nif}" > ID do Cliente:  </td>
+                <td th:text="${clientes.rua}" > Descrição:  </td>
+                <td th:text="${clientes.codpostal}" > Data:  </td>
+                <td th:text="${clientes.numtelemovel}" > Preço dose:  </td>
+                <td th:text="${clientes.estado}" > Encomenda estado:  </td>
+
+
+            </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
 
 
 

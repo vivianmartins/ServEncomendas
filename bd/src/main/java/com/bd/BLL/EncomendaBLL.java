@@ -65,6 +65,23 @@ public class EncomendaBLL {
             return listaPed;
         }
 
+    public static List<listaPedidos> readAll2(){
+        List<listaPedidos> listaPed = new ArrayList<>();
+        if(factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+        TypedQuery<listaPedidos> q1 = em.createNamedQuery("Encomendas.findAllPedConcluidosEstafeta", listaPedidos.class);
+        List<listaPedidos> result = q1.getResultList();
+
+        for(listaPedidos lp : result){
+            listaPed.add((listaPedidos) lp);
+        }
+
+        return listaPed;
+    }
+
     public static List<listaPedidos> readAllCanc(){
         List<listaPedidos> listaPedcanc = new ArrayList<>();
         if(factory == null)

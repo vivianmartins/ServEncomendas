@@ -55,7 +55,7 @@ public class EstadosencomendaBLL {
 
         if (em == null) em = factory.createEntityManager();
 
-        Query q1 = em.createNamedQuery("Estadosencomenda.findMarcada");
+        Query q1 = em.createNamedQuery("Estadosencomenda.findAll");
         List<Object> result = q1.getResultList();
 
         for(Object enc : result){
