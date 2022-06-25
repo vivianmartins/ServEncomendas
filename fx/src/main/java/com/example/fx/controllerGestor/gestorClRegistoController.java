@@ -1,5 +1,8 @@
 package com.example.fx.controllerGestor;
 
+import com.bd.BLL.ClienteBLL;
+import com.bd.DAL.Clientes;
+import com.bd.DAL.Codpostais;
 import com.example.fx.loginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,8 +16,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigInteger;
 
 public class gestorClRegistoController {
+
+    Clientes cli = new Clientes();
 
 
     @FXML
@@ -24,14 +30,12 @@ public class gestorClRegistoController {
     private Button btnVoltarEs;
 
     @FXML
-    private SplitMenuButton codpostal;
+    private TextField codpostal;
 
-    @FXML
-    private TextField email;
-
-    @FXML
-    private TextField localidade;
-
+    /*
+        @FXML
+        private TextField localidade;
+    */
     @FXML
     private TextField morada;
 
@@ -41,17 +45,12 @@ public class gestorClRegistoController {
     @FXML
     private TextField nome;
 
-    @FXML
-    private TextField passe;
 
-    @FXML
-    private TextField passe2;
 
     @FXML
     private TextField telefone;
 
-    @FXML
-    private TextField username;
+
 
     @FXML
     void edEmail(ActionEvent event) {
@@ -74,7 +73,7 @@ public class gestorClRegistoController {
     }
 
     @FXML
-    void edPasse2(ActionEvent event) {
+    void codpostal(ActionEvent event) {
 
     }
 
@@ -83,28 +82,47 @@ public class gestorClRegistoController {
 
     }
 
-    @FXML
-    void edUsername(ActionEvent event) {
-
-    }
 
     @FXML
     void editNo(ActionEvent event) {
 
     }
-
+/*
     @FXML
     void edlocalidade(ActionEvent event) {
 
     }
+*/
+
 
     @FXML
     void handleBtnRegistar(ActionEvent event) {
-        {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Registo");
-            alert.setHeaderText("Registo efetuado com sucesso!");
-            alert.show();
+
+        if (isInputValid()) {
+
+            {
+
+                Clientes cl = new Clientes();
+                Codpostais codpostais = new Codpostais();
+
+                /*Registo do cliente na tabela cliente*/
+                cl.setNumtelemovel(telefone.getText());
+                cl.setNome(nome.getText());
+                cl.setNif(BigInteger.valueOf(Integer.parseInt(nif.getText())));
+                cl.setRua(morada.getText());
+                cl.setEstado(true);
+                cl.setCodpostal(Integer.parseInt(codpostal.getText()));
+                /*Registo do cliente do Codigo postal*/
+                // codpostais.setLocalidade(localidade.getText());
+
+                ClienteBLL.create(cl);
+                // CodPostaisBLL.create(codpostais);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Registo");
+                alert.setHeaderText("Registo efetuado com sucesso!");
+                alert.show();
+            }
         }
     }
 
@@ -121,5 +139,48 @@ public class gestorClRegistoController {
         stageAtual.close();
 
     }
+
+
+    public void criarCliente (Clientes cli) {
+
+    }
+
+    /*
+     *Efetuar a comparação caso exista campos sem dados ou insira dados ja existentes
+     * **/
+    public boolean isInputValid(){
+
+
+        String errorMessage = "";
+
+        if (nome.getText().isEmpty() || nome.getText().length() == 0) {
+            errorMessage += "Email inválido!\n";
+        }
+
+        if (morada.getText() == null || morada.getText().length() == 0) {
+            errorMessage += "Username iniválida!\n";
+        }
+        if (codpostal.getText() == null || codpostal.getText().length() == 0) {
+            errorMessage += "Passe inválida!\n";
+        }
+
+        /*Verifica se ja existe um nif*/
+        if(ClienteBLL.nifRepetidoCliente(BigInteger.valueOf(Integer.parseInt(nif.getText())))){
+            errorMessage += "Nif já existe!\n";
+        }
+        if (errorMessage.length() == 0 ) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Campos inválidos");
+            alert.setHeaderText("Preencha corretamente os campos!");
+            alert.setContentText(errorMessage);
+            alert.showAndWait();
+            return false;
+        }
+
+    }
+
+
 
 }

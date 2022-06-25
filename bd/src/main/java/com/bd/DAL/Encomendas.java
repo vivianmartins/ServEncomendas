@@ -38,9 +38,6 @@ import javax.persistence.*;
         @NamedQuery(name = "Encomendas.findByIdClientePago",  query = "select distinct new   com.bd.DAL.listaPedidos  (en,  estenc, pr, ee, pre, tps) " +
                 " from Encomendas  en, Estadosencomenda estenc, Pratos  pr, Encomendaestados ee, PratosEncomendados pre, Tipopagamentos  tps where en.idEncomenda = pre.idEncomenda and " +
                 " pr.idPrato = pre.idPrato and ee.idEncomenda = en.idEncomenda and estenc.idEstadoencomenda = ee.idEstadoencomenda and tps.tipopagamentoid= en.tipopagamentoid and en.idCliente = :id_cliente and ee.idEstadoencomenda=5"),
-        @NamedQuery(name = "Encomendas.findByIdClientePago",  query = "select distinct new   com.bd.DAL.listaPedidos  (en,  estenc, pr, ee, pre, tps) " +
-                " from Encomendas  en, Estadosencomenda estenc, Pratos  pr, Encomendaestados ee, PratosEncomendados pre, Tipopagamentos  tps where en.idEncomenda = pre.idEncomenda and " +
-                " pr.idPrato = pre.idPrato and ee.idEncomenda = en.idEncomenda and estenc.idEstadoencomenda = ee.idEstadoencomenda and tps.tipopagamentoid= en.tipopagamentoid and en.idCliente = :id_cliente and ee.idEstadoencomenda=5"),
 
 
 
