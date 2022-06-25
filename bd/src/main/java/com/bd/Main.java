@@ -13,9 +13,7 @@ public class Main {
 
 
 
-        List<Pratos>   listaest = PratoBLL.readAll(true);
-        for( Pratos est : listaest)
-            System.out.println("descriçao: " + est.getDescricao());
+
 /*
 
         List<Pratos>   listaest = PratoBLL.readAll(true);
