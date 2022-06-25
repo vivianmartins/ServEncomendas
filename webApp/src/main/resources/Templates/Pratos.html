@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html  xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 
 
 <!-- Bootstrap CSS -->
@@ -15,7 +15,7 @@
 
 <!--		NavBar			  -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-    <a class="navbar-brand" href="index.html">Delivery  </a>
+    <a class="navbar-brand" href="index.html">Delivery </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -39,23 +39,19 @@
 
 
 
-<tr>
-    <th > Nome:  </th>
-
-</tr>
-
-
-<div>
-
-
-
-    <!--/*@thymesVar id="Pratos" type="com.bd.DAL.Pratos"*/-->
-    <tr  th:each=" pratoList : ${Pratos}">
-        <td th:text="${pratoList}" > Nome:  </td>
+    <tr>
+        <th > Pratos:  </th>
 
     </tr>
 
-</div>
+
+    <div>
+        <!--/*@thymesVar id="pratos" type="com.bd.BLL.PratoBLL"*/-->
+        <tr  th:each="pra:  ${pratos}">
+            <td th:text="${pra}" > Nome:  </td>
+
+        </tr>
+    </div>
 
 
 
