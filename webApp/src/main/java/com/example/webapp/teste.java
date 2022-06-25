@@ -1,6 +1,7 @@
 package com.example.webapp;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +21,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class teste {
 
-        @GetMapping("listar")
+
+public class teste {
+    /*
+    @Autowired /* spring ejetar o DAO
+    private Pratos pratos;
+*/
+
+    @GetMapping("listar")
             public String listar (Model model){
-            List<Pratos> listEnc = PratoBLL.readAll(true);
-             model.addAttribute("listEnc", listEnc);
+            List <Pratos> pratosList= PratoBLL.readAll(true);
+            //  List<Pratos> listEnc = new ArrayList<Pratos>();
+            //listEnc.addAll(listEnc);
+            // model.addAttribute("Pratos", pratosList);
+        model.addAttribute("Pratos", PratoBLL.readAll(true));
 
             return   "listar";
         }
