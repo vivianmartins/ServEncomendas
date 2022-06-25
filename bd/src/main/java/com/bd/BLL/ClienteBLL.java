@@ -71,6 +71,10 @@ public class ClienteBLL {
         return (obj != null) ? ((Clientes) obj) : null;
     }
 
+
+
+
+
     public static int readByNif2(BigInteger nif) {
         Clientes cli = null;
         if (factory == null)

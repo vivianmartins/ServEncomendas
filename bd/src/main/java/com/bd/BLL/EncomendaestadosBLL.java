@@ -93,7 +93,7 @@ public class EncomendaestadosBLL {
         em.merge(enc);
         em.getTransaction().commit();
     }
-    /*
+
     public static void delete(Encomendaestados enc){
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
@@ -105,6 +105,6 @@ public class EncomendaestadosBLL {
         em.getTransaction().commit();
     }
 
-     */
+
 }
 

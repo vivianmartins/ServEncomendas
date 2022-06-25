@@ -81,7 +81,6 @@ public class PedidoRegistoAdmin implements Initializable {
     @FXML
     void HandleTpPagamento(ActionEvent event) {
 
-
     }
 
     @FXML

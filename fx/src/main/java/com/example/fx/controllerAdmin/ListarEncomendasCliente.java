@@ -2,6 +2,9 @@ package com.example.fx.controllerAdmin;
 
 import com.bd.BLL.ClienteBLL;
 import com.bd.BLL.EncomendaBLL;
+import com.bd.BLL.EncomendaestadosBLL;
+import com.bd.DAL.Encomendaestados;
+import com.bd.DAL.Encomendas;
 import com.bd.DAL.listaPedidos;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
@@ -62,6 +65,8 @@ public class ListarEncomendasCliente implements Initializable {
 
     @FXML
     private TextField textNIF;
+
+    private String filtro;
 
     public void handleTipopag(TableColumn.CellEditEvent cellEditEvent) {
     }
@@ -160,9 +165,19 @@ public class ListarEncomendasCliente implements Initializable {
     }
 
     public void handleBtnPagamento(ActionEvent actionEvent) {
-        tblEncomendas.getSelectionModel().getSelectedItem().getId_encomenda();
+        Encomendas e = EncomendaBLL.read(tblEncomendas.getSelectionModel().getSelectedItem().getId_encomenda());
+        int id = e.getIdEncomenda();
 
+        Encomendaestados ee = EncomendaestadosBLL.read(id);
+        assert ee != null;
 
+        Encomendaestados encomendaestados = new Encomendaestados();
+        encomendaestados.setIdEncomenda(id);
+        encomendaestados.setIdEstadoencomenda(5);
+        encomendaestados.setData(ee.getData());
+        EncomendaestadosBLL.delete(ee);
+        EncomendaestadosBLL.create(encomendaestados);
+        tblEncomendas.getItems().clear();
     }
 
     public void handleBtnVoltarEs(ActionEvent event) throws IOException {
@@ -188,9 +203,15 @@ public class ListarEncomendasCliente implements Initializable {
     }
 
     public void handleVer(ActionEvent event) {
-        if (textNIF.getText() == null) {
-            //TODO
+
+        if (textNIF.getText().length() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Campos inválidos");
+            alert.setHeaderText("Insira um NIF para iniciar a filtragem!");
+            alert.showAndWait();
+
         }
+
         int id = ClienteBLL.readByNif2(BigInteger.valueOf(Integer.parseInt(textNIF.getText())));
         ObservableList<listaPedidos> listaPed = FXCollections.observableArrayList(EncomendaBLL.readAllEncomendasCliente(id));
 
@@ -206,7 +227,6 @@ public class ListarEncomendasCliente implements Initializable {
 
         tblEncomendas.setItems(listaPed);
     }
-
 
 
 }
