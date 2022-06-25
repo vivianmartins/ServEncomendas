@@ -31,11 +31,11 @@ public class teste {
 
     @GetMapping("listar")
             public String listar (Model model){
-            List <Pratos> pratosList= PratoBLL.readAll(true);
+            //List <Pratos> pratosList= PratoBLL.readAll(true);
             //  List<Pratos> listEnc = new ArrayList<Pratos>();
             //listEnc.addAll(listEnc);
             // model.addAttribute("Pratos", pratosList);
-        model.addAttribute("Pratos", PratoBLL.readAll(true));
+   model.addAttribute("Pratos", PratoBLL.readAll(true));
 
             return   "listar";
         }

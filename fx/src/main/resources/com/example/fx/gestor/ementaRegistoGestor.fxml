@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="407.0" prefWidth="688.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerAdmin.ementaRegistoAdmin">
+<AnchorPane prefHeight="407.0" prefWidth="688.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerGestor.ementaRegistoGestor">
    <children>
       <Button fx:id="btnVoltarEs" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="38.0" prefWidth="116.0" style="-fx-background-color: #ffff;" text="&lt;- voltar" textFill="#007687" underline="true">
          <font>
