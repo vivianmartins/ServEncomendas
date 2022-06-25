@@ -48,10 +48,14 @@
 <div>
 
 
-
     <!--/*@thymesVar id="Pratos" type="com.bd.DAL.Pratos"*/-->
     <tr  th:each=" pratoList : ${Pratos}">
         <td th:text="${pratoList}" > Nome:  </td>
+        <td th:text="${pratoList.Descricao}" > Nome:  </td>
+        <td th:text="${pratoList.Precoatual}" > PrecoAtual:  </td>
+        <td th:text="${pratoList.Stockdoses}" > PrecoAtual:  </td>
+        <td th:text="${pratoList.Estado}" > PrecoAtual:  </td>
+
 
     </tr>
 

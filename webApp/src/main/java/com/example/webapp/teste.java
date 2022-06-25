@@ -28,58 +28,14 @@ import java.util.List;
 
 
 public class teste {
-    /*
-    @Autowired /* spring ejetar o DAO
-    private Pratos pratos;
-*/
-/*
-    @RequestMapping(value = "/listar", method = RequestMethod.GET)
-           public String listar (){
-      //List <Pratos> listEnc = PratoBLL.readAll(true);
-            //  List<Pratos> listEnc = new ArrayList<Pratos>();
-            //listEnc.addAll(listEnc);
-      //model.addAttribute("listEnc", listEnc);
-
-            @ModelAttribute("SpringWeb") PModelMap model, HttpServletRequest request){
-            List<Pratos> pratos = (List<Pratos>)
-             request
-
-            return   "listar";
-
-        }
-
-*/
-
-/*
-LISTAR PRATOS
- */
 
     @GetMapping("listar")
     public String listar (Model model){
         List <Pratos> pratosList= PratoBLL.readAll(true);
-        //  List<Pratos> listEnc = new ArrayList<Pratos>();
-        //listEnc.addAll(listEnc);
-        // model.addAttribute("Pratos", pratosList);
         model.addAttribute("Pratos", PratoBLL.readAll(true));
 
         return   "listar";
     }
-
-
-/*
-
-    @GetMapping("Pratos" )
-    public String ementa (Model model){
-        //List <Pratos> listEnc = PratoBLL.readAll(true);
-        //  List<Pratos> listEnc = new ArrayList<Pratos>();
-        //listEnc.addAll(listEnc);
-        //model.addAttribute("listEnc", listEnc);
-
-        model.addAttribute("Pratos", PratoBLL.readAll(true));
-
-        return   "Pratos";
-    }
-*/
 
     /***
      * HOME
