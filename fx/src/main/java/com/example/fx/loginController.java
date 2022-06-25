@@ -60,13 +60,17 @@ public class loginController {
 
        }
        else{
+        }
+        if(user.isGestor()){
+            Parent root =  FXMLLoader.load(Objects.requireNonNull(getClass().getResource("gestor/painelGestor.fxml")));
+            stage.setScene(new Scene(root));
+            stage.show();
+            loginSucess();
+            Node  source = (Node)  event.getSource();
+            Stage stageAtual  = (Stage) source.getScene().getWindow();
+            stageAtual.close();
 
         }
-
-        //if(user.isGestor()){
-
-       // }
-
 
 
 

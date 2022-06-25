@@ -13,11 +13,6 @@
 <AnchorPane prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerGestor.painelGestorController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="-2.0" stroke="WHITE" strokeType="INSIDE" width="960.0" />
-      <ImageView fitHeight="600.0" fitWidth="402.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/3775561.jpg" />
-         </image>
-      </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="43.0" layoutY="-3.0" stroke="WHITE" strokeType="INSIDE" width="357.0" />
       <ImageView fitHeight="127.0" fitWidth="203.0" layoutX="371.0" layoutY="27.0" pickOnBounds="true">
          <image>
@@ -28,7 +23,7 @@
          </cursor>
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="216.0" layoutX="365.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
-      <Text layoutX="368.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="3.0" text="PAINEL DO ADMINISTRADOR">
+      <Text layoutX="408.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="3.0" text="PAINEL DO GESTOR">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -38,35 +33,35 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="119.0" fitWidth="124.0" layoutX="92.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="111.0" fitWidth="95.0" layoutX="750.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/user.png" />
+            <Image url="@../assets/menu.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="82.0" fitWidth="80.0" layoutX="460.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/user%20(3).png" />
-         </image>
-      </ImageView>
-      <Button fx:id="btnEfPedido" layoutX="53.0" layoutY="452.0" mnemonicParsing="false" onAction="#handleBtnEfPedido" prefHeight="33.0" prefWidth="203.0" style="-fx-background-color: #F19800;" text="Registar Pedido">
+
+
+
+      <Button fx:id="btnEmenta" alignment="BOTTOM_CENTER" layoutX="697.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleBtnEmenta" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #007687;" text="Pratos" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnEstafeta" layoutX="399.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleBtnEstafeta" prefHeight="33.0" prefWidth="203.0" style="-fx-background-color: #F19800;" text="Estafetas">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <ImageView fitHeight="88.0" fitWidth="100.0" layoutX="757.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="104.0" fitWidth="162.0" layoutX="101.0" layoutY="354.0">
          <image>
-            <Image url="@../assets/scooter.png" />
+            <Image url="@../assets/20945314.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnPedidos" layoutX="699.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleBtnPedidos" prefHeight="33.0" prefWidth="197.0" style="-fx-background-color: #F19800;" text="Pedidos">
-         <font>
+      <Button fx:id="btnPagamento" alignment="BOTTOM_CENTER" layoutX="82.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleBtnPagamento" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #007687;" text="Registar Pagamento" textFill="WHITE">
+                 <font>
             <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <Button fx:id="btnClientes" alignment="BOTTOM_CENTER" layoutX="50.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleBtnClientes" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #F19800" text="Clientes" textOverrun="CENTER_ELLIPSIS">
+         </font>
+      </Button>
+      <ImageView fitHeight="116.0" fitWidth="162.0" layoutX="106.0" layoutY="181.0">
+         <image>
+            <Image url="@../assets/users.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnClientes" alignment="BOTTOM_CENTER" layoutX="85.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleBtnClientes" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #007687;" text="Clientes" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
          <effect>
             <Glow level="0.0" />
          </effect>
@@ -77,23 +72,23 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-
-
-
-      <Button fx:id="btnEmenta" layoutX="697.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleBtnEmenta" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #F19800;" text="Pratos">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnPagamento" layoutX="399.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleBtnPagamento" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #F19800;" text="Registar Pagamento">
-                 <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="111.0" fitWidth="95.0" layoutX="760.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="154.0" fitWidth="162.0" layoutX="717.0" layoutY="162.0">
          <image>
-            <Image url="@../assets/menu.png" />
+            <Image url="@../assets/106657-OMUW17-825.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="btnPedidos" alignment="BOTTOM_CENTER" layoutX="699.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleBtnPedidos" prefHeight="33.0" prefWidth="197.0" style="-fx-background-color: #007687;" text="Pedidos" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <ImageView fitHeight="126.0" fitWidth="200.0" layoutX="401.0" layoutY="256.0">
+         <image>
+            <Image url="@../assets/estafetas.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnEstafeta" alignment="BOTTOM_CENTER" layoutX="400.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleBtnEstafeta" prefHeight="33.0" prefWidth="203.0" style="-fx-background-color: #007687;" text="Estafetas" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>
