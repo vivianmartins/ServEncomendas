@@ -29,12 +29,6 @@ public class gestorEmentaEditarController implements Initializable {
     private Button btnEditar;
 
     @FXML
-    private Button btnLogout;
-
-    @FXML
-    private Button btnNew;
-
-    @FXML
     private Button btnPesquisar;
 
 
@@ -51,8 +45,7 @@ public class gestorEmentaEditarController implements Initializable {
     @FXML
     private TextField edStock;
 
-    @FXML
-    private TextField eddesc;
+
 
     @FXML
     private TableColumn<Pratos, String > descricao;
@@ -89,14 +82,11 @@ public class gestorEmentaEditarController implements Initializable {
 
     }
 
-    @FXML
-    void handleBtnLogout(ActionEvent event) {
 
-    }
     @FXML
     void handleBtnSalvar(ActionEvent event) {
         Pratos pra = tblEmenta.getSelectionModel().getSelectedItem();
-        pra.setDescricao(eddesc.getText());
+
         pra.setPrecoatual(Float.parseFloat(edPreco.getText()));
         pra.setStockdoses(Integer.parseInt(edStock.getText()));
         PratoBLL.update(pra);
@@ -107,10 +97,7 @@ public class gestorEmentaEditarController implements Initializable {
         alert.setHeaderText("Editado  com sucesso!");
         alert.show();
     }
-    @FXML
-    void handleBtnNew(ActionEvent event) {
 
-    }
 
     @FXML
     void handleBtnPesquisar(ActionEvent event) {
@@ -129,7 +116,7 @@ public class gestorEmentaEditarController implements Initializable {
     @FXML
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("gestor/painelGestor.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("gestor/ementaGestor.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
         stage.setScene(scene);
         stage.show();

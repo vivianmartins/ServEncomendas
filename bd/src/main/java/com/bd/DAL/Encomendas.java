@@ -44,7 +44,6 @@ import javax.persistence.*;
 
 
 
-
 })
 
 public class Encomendas {

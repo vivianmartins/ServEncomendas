@@ -68,7 +68,7 @@ public class gestorEmentaControlller implements Initializable {
     @FXML
     void handleBtnEditar(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/ementaEditarGestor.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("gestor/ementaEditarGestor.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
         stage.setScene(scene);
         stage.show();

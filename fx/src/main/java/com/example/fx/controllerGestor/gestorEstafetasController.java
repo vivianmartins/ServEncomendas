@@ -36,9 +36,6 @@ public class gestorEstafetasController implements  Initializable {
     private Button btnEditar;
 
     @FXML
-    private Button btnLogout;
-
-    @FXML
     private Button btnNew;
 
     @FXML
@@ -79,15 +76,11 @@ public class gestorEstafetasController implements  Initializable {
 
     }
 
-    @FXML
-    void handleBtnLogout(ActionEvent event) {
-
-    }
 
     @FXML
     void handleBtnNew(ActionEvent event) throws IOException {
-     /*   Stage stage = new Stage();
-       FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/estafetaregistoAdmin.fxml"));
+        Stage stage = new Stage();
+       FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("gestor/estafetaregistoGestor.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
         stage.setScene(scene);
         stage.show();
@@ -96,7 +89,7 @@ public class gestorEstafetasController implements  Initializable {
         Stage stageAtual  = (Stage) source.getScene().getWindow();
         stageAtual.close();
 
-*/
+
     }
 
     @FXML
