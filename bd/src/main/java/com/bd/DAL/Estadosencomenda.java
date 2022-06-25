@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "ESTADOSENCOMENDA")
 @NamedQueries({
         @NamedQuery(name = "Estadosencomenda.findAll", query = "SELECT c FROM Estadosencomenda c"),
+        @NamedQuery(name = "Estadosencomenda.findMarcada", query = "SELECT c FROM Estadosencomenda c where c.idEstadoencomenda=1"),
         @NamedQuery(name = "Estadosencomenda.findAllById", query = "SELECT c FROM Estadosencomenda c where c.idEstadoencomenda= :id_Estado"),
         @NamedQuery(name = "Estadosencomenda.findAllByDescricaoEstado", query = "SELECT c FROM Estadosencomenda c where c.descricaoestado = :descricaoestado"),
 })

@@ -42,7 +42,7 @@ public class adminPedidosController implements Initializable {
     private Button btnVoltarEs;
 
     @FXML
-    private TableColumn<listaPedidos,Integer> Qtd;
+    private TableColumn<listaPedidos, Integer> Qtd;
 
     @FXML
     private TableColumn<listaPedidos, String> data;
@@ -51,7 +51,7 @@ public class adminPedidosController implements Initializable {
     private TableColumn<listaPedidos, String> descricao;
 
     @FXML
-    private TableColumn <listaPedidos, Integer> estado;
+    private TableColumn<listaPedidos, Integer> estado;
 
     @FXML
     private TableColumn<listaPedidos, Integer> nCliente;
@@ -84,17 +84,16 @@ public class adminPedidosController implements Initializable {
     private TableView<listaPedidos> tblPedidos;
 
 
-
     @FXML
     void handleBtnNew(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/pedidoRegistoAdmin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        Scene scene = new Scene(fxmlLoader.load(), 960, 600);
         stage.setScene(scene);
         stage.show();
 
-        Node source = (Node)  event.getSource();
-        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        Node source = (Node) event.getSource();
+        Stage stageAtual = (Stage) source.getScene().getWindow();
         stageAtual.close();
     }
 
@@ -108,12 +107,12 @@ public class adminPedidosController implements Initializable {
     void handleBtnVoltarEs(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("Admin/paginaprincipaladmin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 960 , 600);
+        Scene scene = new Scene(fxmlLoader.load(), 960, 600);
         stage.setScene(scene);
         stage.show();
 
-        Node source = (Node)  event.getSource();
-        Stage stageAtual  = (Stage) source.getScene().getWindow();
+        Node source = (Node) event.getSource();
+        Stage stageAtual = (Stage) source.getScene().getWindow();
         stageAtual.close();
     }
 
@@ -141,7 +140,7 @@ public class adminPedidosController implements Initializable {
     }
 
     @FXML
-    void handleBtnMarcados(ActionEvent event) throws IOException{
+    void handleBtnMarcados(ActionEvent event) throws IOException {
         tblPedidos.getItems().clear();
 
         ObservableList<listaPedidos> listaPedMarc = FXCollections.observableArrayList(EncomendaBLL.readAllMarc());
@@ -160,9 +159,8 @@ public class adminPedidosController implements Initializable {
     }
 
 
-
     @FXML
-    void handleBtnConcluidos(ActionEvent event) throws IOException{
+    void handleBtnConcluidos(ActionEvent event) throws IOException {
         tblPedidos.getItems().clear();
 
         ObservableList<listaPedidos> listaPedConc = FXCollections.observableArrayList(EncomendaBLL.readAllConc());
@@ -186,17 +184,17 @@ public class adminPedidosController implements Initializable {
 
         ObservableList<listaPedidos> listaPed = FXCollections.observableArrayList(EncomendaBLL.readAll());
 
-            descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
-            estado.setCellValueFactory(new PropertyValueFactory<>("encomendaestados"));
-            nPedido.setCellValueFactory(new PropertyValueFactory<>("id_encomenda"));
-            nCliente.setCellValueFactory(new PropertyValueFactory<>("id_cliente"));
-            noEstafeta.setCellValueFactory(new PropertyValueFactory<>("id_estafeta"));
-            valor.setCellValueFactory(new PropertyValueFactory<>("precodose"));
-            data.setCellValueFactory(new PropertyValueFactory<>("data"));
-            Qtd.setCellValueFactory(new PropertyValueFactory<>("qtd"));
-            tipoPag.setCellValueFactory(new PropertyValueFactory<>("tp"));
+        descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        estado.setCellValueFactory(new PropertyValueFactory<>("encomendaestados"));
+        nPedido.setCellValueFactory(new PropertyValueFactory<>("id_encomenda"));
+        nCliente.setCellValueFactory(new PropertyValueFactory<>("id_cliente"));
+        noEstafeta.setCellValueFactory(new PropertyValueFactory<>("id_estafeta"));
+        valor.setCellValueFactory(new PropertyValueFactory<>("precodose"));
+        data.setCellValueFactory(new PropertyValueFactory<>("data"));
+        Qtd.setCellValueFactory(new PropertyValueFactory<>("qtd"));
+        tipoPag.setCellValueFactory(new PropertyValueFactory<>("tp"));
 
-            tblPedidos.setItems(listaPed);
+        tblPedidos.setItems(listaPed);
 
 
     }
