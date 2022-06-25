@@ -88,6 +88,8 @@ public class listaPedidos {
         this.id_cliente = id_cliente;
     }
 
+    public int idCLiente;
+
     public listaPedidos(Encomendas en, Estadosencomenda estenc, Pratos pr, Encomendaestados ee, PratosEncomendados prae, Tipopagamentos  tps ) {
         this.id_encomenda = en.getIdEncomenda();
         this.id_estafeta = en.getIdEstafeta();

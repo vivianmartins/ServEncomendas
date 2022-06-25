@@ -1,7 +1,6 @@
 package com.bd.BLL;
 
 import com.bd.DAL.Clientes;
-import com.bd.DAL.Estafeta;
 
 import javax.persistence.*;
 import java.math.BigInteger;
@@ -70,6 +69,25 @@ public class ClienteBLL {
         Object obj = q1.getSingleResult();
 
         return (obj != null) ? ((Clientes) obj) : null;
+    }
+
+    public static int readByNif2(BigInteger nif) {
+        Clientes cli = null;
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+
+        Query q1 = em.createNamedQuery("Clientes.findByNif");
+        q1.setParameter("nif", nif);
+        Object obj = q1.getSingleResult();
+        if (obj != null) {
+            cli = ((Clientes) obj);
+        }
+
+        assert cli != null;
+        return cli.getIdCliente();
     }
 
 

@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 public class PedidoRegistoAdmin implements Initializable {
 
 
-    ObservableList<Estadosencomenda> listaEncEst = FXCollections.observableArrayList(EstadosencomendaBLL.readAll());
+    ObservableList<Estadosencomenda> listaEncEst = FXCollections.observableArrayList(EstadosencomendaBLL.readAllMarcadas());
 
 
     ObservableList<Tipopagamentos> listTp = FXCollections.observableArrayList(TipoPagamentoBLL.readAll());
@@ -129,7 +129,7 @@ public class PedidoRegistoAdmin implements Initializable {
         cl = ClienteBLL.readByNif(BigInteger.valueOf(Integer.parseInt(nif.getText())));
         int qtd = Integer.parseInt(quantidade.getText());
         int qtdAtual = tpPrato.getSelectionModel().getSelectedItem().getStockdoses();
-        if (est != null && cl != null && qtdAtual>qtd){
+        if (est != null && cl != null && qtdAtual>=qtd){
             enc.setIdEstafeta(est.getIdEstafeta());
             enc.setIdCliente(cl.getIdCliente());
 

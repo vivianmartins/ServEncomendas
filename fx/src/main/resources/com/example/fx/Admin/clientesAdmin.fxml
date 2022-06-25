@@ -27,12 +27,12 @@
                   <TableColumn fx:id="id" prefWidth="100.6666259765625" text="Id" />
                </columns>
             </TableView>
-            <Button fx:id="btnEditarCl" layoutX="791.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleBtnEditarCl" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">
+            <Button fx:id="btnEditarCl" layoutX="791.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleBtnEditarCl" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Editar dados" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnRemoverCl" layoutX="791.0" layoutY="290.0" mnemonicParsing="false" onAction="#clhandleBtnRemover" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Eliminar cliente" textFill="WHITE">
+            <Button fx:id="btnRemoverCl" layoutX="791.0" layoutY="270.0" mnemonicParsing="false" onAction="#clhandleBtnRemover" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Eliminar cliente" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -47,7 +47,7 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Text>
-            <Button fx:id="btncriarCl" layoutX="791.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleBtnCriarCl" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Criar cliente" textFill="WHITE">
+            <Button fx:id="btncriarCl" layoutX="791.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleBtnCriarCl" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Criar cliente" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -63,12 +63,12 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnListaEliminados" layoutX="791.0" layoutY="342.0" mnemonicParsing="false" onAction="#handlebtnListaEliminados" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Lista eliminados" textFill="WHITE">
+            <Button fx:id="btnListaEliminados" layoutX="791.0" layoutY="326.0" mnemonicParsing="false" onAction="#handlebtnListaEliminados" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Lista eliminados" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnAtualizar" layoutX="791.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleBtnAtualizar" prefHeight="27.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Atualizar" textFill="WHITE">
+            <Button fx:id="btnAtualizar" layoutX="641.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleBtnAtualizar" prefHeight="27.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Atualizar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -76,6 +76,11 @@
             <Button fx:id="btnVoltarEs" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBtnVoltarEs" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="&lt;- voltar" textFill="WHITE" underline="true">
                <font>
                   <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnVerEncomendas" layoutX="792.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleBtnVerEncomendas" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #007687;" text="Ver encomendas" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
                </font>
             </Button>
          </children>

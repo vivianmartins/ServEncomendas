@@ -48,14 +48,14 @@ public class EstadosencomendaBLL {
         return enc;
     }
 
-    public static List<Estadosencomenda> readAll(){
+    public static List<Estadosencomenda> readAllMarcadas(){
         List<Estadosencomenda> listaEnc = new ArrayList<>();
         if(factory == null)
             factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
         if (em == null) em = factory.createEntityManager();
 
-        Query q1 = em.createNamedQuery("Estadosencomenda.findAll");
+        Query q1 = em.createNamedQuery("Estadosencomenda.findMarcada");
         List<Object> result = q1.getResultList();
 
         for(Object enc : result){
