@@ -93,6 +93,24 @@ public class ClienteBLL {
         assert cli != null;
         return cli.getIdCliente();
     }
+    public static int readByNome(String nome) {
+        Clientes cli = null;
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+
+        Query q1 = em.createNamedQuery("Clientes.findAllByNome");
+        q1.setParameter("nome", nome);
+        Object obj = q1.getSingleResult();
+        if (obj != null) {
+            cli = ((Clientes) obj);
+        }
+
+        assert cli != null;
+        return cli.getIdCliente();
+    }
 
 
     /**
