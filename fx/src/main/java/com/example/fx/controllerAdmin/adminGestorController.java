@@ -1,8 +1,6 @@
 package com.example.fx.controllerAdmin;
 
-import com.bd.BLL.ClienteBLL;
 import com.bd.BLL.UsersBLL;
-import com.bd.DAL.Clientes;
 import com.bd.DAL.Users;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
@@ -13,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -66,6 +61,9 @@ public class adminGestorController implements Initializable {
 
     @FXML
     private TableColumn<Users, String> password;
+
+    @FXML
+    private TextField nGestor;
 
     @FXML
     void handleBtnEditar(ActionEvent event) throws IOException {
@@ -134,6 +132,22 @@ public class adminGestorController implements Initializable {
 
     @FXML
     void handleBtnPesquisar(ActionEvent event) {
+        if (nGestor.getText().length() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Campos inválidos");
+            alert.setHeaderText("Insira um Nome para iniciar a filtragem!");
+            alert.showAndWait();
+
+        }
+
+        BigInteger ids = UsersBLL.readByNomeGes(nGestor.getText(), true, true);
+        ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.read(ids));
+
+        username.setCellValueFactory(new PropertyValueFactory<Users,String>("nomeuser"));
+        email.setCellValueFactory(new PropertyValueFactory<Users,String>("email"));
+        password.setCellValueFactory(new PropertyValueFactory<Users,String>("password"));
+        tblGestor.setItems(listaUser);
+
 
     }
 

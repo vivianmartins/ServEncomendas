@@ -1,9 +1,11 @@
 package com.example.fx.controllerAdmin;
 
 
+import com.bd.BLL.ClienteBLL;
 import com.bd.BLL.PratoBLL;
 
 import com.bd.BLL.UsersBLL;
+import com.bd.DAL.Clientes;
 import com.bd.DAL.Pratos;
 import com.bd.DAL.Users;
 import com.example.fx.loginController;
@@ -15,10 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -65,6 +64,8 @@ public class adminEmentaControlller implements Initializable {
 
     @FXML
     private TableColumn<Pratos, Float> valor;
+    @FXML
+    private TextField pNome;
 
     @FXML
     void desc(ActionEvent event) {
@@ -106,8 +107,21 @@ public class adminEmentaControlller implements Initializable {
 
     @FXML
     void handleBtnPesquisar(ActionEvent event) {
+        if (pNome  .getText().length() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Campos inválidos");
+            alert.setHeaderText("Insira um Nome para iniciar a filtragem!");
+            alert.showAndWait();
 
+        }
 
+        int ids = PratoBLL.readByNome(pNome.getText());
+        ObservableList<Pratos> listaPratos = FXCollections.observableArrayList(PratoBLL.read(ids));
+
+        descricao.setCellValueFactory(new PropertyValueFactory<Pratos, String>("descricao"));
+        stock.setCellValueFactory(new PropertyValueFactory<Pratos, Float>("stockdoses"));
+        valor.setCellValueFactory(new PropertyValueFactory<Pratos, Float>("precoatual"));
+        tblEmenta.setItems(listaPratos);
 
     }
 

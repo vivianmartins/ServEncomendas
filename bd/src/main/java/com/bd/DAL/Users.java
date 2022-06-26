@@ -14,7 +14,9 @@ import java.util.Objects;
         @NamedQuery(name = "Users.findByGestorDesativado" , query = "Select c From Users c  where c.gestor = :is_gestor and c.estado = false" ),
         @NamedQuery(name = "Users.findByCozinheiroAtivo" , query = "Select c From Users c  where c.cozinheiro = :is_cozinheiro and c.estado = true" ),
         @NamedQuery(name = "Users.findByCozinheiroDesativado" , query = "Select c From Users c  where c.cozinheiro = :is_cozinheiro and c.estado = false" ),
-        @NamedQuery(name="Users.findAllEmail",query = "Select c from Users c where c.email=:email ")
+        @NamedQuery(name="Users.findAllEmail",query = "Select c from Users c where c.email=:email "),
+        @NamedQuery(name = "Users.findAllByGestor" , query = "Select c From Users c  where c.email LIKE :email and c.gestor = true and c.estado = true" ),
+        @NamedQuery(name = "Users.findByCozinheiroNome" , query = "Select c From Users c  where  c.nomeuser like :nomeuser" )
 
 })
 public class Users {

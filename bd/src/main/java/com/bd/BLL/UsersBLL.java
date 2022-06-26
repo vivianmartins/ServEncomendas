@@ -3,6 +3,7 @@ package com.bd.BLL;
 import com.bd.DAL.Users;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class UsersBLL {
          *
          *
          */
-        public static Users read(int id_user){
+        public static Users read(BigInteger id_user){
             Users user = null;
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
@@ -249,7 +250,7 @@ public class UsersBLL {
          *Delete
          */
 
-        public static void delete(int userID ){
+        public static void delete(BigInteger userID ){
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
@@ -259,6 +260,46 @@ public class UsersBLL {
             em.remove(u);
             em.getTransaction().commit();
         }
+
+
+    public static BigInteger readByNomeGes(String email, boolean estado, boolean gestor) {
+        Users ge = null;
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+
+        Query q1 = em.createNamedQuery("Users.findAllByGestor");
+        q1.setParameter("email", email);
+       // q1.setParameter("is_gestor", is_gestor);
+        Object obj = q1.getSingleResult();
+        if (obj != null) {
+            ge = ((Users) obj);
+        }
+
+        assert ge != null;
+        return ge.getIdUser();
+    }
+    public static BigInteger readByNome(String nomeuser) {
+       Users cli = null;
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+
+        Query q1 = em.createNamedQuery("Users.findByCozinheiroNome");
+        q1.setParameter("nomeuser", nomeuser);
+        Object obj = q1.getSingleResult();
+        if (obj != null) {
+            cli = ((Users) obj);
+        }
+
+        assert cli != null;
+        return cli.getIdUser();
+    }
+
     }
 
 
