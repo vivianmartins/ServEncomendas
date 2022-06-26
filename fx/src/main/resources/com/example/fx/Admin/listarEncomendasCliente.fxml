@@ -82,6 +82,11 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
+            <Button fx:id="btnCnclr" layoutX="821.0" layoutY="478.0" mnemonicParsing="false" onAction="#handleBtnCnclr" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Cancelamento" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
             <Button fx:id="btnEntregues" layoutX="820.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleBtnEntregues" prefHeight="37.0" prefWidth="124.0" style="-fx-background-color: #007687;" text="Entregues" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />

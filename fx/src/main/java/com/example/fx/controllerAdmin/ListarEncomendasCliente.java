@@ -174,7 +174,7 @@ public class ListarEncomendasCliente implements Initializable {
     }
 
     public void handleBtnPagamento(ActionEvent actionEvent) {
-        if(tblEncomendas.getSelectionModel().getSelectedItem().getDescricao().equals("Entregue")) {
+        //if(tblEncomendas.getSelectionModel().getSelectedItem().getDescricao().equals("Entregue")) {
             Encomendas e = EncomendaBLL.read(tblEncomendas.getSelectionModel().getSelectedItem().getId_encomenda());
             int id = e.getIdEncomenda();
 
@@ -189,14 +189,32 @@ public class ListarEncomendasCliente implements Initializable {
             EncomendaestadosBLL.create(encomendaestados);
             tblEncomendas.getItems().clear();
         }
-        else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Seleção inválida");
-            alert.setHeaderText("Impossível registar um pagamento de uma encomenda que não esteja entregue!");
-            alert.showAndWait();
+        //else {
+           // Alert alert = new Alert(Alert.AlertType.ERROR);
+            //alert.setTitle("Seleção inválida");
+            //alert.setHeaderText("Impossível registar um pagamento de uma encomenda que não esteja entregue!");
+            //alert.showAndWait();
 
-        }
-    }
+    public void handleBtnCnclr(ActionEvent event) {
+       // String s= tblEncomendas.getSelectionModel().getSelectedItem().getDescricao();
+       // if (s.equals("Entregue")){
+            Encomendas e = EncomendaBLL.read(tblEncomendas.getSelectionModel().getSelectedItem().getId_encomenda());
+            int id = e.getIdEncomenda();
+
+            Encomendaestados ee = EncomendaestadosBLL.read(id);
+            assert ee != null;
+
+            Encomendaestados encomendaestados = new Encomendaestados();
+            encomendaestados.setIdEncomenda(id);
+            encomendaestados.setIdEstadoencomenda(3);
+            encomendaestados.setData(ee.getData());
+            EncomendaestadosBLL.delete(ee);
+            EncomendaestadosBLL.create(encomendaestados);
+            tblEncomendas.getItems().clear();
+        } //else {
+            //Alert alert = new Alert(Alert.AlertType.ERROR)
+
+
 
     public void handleBtnVoltarEs(ActionEvent event) throws IOException {
         Stage stage = new Stage();
@@ -245,6 +263,7 @@ public class ListarEncomendasCliente implements Initializable {
 
         tblEncomendas.setItems(listaPed);
     }
+
 
 
 }
