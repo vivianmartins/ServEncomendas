@@ -13,10 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -53,7 +50,8 @@ public class gestorClientesController implements Initializable {
     private Button btncriarCl;
     @FXML
     private Button btnListaEliminados;
-
+    @FXML
+    private TextField clNome;
 
     @FXML
     private Button btnAtualizar;
@@ -100,7 +98,24 @@ public class gestorClientesController implements Initializable {
 
 
     @FXML
-    void handleBtnPesquisar(ActionEvent event) throws IOException {
+    void handleBtnPesquisar(ActionEvent event) {
+        if (clNome.getText().length() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Campos inválidos");
+            alert.setHeaderText("Insira um Nome para iniciar a filtragem!");
+            alert.showAndWait();
+
+        }
+
+        int ids  = ClienteBLL.readByNome(clNome.getText());
+        ObservableList<Clientes> listaCl = FXCollections.observableArrayList(ClienteBLL.read(ids));
+
+        nome.setCellValueFactory(new PropertyValueFactory<Clientes,String>("nome"));
+        morada.setCellValueFactory(new PropertyValueFactory<Clientes,String>("rua"));
+        codigopostal.setCellValueFactory(new PropertyValueFactory<Clientes,String>("codpostal"));
+        telefone.setCellValueFactory(new PropertyValueFactory<Clientes,String>("numtelemovel"));
+        nif.setCellValueFactory(new PropertyValueFactory<Clientes,Number>("nif"));
+        tblCliente.setItems(listaCl);
 
     }
 

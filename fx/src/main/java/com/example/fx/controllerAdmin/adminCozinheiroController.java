@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 public class adminCozinheiroController implements Initializable {
 
-    ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.readAllCozAtivo(true,true));
+    ObservableList<Users> listasUser = FXCollections.observableArrayList(UsersBLL.readAllCozAtivo(true,true));
 
     @FXML
     private Button btnEditar;
@@ -116,12 +116,12 @@ public class adminCozinheiroController implements Initializable {
         }
 
         BigInteger ids  = UsersBLL.readByNome(clNome.getText());
-        ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.read(ids));
+        ObservableList<Users> listasUser = FXCollections.observableArrayList(UsersBLL.read(ids));
 
         username.setCellValueFactory(new PropertyValueFactory<Users,String>("nomeuser"));
         email.setCellValueFactory(new PropertyValueFactory<Users,String>("email"));
         password.setCellValueFactory(new PropertyValueFactory<Users,String>("password"));
-        tblCozinheiro.setItems(listaUser);
+        tblCozinheiro.setItems(listasUser);
 
     }
 
@@ -190,7 +190,7 @@ public class adminCozinheiroController implements Initializable {
         username.setCellValueFactory(new PropertyValueFactory<Users,String>("nomeuser"));
         email.setCellValueFactory(new PropertyValueFactory<Users,String>("email"));
         password.setCellValueFactory(new PropertyValueFactory<Users,String>("password"));
-        tblCozinheiro.setItems(listaUser);
+        tblCozinheiro.setItems(listasUser);
     }
     
 }
