@@ -11,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -49,7 +46,8 @@ public class gestorEmentaControlller implements Initializable {
 
     @FXML
     private Button btnAtualizar;
-
+    @FXML
+    private TextField pNome;
 
     @FXML
     private TableColumn<Pratos, String > descricao;
@@ -109,7 +107,21 @@ public class gestorEmentaControlller implements Initializable {
 
     @FXML
     void handleBtnPesquisar(ActionEvent event) {
+        if (pNome  .getText().length() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Campos inválidos");
+            alert.setHeaderText("Insira um Nome para iniciar a filtragem!");
+            alert.showAndWait();
 
+        }
+
+        int ids = PratoBLL.readByNome(pNome.getText());
+        ObservableList<Pratos> listaPratos = FXCollections.observableArrayList(PratoBLL.read(ids));
+
+        descricao.setCellValueFactory(new PropertyValueFactory<Pratos,String>("descricao"));
+        stock.setCellValueFactory(new PropertyValueFactory<Pratos,Float>("stockdoses"));
+        valor.setCellValueFactory(new PropertyValueFactory<Pratos,Float>("precoatual"));
+        tblEmenta.setItems(listaPratos);
 
 
     }
