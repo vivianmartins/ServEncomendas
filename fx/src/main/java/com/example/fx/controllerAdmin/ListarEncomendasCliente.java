@@ -165,19 +165,28 @@ public class ListarEncomendasCliente implements Initializable {
     }
 
     public void handleBtnPagamento(ActionEvent actionEvent) {
-        Encomendas e = EncomendaBLL.read(tblEncomendas.getSelectionModel().getSelectedItem().getId_encomenda());
-        int id = e.getIdEncomenda();
+        if(tblEncomendas.getSelectionModel().getSelectedItem().getDescricao().equals("Entregue")) {
+            Encomendas e = EncomendaBLL.read(tblEncomendas.getSelectionModel().getSelectedItem().getId_encomenda());
+            int id = e.getIdEncomenda();
 
-        Encomendaestados ee = EncomendaestadosBLL.read(id);
-        assert ee != null;
+            Encomendaestados ee = EncomendaestadosBLL.read(id);
+            assert ee != null;
 
-        Encomendaestados encomendaestados = new Encomendaestados();
-        encomendaestados.setIdEncomenda(id);
-        encomendaestados.setIdEstadoencomenda(5);
-        encomendaestados.setData(ee.getData());
-        EncomendaestadosBLL.delete(ee);
-        EncomendaestadosBLL.create(encomendaestados);
-        tblEncomendas.getItems().clear();
+            Encomendaestados encomendaestados = new Encomendaestados();
+            encomendaestados.setIdEncomenda(id);
+            encomendaestados.setIdEstadoencomenda(5);
+            encomendaestados.setData(ee.getData());
+            EncomendaestadosBLL.delete(ee);
+            EncomendaestadosBLL.create(encomendaestados);
+            tblEncomendas.getItems().clear();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Seleção inválida");
+            alert.setHeaderText("Impossível registar um pagamento de uma encomenda que não esteja entregue!");
+            alert.showAndWait();
+
+        }
     }
 
     public void handleBtnVoltarEs(ActionEvent event) throws IOException {
