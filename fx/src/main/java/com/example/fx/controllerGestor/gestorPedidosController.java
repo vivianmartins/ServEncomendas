@@ -72,8 +72,16 @@ public class gestorPedidosController implements Initializable {
     }
 
     @FXML
-    void handleBtnLogout(ActionEvent event) {
+    void handleBtnLogout(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960, 600);
+        stage.setScene(scene);
+        stage.show();
 
+        Node source = (Node) event.getSource();
+        Stage stageAtual = (Stage) source.getScene().getWindow();
+        stageAtual.close();
     }
 
 

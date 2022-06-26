@@ -7,6 +7,7 @@ import javax.persistence.*;
 @NamedQueries({
         @NamedQuery(name = "Pratos.findAll", query = "SELECT p FROM Pratos p"),
         @NamedQuery(name = "Pratos.findById_Pratos", query = "SELECT p FROM Pratos p WHERE  p.idPrato = :id_prato"),
+        @NamedQuery(name = "Pratos.findAllByNome", query = "SELECT p FROM Pratos p WHERE  p.descricao = :descricao and p.estado = true"),
         @NamedQuery(name = "Pratos.findAllByDescricao", query = "SELECT p FROM Pratos p WHERE p.descricao LIKE :DESCRICAO"),
         @NamedQuery(name = "Pratos.findAllByEstado", query =    "SELECT p FROM Pratos p WHERE p.estado = true"),
         @NamedQuery(name = "Pratos.findAllByStock", query =    "SELECT p FROM Pratos p WHERE p.stockdoses = :stockdoses"),

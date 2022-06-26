@@ -11,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -52,6 +49,10 @@ public class adminCozinheiroController implements Initializable {
     private Button btnVoltarEs;
 
     @FXML
+    private TextField clNome;
+
+
+    @FXML
     private TableColumn<Users, String> email;
 
     @FXML
@@ -79,8 +80,16 @@ public class adminCozinheiroController implements Initializable {
     }
 
     @FXML
-    void handleBtnLogout(ActionEvent event) {
+    void handleBtnLogout(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 960, 600);
+        stage.setScene(scene);
+        stage.show();
 
+        Node source = (Node) event.getSource();
+        Stage stageAtual = (Stage) source.getScene().getWindow();
+        stageAtual.close();
     }
 
     @FXML
@@ -98,8 +107,24 @@ public class adminCozinheiroController implements Initializable {
 
     @FXML
     void handleBtnPesquisar(ActionEvent event) {
+        if (clNome.getText().length() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Campos inválidos");
+            alert.setHeaderText("Insira um Nome para iniciar a filtragem!");
+            alert.showAndWait();
+
+        }
+
+        BigInteger ids  = UsersBLL.readByNome(clNome.getText());
+        ObservableList<Users> listaUser = FXCollections.observableArrayList(UsersBLL.read(ids));
+
+        username.setCellValueFactory(new PropertyValueFactory<Users,String>("nomeuser"));
+        email.setCellValueFactory(new PropertyValueFactory<Users,String>("email"));
+        password.setCellValueFactory(new PropertyValueFactory<Users,String>("password"));
+        tblCozinheiro.setItems(listaUser);
 
     }
+
             /*Remover o cozinheiro*/
     @FXML
     void handleBtnRemover(ActionEvent event) {

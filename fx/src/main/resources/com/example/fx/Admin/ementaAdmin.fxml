@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerAdmin.adminEmentaControlller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fx.controllerAdmin.adminEmentaControlller">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0">
          <children>
@@ -50,7 +44,7 @@
                         <Font name="Arial Black" size="15.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="566.0" layoutY="17.0" prefHeight="27.0" prefWidth="162.0" promptText="Procurar ementa..." />
+                  <TextField fx:id="pNome" layoutX="566.0" layoutY="17.0"  prefHeight="27.0" prefWidth="162.0" promptText="Procurar ementa..." />
                   <Button fx:id="btnPesquisar" layoutX="729.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleBtnPesquisar" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: #007687;" text="Pesquisar" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="12.0" />

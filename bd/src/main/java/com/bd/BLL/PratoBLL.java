@@ -1,5 +1,6 @@
 package com.bd.BLL;
 
+import com.bd.DAL.Clientes;
 import com.bd.DAL.Pratos;
 
 import javax.persistence.*;
@@ -136,6 +137,25 @@ public class PratoBLL {
         em.getTransaction().begin();
         em.remove(p);
         em.getTransaction().commit();
+    }
+
+    public static int readByNome(String descricao) {
+        Pratos cli = null;
+        if (factory == null)
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+
+        if (em == null) em = factory.createEntityManager();
+
+
+        Query q1 = em.createNamedQuery("Pratos.findAllByNome");
+        q1.setParameter("descricao", descricao);
+        Object obj = q1.getSingleResult();
+        if (obj != null) {
+            cli = ((Pratos) obj);
+        }
+
+        assert cli != null;
+        return cli.getIdPrato();
     }
 }
 
