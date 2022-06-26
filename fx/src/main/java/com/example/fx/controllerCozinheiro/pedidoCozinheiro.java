@@ -1,10 +1,9 @@
 package com.example.fx.controllerCozinheiro;
 
 import com.bd.BLL.EncomendaBLL;
+import com.bd.BLL.EncomendaestadosBLL;
 import com.bd.BLL.PratosEncomendadosBLL;
-import com.bd.DAL.PratosEncomendados;
-import com.bd.DAL.listaPedidos;
-import com.bd.DAL.listaPedidosCozinheiro;
+import com.bd.DAL.*;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,10 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -28,7 +24,7 @@ import java.util.ResourceBundle;
 
 public class pedidoCozinheiro implements Initializable {
 
-    ObservableList<listaPedidos> listPeCoz = FXCollections.observableArrayList(EncomendaBLL.readAll());
+    ObservableList<listaPedidos> listPeCoz = FXCollections.observableArrayList(EncomendaBLL.readAllMarc());
 
     @FXML
     private Button btnAtualizar;
@@ -90,16 +86,20 @@ public class pedidoCozinheiro implements Initializable {
     @FXML
     void handleBtnEditarCoz(ActionEvent event) {
 
-      // ObservableList<listaPedidosCozinheiro> selectedRows;
-        //selectedRows =   tblPedidosCoz.getSelectionModel().getSelectedItems();
-        //tblPedidosCoz.getItems().remove(selectedRows);
 
+            Encomendas e = EncomendaBLL.read(tblPedidosCoz.getSelectionModel().getSelectedItem().getId_encomenda());
+            int id = e.getIdEncomenda();
 
-        listaPedidos listCoz = tblPedidosCoz.getSelectionModel().getSelectedItem();
-        tblPedidosCoz.getItems();
-        int id = listCoz.getId_encomenda();
+            Encomendaestados ee = EncomendaestadosBLL.read(id);
+            assert ee != null;
 
-       // PratosEncomendadosBLL.update(listCoz);
+            Encomendaestados encomendaestados = new Encomendaestados();
+            encomendaestados.setIdEncomenda(id);
+            encomendaestados.setIdEstadoencomenda(2);
+            encomendaestados.setData(ee.getData());
+            EncomendaestadosBLL.delete(ee);
+            EncomendaestadosBLL.create(encomendaestados);
+            tblPedidosCoz.getItems().clear();
 
 
 
