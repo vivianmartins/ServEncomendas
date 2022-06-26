@@ -2,6 +2,9 @@ package com.example.fx.controllerGestor;
 
 import com.bd.BLL.ClienteBLL;
 import com.bd.BLL.EncomendaBLL;
+import com.bd.BLL.EncomendaestadosBLL;
+import com.bd.DAL.Encomendaestados;
+import com.bd.DAL.Encomendas;
 import com.bd.DAL.listaPedidos;
 import com.example.fx.loginController;
 import javafx.collections.FXCollections;
@@ -164,6 +167,22 @@ public class ListarEncomendasClienteGestor implements Initializable {
 
         tblEncomendas.setItems(listaPed);
     }
+    public void handleBtnCnclr(ActionEvent event) {
+        // String s= tblEncomendas.getSelectionModel().getSelectedItem().getDescricao();
+        // if (s.equals("Entregue")){
+        Encomendas e = EncomendaBLL.read(tblEncomendas.getSelectionModel().getSelectedItem().getId_encomenda());
+        int id = e.getIdEncomenda();
+        Encomendaestados ee = EncomendaestadosBLL.read(id);
+        assert ee != null;
+        Encomendaestados encomendaestados = new Encomendaestados();
+        encomendaestados.setIdEncomenda(id);
+        encomendaestados.setIdEstadoencomenda(3);
+        encomendaestados.setData(ee.getData());
+        EncomendaestadosBLL.delete(ee);
+        EncomendaestadosBLL.create(encomendaestados);
+        tblEncomendas.getItems().clear();
+    }
+
 
     public void handleBtnPagamento(ActionEvent actionEvent) {
         tblEncomendas.getSelectionModel().getSelectedItem().getId_encomenda();
