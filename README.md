@@ -19,10 +19,12 @@ Desktop
   <li>Administrador</li>
 </ul>
 Possui  às funcionalidades de remover, editar, adicionar e listar funcionários, pratos, clientes e pedidos
+<br>
 <ul>
   <li>Gestor</li>
 </ul>
 Possui  às funcionalidades de  editar, adicionar e listar cozinheiros, estafetas,  pratos, clientes e pedidos
+<br>
 <ul>
   <li>Cozinheiro</li>
 </ul>
