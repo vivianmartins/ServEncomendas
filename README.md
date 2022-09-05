@@ -13,3 +13,15 @@ Desktop
 <li>Gestor</li>
 <li>Cozinheiro</li>
 </ol>
+
+<h3>Funcionalidades</h3>
+*ADMIN
+Possuí todas as funcionalidades do sistema (remover, editar, adicionar e listar).
+
+<h2>
+Web
+</h2>
+<h3> Utilizadores </h3>
+<ol>
+<li>Estafeta</li>
+</ol>
