@@ -1,3 +1,6 @@
+<div align="center">
+<img width="200" alt="icon" src="https://user-images.githubusercontent.com/64610367/188446827-d808a45e-e62f-4956-ab53-5467e981b768.png">
+  </div>
 <h1> 
 Gestão de pedidos e entregas ao domicílio de um restaurante
 </h1>
