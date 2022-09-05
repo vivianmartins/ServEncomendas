@@ -15,7 +15,9 @@ Desktop
 </ol>
 
 <h3>Funcionalidades</h3>
-*ADMIN
+<ul>
+  <li>ADMIN</li>
+</ul>
 Possuí todas as funcionalidades do sistema (remover, editar, adicionar e listar).
 
 <h2>
