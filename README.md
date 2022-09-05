@@ -18,7 +18,15 @@ Desktop
 <ul>
   <li>ADMIN</li>
 </ul>
-Possuí todas as funcionalidades do sistema (remover, editar, adicionar e listar).
+Possuí  às funcionalidades de remover, editar, adicionar e listar funcionários, pratos, clientes e pedidos
+<ul>
+  <li>Gestor</li>
+</ul>
+Possuí  às funcionalidades de  editar, adicionar e listar cozinheiros, estafetas,  pratos, clientes e pedidos
+<ul>
+  <li>Cozinheiro</li>
+</ul>
+Possuí  às funcionalidades de  editar e listar pratos e pedidos.  
 
 <h2>
 Web
@@ -27,3 +35,8 @@ Web
 <ol>
 <li>Estafeta</li>
 </ol>
+<h3>Funcionalidades</h3>
+<ul>
+  <li>Estafetas</li>
+</ul>
+Visualizar pedidos e editar estado dos pedidos e visualizar dados dos clientes.
